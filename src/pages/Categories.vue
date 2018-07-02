@@ -1,15 +1,14 @@
 <template>
   <div>
     <div class="container">
-      <div>all post</div>
+      <div>postList</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  // 主页
-  name: 'Home',
+  name: 'Categories',
   data () {
     return {
     }

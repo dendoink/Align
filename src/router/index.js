@@ -1,30 +1,36 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../pages/Home'
-import Allposts from '../pages/allposts'
-import About from '../pages/about'
-import Contact from '../pages/contact'
+import Categories from '../pages/Categories'
+import About from '../pages/About'
+import Tags from '../pages/Tags'
+import pageroutes from './page'
+// import { routes } from '../utils/data'
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/', 
+      redirect: '/home' 
+    },
+    {
+      path: '/home',
       name: 'Home',
       component: Home
     },
     {
-      path: '/allposts',
-      name: 'Allposts',
-      component: Allposts
-    }, {
       path: '/about',
       name: 'About',
       component: About
     }, {
-      path: '/contact',
-      name: 'Contact',
-      component: Contact
-    }
+      path: '/tags',
+      name: 'Tags',
+      component: Tags
+    }, {
+      path: '/categories',
+      name: 'Categories',
+      component: Categories
+    },
+    ...pageroutes
   ]
 })

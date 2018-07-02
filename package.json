@@ -5,11 +5,10 @@
   "author": "唐翼龙 <yilong.tang@1mifudao.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --open",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js",
-    "g": "node build/post-data-generater"
+    "build": "node build/build.js"
   },
   "dependencies": {
     "element-ui": "^2.4.1",
@@ -25,6 +24,7 @@
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
+    "fs-extra": "^5.0.0",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",

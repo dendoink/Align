@@ -1,75 +1,102 @@
 <template>
   <div id="app">
-    <div class="personal_info">
-      <div class="avatar">
-      </div>
-      <div class="info_title">Wusu</div>
-    </div>
     <div class="header">
       <div class="menu_bar">
-        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-          <el-menu-item index="1" v-on:click="handleRouter('/')">Home</el-menu-item>
-          <el-submenu index="2">
-            <template slot="title">Category</template>
-            <el-menu-item index="2-1">HTML5</el-menu-item>
-            <el-menu-item index="2-2">JavaScript</el-menu-item>
-            <el-menu-item index="2-3">React</el-menu-item>
-            <el-menu-item index="2-3">Git</el-menu-item>
-          </el-submenu>
-          <el-menu-item v-on:click="handleRouter('/allposts')" index="3">
-            All posts
-          </el-menu-item>
-          <el-menu-item index="4"  v-on:click="handleRouter('/about')">About</el-menu-item>
-          <el-menu-item index="5" v-on:click="handleRouter('/contact')">Contact</el-menu-item>
-        </el-menu>
+        <p class="menu_bar_list">
+          <span v-on:click="handleRouter('home')" class="menu_tags ">HOME</span>
+          <span v-on:click="handleRouter('categories')" class="menu_tags">CATEGORIES</span>
+          <span v-on:click="handleRouter('about')" class="menu_tags ">ABOUT</span>
+          <span v-on:click="handleRouter('tags')" class="menu_tags ">TAGS</span>
+        </p>
       </div>
     </div>
-    <router-view/>
+    <div class="post_list">
+       <router-view/>
+    </div>
   </div>
 </template>
 
 <script>
+import { postData } from "./utils/data.js";
+import { getAllCategories } from "./utils/datafilter.js";
 export default {
-  name: 'App',
-  data () {
+  name: "App",
+  data() {
     return {
-      activeIndex: '1'
-    }
+      activeIndex: "1"
+    };
   },
   methods: {
-    handleRouter: function (path) {
-      // this.$route.push(path)
-      this.$router.push(path)
+    handleRouter: function(dir, postname = "", categorie = "", tag = "") {
+      let path;
+      if (tag) {
+        path = `/${dir}/${tag}/${postname}`;
+      } else if (postname) {
+        // 当存在post的名称的时候path = 详情页面
+        path = `/${dir}/${categorie}/${postname}`;
+      } else if (categorie) {
+        path = `/${dir}/${categorie}/all`;
+      } else {
+        path = `/${dir}/`;
+      }
+      this.$router.push(path);
     },
-    handleSelect: function () {
-      return false
+    handleSelect: function() {
+      return false;
+    }
+  },
+  computed: {
+    categories: function() {
+      return Array.from(new Set(getAllCategories(JSON.parse(postData))));
     }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background: #f5f8f9;
 }
-.avatar{
-  height: 6rem;
-  width: 6rem;
-  background-image: url('./assets/avatar.png');
+.avatar {
+  height: 3rem;
+  width: 3rem;
+  background-image: url("./assets/avatar.png");
   background-size: cover;
   display: block;
   border-radius: 50%;
   margin: auto;
 }
-.el-submenu__title{
+.el-submenu__title {
   font-family: Arial, Helvetica, sans-serif;
 }
-.header .menu_bar, .personal_info{
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FFF;
+}
+.post_list .content > h2 {
+  display: none;
+}
+.info_title {
+  font-size: 12px;
+}
+.menu_bar_list {
+  padding: 0px 10px;
+}
+.menu_bar_list li{
   display: inline-block;
+}
+.menu_bar_list .menu_tags{
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.menu_tags:hover{
+  box-shadow: 0px 2px #cccccc;
 }
 </style>

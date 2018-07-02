@@ -3,7 +3,7 @@ const path = require('path')
 const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
-
+const fs = require('fs-extra')
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
     ? config.build.assetsSubDirectory
@@ -99,3 +99,10 @@ exports.createNotifierCallback = () => {
     })
   }
 }
+
+const routePath = path.resolve(__dirname, '../src/router')
+fs.ensureDirSync(routePath)
+exports.writeRoute = async function (file, content) {
+  await fs.writeFile(path.join(routePath, file), content)
+}
+

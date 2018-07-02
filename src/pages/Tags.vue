@@ -1,15 +1,15 @@
 <template>
   <div>
     <div class="container">
-      contact
+      TAGS
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  // 主页
-  name: 'Home',
+  // Tags
+  name: 'Tags',
   data () {
     return {
       activeIndex: '1'

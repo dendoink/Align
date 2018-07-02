@@ -8,8 +8,8 @@
 
 <script>
 export default {
-  // 主页
-  name: 'Home',
+  // About
+  name: 'About',
   data () {
     return {
       activeIndex: '1'
