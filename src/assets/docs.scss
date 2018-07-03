@@ -4,6 +4,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  background: url(https://www.jessannkirby.com/wp-content/themes/jess_ann_kirby/inc/jessica_kirby-bg_watercolor-1.jpg) top center no-repeat;
 }
 
 pre {
@@ -101,6 +102,11 @@ table {
     padding: 0.6em 1em;
   }
 }
+.content{
+  h2:nth-child(2){
+    display: none;
+  }
+}
 
 .post-content {
   .header-anchor {
@@ -114,7 +120,6 @@ table {
     color: #3eaf7c;
     cursor: pointer;
   }
-
   h1,
   h2,
   h3,
@@ -164,4 +169,8 @@ table {
 
 .hljs{
   text-align: left;
+}
+
+p img{
+  width: 100%;
 }

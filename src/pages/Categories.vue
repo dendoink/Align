@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <div>postList</div>
+      <div>CATEGORIES</div>
     </div>
   </div>
 </template>

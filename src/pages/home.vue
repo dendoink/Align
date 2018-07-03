@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     handlePostLink: function (postName, dir = 'post') {
-      this.$router.push({ path: `/${dir}/${postName}`, query: { postname: postName }})
+      this.$router.push({path: `/${dir}/${postName}`, query: { postname: postName }})
     }
   }
 }
@@ -66,7 +66,7 @@ export default {
   box-shadow: -3px 3px #ececec;
 }
 .post_container h1 {
-  color: #5a5b5a;
+  color:#6b6b6b;
   font-weight: 600;
   line-height: 1.125;
   margin: 1rem 0px 0px 0px;
@@ -75,6 +75,7 @@ export default {
 }
 .post_container h1:hover{
   color:#ff7878;
+  text-decoration:underline;
 }
 .post_container a {
   text-decoration:none;

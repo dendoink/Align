@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
 import { postData } from "./utils/data.js"
 import { getAllCategories } from "./utils/datafilter.js"
 export default {
@@ -60,7 +60,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background: #f5f8f9;
 }
 .avatar {
   height: 3rem;
@@ -78,10 +77,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #FFF;
-}
-.post_list .content > h2 {
-  display: none;
 }
 .info_title {
   font-size: 12px;
@@ -98,8 +93,12 @@ export default {
 .menu_bar_list .menu_tags{
   padding: 5px 10px;
   cursor: pointer;
+  color: #35505b;
+  margin: 1rem;
+  font-weight: 100;
 }
 .menu_tags:hover{
-  box-shadow: 0px 2px #cccccc;
+  color: #5a8492;
+  border-bottom:1px solid #5a8492;
 }
 </style>
