@@ -21,12 +21,17 @@ module.exports = async function getData() {
         post.daysAgo = parseInt(days / (1000 * 60 * 60 * 24));
         post.contents = ''
         // 当文章的内容不为空时，添加文章对象到数组中
-        var route = {};
         if (blogList[postName].content !== '') {
+          var route = {};
           posts.push(post);
           route.name = post.name;
           route.pagePath = `/${post.categories}/${route.name}`;
           routes.push(route);
+          var origin = {
+            name: post.name,
+            pagePath: `/post/${post.name}`
+          }
+          routes.push(origin);
           for (var tag of post.tags) {
             var route = {}
             route.name = post.name;

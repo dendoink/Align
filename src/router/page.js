@@ -4,6 +4,10 @@ let pageroutes = [
     component: () => import('../posts/2017-03-24-HTML5.md')
   },
   {
+    path: "/post/2017-03-24-HTML5",
+    component: () => import('../posts/2017-03-24-HTML5.md')
+  },
+  {
     path: "/Git/2017-03-24-HTML5",
     component: () => import('../posts/2017-03-24-HTML5.md')
   },
@@ -16,6 +20,10 @@ let pageroutes = [
     component: () => import('../posts/2018-17-22-Git.md')
   },
   {
+    path: "/post/2018-17-22-Git",
+    component: () => import('../posts/2018-17-22-Git.md')
+  },
+  {
     path: "/Git/2018-17-22-Git",
     component: () => import('../posts/2018-17-22-Git.md')
   },
@@ -25,6 +33,10 @@ let pageroutes = [
   },
   {
     path: "/cate3/README",
+    component: () => import('../posts/README.md')
+  },
+  {
+    path: "/post/README",
     component: () => import('../posts/README.md')
   },
   {

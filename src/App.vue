@@ -17,40 +17,40 @@
 </template>
 
 <script>
-import { postData } from "./utils/data.js";
-import { getAllCategories } from "./utils/datafilter.js";
+import { postData } from "./utils/data.js"
+import { getAllCategories } from "./utils/datafilter.js"
 export default {
   name: "App",
-  data() {
+  data () {
     return {
       activeIndex: "1"
-    };
+    }
   },
   methods: {
-    handleRouter: function(dir, postname = "", categorie = "", tag = "") {
-      let path;
+    handleRouter: function (dir, postname = "", categorie = "", tag = "") {
+      let path
       if (tag) {
-        path = `/${dir}/${tag}/${postname}`;
+        path = `/${dir}/${tag}/${postname}`
       } else if (postname) {
         // 当存在post的名称的时候path = 详情页面
-        path = `/${dir}/${categorie}/${postname}`;
+        path = `/${dir}/${categorie}/${postname}`
       } else if (categorie) {
-        path = `/${dir}/${categorie}/all`;
+        path = `/${dir}/${categorie}/all`
       } else {
-        path = `/${dir}/`;
+        path = `/${dir}/`
       }
-      this.$router.push(path);
+      this.$router.push(path)
     },
-    handleSelect: function() {
-      return false;
+    handleSelect: function () {
+      return false
     }
   },
   computed: {
-    categories: function() {
-      return Array.from(new Set(getAllCategories(JSON.parse(postData))));
+    categories: function () {
+      return Array.from(new Set(getAllCategories(JSON.parse(postData))))
     }
   }
-};
+}
 </script>
 
 <style>

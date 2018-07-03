@@ -3,7 +3,7 @@
     <div class="container">
         <template v-for="post in allPosts">
             <div class="post_container" :key="post.title">
-              <h1 class="post_title">{{post.title}}</h1>
+                <h1 class="post_title" @click="handlePostLink(post.name)">{{post.title}}</h1>
               <div class="post_meta">
                   <span class="post_date">{{post.daysAgo}}</span>
                   <template v-for="tag in post.tags">
@@ -11,15 +11,15 @@
                   </template>
               </div>
               <div class="post_entry">
-                  <a href="#">
-                      <img v-bind:src="post.coverimg" v-bind:alt="post.title">
-                  </a>
-                  <p class="post_info">
-                     {{post.info}}
-                  </p>
-                  <p class="post_read_more">
-                      <a href="www.baidu.com">Read more</a>
-                  </p>
+                    <div class="hovereffect">
+                      <img class="img-responsive" v-bind:src="post.coverimg" v-bind:alt="post.title">
+                      <div class="overlay">
+                        <h2>{{post.title}}</h2>
+                       <p class="post_info">
+                        {{post.info}}
+                      </p>
+                      </div>
+                    </div>
               </div>
             </div>
         </template>
@@ -28,18 +28,23 @@
 </template>
 
 <script>
-import { postData } from "../utils/data.js";
-import { getAllCategories } from "../utils/datafilter.js";
+import { postData } from "../utils/data.js"
+import { getAllCategories } from "../utils/datafilter.js"
 export default {
   // 主页
   name: "Home",
-  data() {
+  data () {
     return {
       allPosts: JSON.parse(postData),
       categories: getAllCategories(JSON.parse(postData))
-    };
+    }
+  },
+  methods: {
+    handlePostLink: function (postName, dir = 'post') {
+      this.$router.push(`/${dir}/${postName}`)
+    }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -63,18 +68,28 @@ export default {
   color: #5a5b5a;
   font-weight: 600;
   line-height: 1.125;
-  margin: 1rem 0px 2rem 0px;
+  margin: 1rem 0px 0px 0px;
   padding: 0;
   text-align: left;
 }
-.post_entry > a {
+.post_container h1:hover{
+  color:#ff7878;
+}
+.post_container a {
+  text-decoration:none;
+}
+.post_entry {
+  display: inline-block;
+}
+
+.post_entry .hovereffect {
   position: relative;
   display: inline-block;
   overflow: hidden;
   margin: 0;
   padding: 0;
-  line-height: 0;
   max-width: 100%;
+  line-height: 1.4rem;
 }
 .post_entry img {
   height: auto;
@@ -106,10 +121,6 @@ export default {
 .post_info {
   text-align: left;
   letter-spacing: 0.5px;
-  color:#a3a3a3;
-}
-.post_info:hover{
-  color: #434343;
 }
 .post_info::after {
   font-size: 1.5rem;
@@ -128,5 +139,96 @@ export default {
 .post_read_more a:hover{
   color:  #434343;
   box-shadow: 0px 2px #cccccc;
+}
+
+.hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  background:#a09b9b;
+}
+
+.hovereffect .overlay {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  padding: 3rem 3rem;
+}
+
+.hovereffect img {
+  display: block;
+  position: relative;
+  max-width: none;
+  width: calc(100% + 20px);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(-10px,0,0);
+  transform: translate3d(-10px,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.hovereffect:hover img {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.hovereffect h2 {
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  font-size: 2.3rem;
+  overflow: hidden;
+  padding: 1em 0;
+  background-color: transparent;
+  opacity: 0;
+}
+
+.hovereffect:hover h2 {
+  opacity: 1;
+}
+
+.hovereffect h2:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  content: '';
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  -webkit-transform: translate3d(-100%,0,0);
+  transform: translate3d(-100%,0,0);
+}
+
+.hovereffect:hover h2:after {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.hovereffect a, .hovereffect p {
+  color: #FFF;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(100%,0,0);
+  transform: translate3d(100%,0,0);
+}
+
+.hovereffect:hover a, .hovereffect:hover p {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
 </style>
