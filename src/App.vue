@@ -86,6 +86,9 @@ export default {
 .info_title {
   font-size: 12px;
 }
+.menu_bar{
+  margin-top: 2rem;
+}
 .menu_bar_list {
   padding: 0px 10px;
 }

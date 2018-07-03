@@ -5,6 +5,8 @@ import Categories from '../pages/Categories'
 import About from '../pages/About'
 import Tags from '../pages/Tags'
 import pageroutes from './page'
+import Post from '../pages/Post'
+
 // import { routes } from '../utils/data'
 Vue.use(Router)
 export default new Router({
@@ -30,7 +32,13 @@ export default new Router({
       path: '/categories',
       name: 'Categories',
       component: Categories
-    },
-    ...pageroutes
+    }, {
+      path: '/post',
+      name: 'Post',
+      component: Post,
+      children: [
+        ...pageroutes
+      ]
+    }
   ]
 })

@@ -46,6 +46,7 @@ hr {
   &.tip,
   &.warning,
   &.danger {
+    text-align: left;
     padding: .1rem 1.5rem;
     margin: 1rem 0;
     border-left: .3rem solid;
@@ -101,7 +102,7 @@ table {
   }
 }
 
-.doc-content {
+.post-content {
   .header-anchor {
     font-size: 0.85em;
     float: left;
@@ -117,7 +118,10 @@ table {
   h1,
   h2,
   h3,
-  h4 {
+  h4,
+  h5,
+  h6 {
+    text-align: left;
     color: #444;
     margin: .65em 0;
 
@@ -127,16 +131,19 @@ table {
   }
 
   p {
+    text-align: left;
     line-height: 1.65;
   }
 
   ul {
+    text-align: left;
     li {
       line-height: 1.65;
     }
   }
 
   ol {
+    text-align: left;
     li {
       line-height: 1.65;
     }
@@ -153,4 +160,8 @@ table {
 .fade-leave-to /* .fade-leave-active below version 2.1.8 */
 {
   opacity: 0
+}
+
+.hljs{
+  text-align: left;
 }

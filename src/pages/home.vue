@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     handlePostLink: function (postName, dir = 'post') {
-      this.$router.push(`/${dir}/${postName}`)
+      this.$router.push({ path: `/${dir}/${postName}`, query: { postname: postName }})
     }
   }
 }
@@ -60,6 +60,7 @@ export default {
   background: #fff;
   border-radius: 6px;
   cursor: pointer;
+  box-shadow: 0 1px 2px rgba(150,150,150,0.3);
 }
 .post_container:hover{
   box-shadow: -3px 3px #ececec;

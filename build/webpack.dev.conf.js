@@ -9,11 +9,27 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
-
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 const getData = require('./datagen')
-getData()
+const chalk = require('chalk')
+const chokidar = require('chokidar')
+
+//加上对post目录的监测，文件发生修改时自动更新页面
+const postDir = '../src/posts'
+const update = () => {
+  getData().catch(err => {
+    console.error(logger.error(chalk.red(err.stack), false))
+  })
+}
+const postWatcher = chokidar.watch([
+  'post/*.md'
+], {
+  cwd: postDir,
+  ignoreInitial: true
+})
+postWatcher.on('change', update)
+
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
