@@ -1,0 +1,205 @@
+---
+layout: post
+title:  "How to use git?"
+date:   2017-12-21
+desc: "git 使用简介"
+keywords: "Tutorial,Jekyll,gh-pages,website,blog,Git"
+categories: Git
+tags: [Git,Tutorial]
+name: 2018-17-22-Git
+coverimg: "http://ww1.sinaimg.cn/large/88b26e1cgy1frpr0yafacj20sg0lc48k.jpg"
+info: "如果你还没有一个Github的账号,那么你可以注册一个,因为这是作为一只程序猿必不可少的，而使用Github的过程中，你需要学会Git的相关操作。"
+---
+
+## 目录
+---
+<!-- TOC -->
+
+- [目录](#目录)
+- [主要内容](#主要内容)
+- [其他内容](#其他内容)
+- [Repository操作](#repository操作)
+    - [新建一个文件夹](#新建一个文件夹)
+    - [提交代码到暂存区](#提交代码到暂存区)
+- [关于远程仓库的一些配置](#关于远程仓库的一些配置)
+    - [创建远程仓库](#创建远程仓库)
+    - [Clone Repository到本地](#clone-repository到本地)
+    - [如何提交更改到远程的Git仓库中](#如何提交更改到远程的git仓库中)
+- [常用指令及说明：](#常用指令及说明)
+    - [基本操作](#基本操作)
+    - [文件排除同步](#文件排除同步)
+
+<!-- /TOC -->
+## 主要内容
+---
+ - 新建本地的repos的过程
+ - 如何关联本地仓库和远程仓库
+ - 如何提交代码到托管平台
+ - 知识点补充
+
+## 其他内容
+---
+* Git 安装:（略）
+* Git 初次运行配置：（略）参见官网的配置
+
+## Repository操作
+---
+
+### 新建一个文件夹
+
+我们先在本地新建一个文件夹作为repos，然后在这个目录下右键 GitBash Here(MacOS环境下 ,可以打开iTerm2 然后进入到对应的目录下)
+```bash
+git init     #初始化Git的环境
+ls           #查看当前目录的文件列表
+```
+这里我们可以看到多了一个文件夹.git，然后来看下官方的描述：
+
+*“所有 Git 需要的数据和资源都存放在这个目录中。不过目前，仅仅是按照既有的结构框架初始化好了里边所有的文件和目录，但我们还没有开始跟踪管理项目中的任何一个文件。”*
+
+我暂时将它理解为Git的Runtime Environment ，接下来的文档就开始描述track文件。
+
+### 提交代码到暂存区
+
+README.md是怎么回事呢 ?
+
+如果你从来没有用过github或者类似的代码托管平台 ,并且你也没有接触过markdown语法 ,可能你确实不熟悉这个.md结尾的文件.
+
+其实很简单,就像你是一位大厨,现在你做了一道很牛的菜,现在你把这道菜(成品)放在了样品台上(代码托管平台) .
+
+现在有很多的人都在吃你做的菜, 但是他们想知道这道菜应该怎么做,怎么吃?现在你就需要提供一个菜谱(README.md)也就是一个用markdown语法所写的说明书.而这个README的命名也就是“请读我”
+
+明白了这个文件的含义,我们继续操作:
+
+```bash
+vim README #新建一个README文件
+vi  README #编辑这个文件的内容
+```
+
+在编辑完成之后我曾经一度傻呵呵的不知道怎么保存退出，其实编辑好内容之后ESC 或者 ctrl + c 可以结束编辑，然后:wq 保存并且退出，注意：wq前面是有个：号的.
+接上之前所说的，下一条是commit指令，后面的-m "message body"指的是针对这次的提交的说明，这里的提交并不是提交到你的托管服务器上，而是提交到本地暂存区.
+那怎么提交代码到远程的仓库呢? 别着急我们慢慢来.
+
+```bash
+git add . 将当前有修改的文件都添加到暂存区 
+git add README
+git commit -m 'initial project version'
+```
+
+## 关于远程仓库的一些配置
+
+---
+### 创建远程仓库
+
+要推送(push)代码到远程仓库, 你首先需要一个远程仓库, 在这个例子里面 , 我们用Github 作为我们代码托管平台,如果你还没有一个Github的账号,那么你可以注册一个,因为这是作为一只程序猿必不可少的.
+注册完成后,我们可以在自己的账号下创建一个repository.叫什么名字好呢? 我选择的名字是 GitExample  然后你可能想输入一些描述.然后点击Create repository
+
+![](http://ww1.sinaimg.cn/large/88b26e1cgy1from4si173j20q70ge0uk.jpg)
+
+
+创建后你还需要配置一下公共秘钥 ,因为Github上免费的仓库都是公开的 ,那么我们怎么来限制其他的人提交代码到我们的仓库呢?这就是密钥的用处了.
+密钥就像凭据 ,就像中国古代的虎符,你的电脑这边生成出来他独特的密钥之后, 要把这个密钥给你的Github账号也分配一份.这样你可以直接提交代码到这个Github账号下的仓库里了.
+具体怎么生成,Github又怎样配置,你可以百度”为github帐号添加SSH keys” 有很多的介绍,笔者就不在这里赘述了.
+
+### Clone Repository到本地   
+
+我们已经创建好自己的仓库,并且配置好了密钥,现在我们可以来把远程的仓库克隆到本地了, 到这里你可能会想, 那我们之前创建的本地仓库有什么用呢? 别急, 到后面我们添加远程仓库的时候可以用得上.
+
+固定的Clone指令的格式应该是git clone [url] 这个url是你的repos的远程路径，下面是例子
+
+```bash
+git clone git://github.com/dendiSe7enGitHub/testAboutGit.git Testgit #不要clone我的项目到本地,因为这个项目已经删除了...
+```
+
+这里最后的Testgit是我给本地repos取的名字，如果不写默认与源同名。这里值得一提的是，在之前搭建hexo的过程中，我已经有clone过很多次项目到本地，但是我都是用的：
+
+```bash
+git clone git@github.com:DendiSe7enGitHub/moreTestAboutGit.git #不要clone我的项目到本地,因为这个项目已经删除了...
+```
+是不是不一样？这是因为git支持多种传输协议:
+* 官方的文档: `git://`
+* `http://`  -> HTTP协议
+* `user@server:/path.git` -> SSH协议
+
+
+### 如何提交更改到远程的Git仓库中
+
+首先我们进入到我们clone下来的仓库里面.
+
+![](http://ww1.sinaimg.cn/large/88b26e1cgy1from5u6gcaj20g3059aaq.jpg)
+
+很明显,现在我们在一个空仓库里面,因为我们在创建之后,什么代码都没有提交过.后面有一个小括号显示我们是在master分支上.也就是主分支(至于什么是分支,如果操作分支,之后的博文会谈到的)
+现在我们可以在这目录下创建一个文件,名字叫README.md和之前一样.
+
+![](http://ww1.sinaimg.cn/large/88b26e1cgy1from66umq0j20fo07pgna.jpg)
+
+创建好之后,我们输入`git status`发现: 我们刚刚创建的文件被标为了红色, status = 状态, 也就是说现在我们本地的仓库相对于它被创建之后,有了变化,而这些变化的文件就会标为红色.
+接下来我们输入`git add` . 请注意,这个`add `后面是有一个英文的句号`.`的.
+输入完成后,我们用 `git status`命令再次查看我们的本地master分支的状态.
+
+![](http://ww1.sinaimg.cn/large/88b26e1cgy1from6gxv77j20fr0bbjtz.jpg)
+
+发现什么不一样了吗 ?原本是红色的README.md变成了绿色,这证明,我们把修改加入到了暂存区.
+现在我们要提交这个更改,并且将这个更改推送到远程分支.
+
+![](http://ww1.sinaimg.cn/large/88b26e1cgy1from8dg5noj20fs08v0ur.jpg)
+
+现在我们用`git commit -m`提交了代码,并且用`push`命令吧代码推送到了远程仓库.`origin`这里指的我们远程仓库的名字.
+你可能会想,我们并没有添加过远程仓库,也没有给它命名啊?但是事实是,我们在clone远程仓库到本地的这个过程中,我们本地的`master`分支直接获取到了远程的分支(就是我们输入的指令的最后一个参数master),并且把远程的仓库默认取名为`origin`.
+那么为什么有`-u`呢,[`-u`=`--set-upstream`] 那它是什么意思呢?
+其实当我们本地的项目只追踪了一个远程分支的时候,我们是可以省略`-u`的,但是当我们远程有多个分支,且本地的一个分支可能tracking了不同的远程分支的时候,就需要我们用-u来指定这个本地分支应该tracking哪个远程分支.
+举个例子:本地你有一个小金库,比如叫做master,同时远程有三家银行,分别叫master银行,feature银行,develop银行.
+首先,你把金库的钱存到了master银行里,并且你希望下次你的金库钱都自动存到这个master银行里.
+然后过了一段时间,你觉得feature银行更好,你把金库的钱存到了feature银行里,并且希望下次金库的钱自动转到master银行.
+这时候你执行了
+```
+	git push -origin feature
+```
+那么下次你金库的钱变多了.你想存入到feature银行,你可以省略很多命令,你只需要:
+```
+	git push
+```
+因为这时候,你已经把金库和feature银行关联起来了.
+回到我们刚刚的问题,这里的银行就是远程分支,金库就是你的本地仓库,那-u就是指定你现在tracking的仓库是什么,也就是你把现在的本地分支关联到哪个远程分支.
+
+
+## 常用指令及说明：
+---
+
+### 基本操作
+
+```bash
+git status# 检查当前文件状态
+git add README # 跟踪新文件
+git diff --staged 看已经暂存起来的文件和上次提交时的快照之间的差异
+git commit 提交更新
+git commit -a #跳过使用暂存区域
+git rm grit.gemspec #移除文件 从暂存区域移除
+git pull 
+```
+
+### 文件排除同步
+
+```bash
+vim .gitignore#创建一个名为.gitignore的文件
+vi .gitignore #编辑文件内容
+*.[oa] #在提交时忽略.o 或者 .a 的文件
+*~     #在提交时忽略.~ 的文件
+# 此为注释 – 将被 Git 忽略
+# 忽略所有 .a 结尾的文件
+*.a
+# 但 lib.a 除外
+!lib.a
+# 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
+/TODO
+
+# 忽略 build/ 目录下的所有文件
+build/
+
+    # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+doc/*.txt
+
+    # ignore all .txt files in the doc/ directory
+doc/**/*.txt
+```
+
+有任何问题欢迎邮件或者讨论~
