@@ -14,7 +14,7 @@ module.exports = async function getData() {
       var routes = [];
       // 遍历把每一篇文章的关键信息存到对象中
       for (postName in blogList) {
-        var { ...post } = blogList[postName];
+        var post = Object.assign({}, blogList[postName])
         var date = new Date(`${post.date}`.replace(/-/g, "/"));
         var currentDate = new Date();
         var days = currentDate.getTime() - date.getTime();
