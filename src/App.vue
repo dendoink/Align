@@ -28,7 +28,6 @@ export default {
   name: "App",
   data () {
     return {
-      categories: getAllCategories(JSON.parse(postData))
     }
   },
   methods: {
