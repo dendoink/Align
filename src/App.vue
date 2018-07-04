@@ -2,12 +2,17 @@
   <div id="app">
     <div class="header">
       <div class="menu_bar">
-        <p class="menu_bar_list">
+        <div class="menu_bar_list">
           <span v-on:click="handleRouter('home')" class="menu_tags ">HOME</span>
-          <span v-on:click="handleRouter('categories')" class="menu_tags">CATEGORIES</span>
           <span v-on:click="handleRouter('about')" class="menu_tags ">ABOUT</span>
           <span v-on:click="handleRouter('tags')" class="menu_tags ">TAGS</span>
-        </p>
+          <div class="dropdown">
+            <span class="dropbtn">CATEGORIES</span>
+            <div class="dropdown-content">
+              <span v-for="cate in categories" :key="cate" @click="handleRouter('categories',cate)">{{cate}}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="post_list">
@@ -23,26 +28,18 @@ export default {
   name: "App",
   data () {
     return {
-      activeIndex: "1"
+      categories: getAllCategories(JSON.parse(postData))
     }
   },
   methods: {
-    handleRouter: function (dir, postname = "", categorie = "", tag = "") {
+    handleRouter: function (dir, categorie = "") {
       let path
-      if (tag) {
-        path = `/${dir}/${tag}/${postname}`
-      } else if (postname) {
-        // 当存在post的名称的时候path = 详情页面
-        path = `/${dir}/${categorie}/${postname}`
-      } else if (categorie) {
-        path = `/${dir}/${categorie}/all`
+     if (categorie) {
+        path = `/${dir}?${dir}=${categorie}`
       } else {
-        path = `/${dir}/`
+        path = `/${dir}`
       }
       this.$router.push(path)
-    },
-    handleSelect: function () {
-      return false
     }
   },
   computed: {
@@ -75,7 +72,7 @@ export default {
 }
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 .info_title {
@@ -86,9 +83,6 @@ export default {
 }
 .menu_bar_list {
   padding: 0px 10px;
-}
-.menu_bar_list li{
-  display: inline-block;
 }
 .menu_bar_list .menu_tags{
   padding: 5px 10px;
@@ -101,4 +95,41 @@ export default {
   color: #5a8492;
   border-bottom:1px solid #5a8492;
 }
+.dropbtn {
+    color:#35505b;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    background: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 100%;
+    z-index: 100;
+}
+
+.dropdown-content span{
+    color: #5a8492;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: 100;
+    cursor: pointer;
+    border-bottom: 1px solid #5a8492;
+    font-size: 1.5rem;
+    
+}
+
+/* .dropdown-content a:hover {} */
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {color: #5a8492;}
 </style>

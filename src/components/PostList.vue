@@ -67,8 +67,6 @@ export default {
     handlePostLink: function (postName, dir = 'post') {
       this.$router.push({path: `/${dir}/${postName}`, query: { postname: postName }})
     }
-  },
-  mounted(){
   }
 }
 </script>
