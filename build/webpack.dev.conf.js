@@ -15,6 +15,7 @@ const getData = require('./datagen')
 const chalk = require('chalk')
 const chokidar = require('chokidar')
 
+getData();
 //加上对post目录的监测，文件发生修改时自动更新页面
 const postDir = '../src/posts'
 const update = () => {

@@ -1,24 +1,26 @@
 <template>
   <div>
-    <div class="post-wrap">
-      <div class="post-content">
-        <h1>{{postName}}</h1>
-        <router-view/>
+      <div class="post-wrap">
+          <div class="post-content">
+              <h1>{{postName}}</h1>
+              <router-view/>
+          </div>
       </div>
-    </div>
-    <p class="widget-title">
-      <span>END</span>
-    </p>
-     <div class="footer">
-        <div>
-          <span>上一篇</span>
-          <span>下一篇</span>
-        </div>
-        <div class="contact">
-          <span>github</span>
-          <span>mail</span>
-          <span>linkedin</span>
-        </div>
+      <div class="widget-title">
+          <span class="line"></span>
+          <span class="title-text">END</span>
+          <span class="line"></span>
+      </div>
+      <div class="footer">
+          <div>
+              <span>上一篇</span>
+              <span>下一篇</span>
+          </div>
+          <div class="contact">
+              <span>github</span>
+              <span>mail</span>
+              <span>linkedin</span>
+          </div>
       </div>
   </div>
 </template>
@@ -47,20 +49,22 @@ export default {
     width: 100%;
   }
 }
-.widget-title {
-    color: #000;
-    font: 11px Montserrat, arial, sans-serif;
-    letter-spacing: 2rem;
-    margin: 0 6rem 5px;
-    padding: 0;
-    text-align: center;
-    text-transform: uppercase;
-    border-top: 1px solid #e1dddd91;
+.widget-title{
+  margin: 0 auto;
+  height: 40px;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.widget-title span {
-    position: relative;
-    top: -7px;
-    padding: 0 10px;
-    background: #fff;
+.line {
+  height: 1px;
+  flex-grow: 1;
+  background-color: #dfdfdf;
+}
+.widget-title .title-text{
+  margin: 0 2rem;
+  color: #9a9a9a;
+  letter-spacing: 1rem;
 }
 </style>

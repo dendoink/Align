@@ -32,7 +32,7 @@ let pageroutes = [
     component: () => import('../posts/2018-17-22-Git.md')
   },
   {
-    path: "/cate3/README",
+    path: "/HTML5/README",
     component: () => import('../posts/README.md')
   },
   {
