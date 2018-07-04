@@ -52,7 +52,8 @@ html, body, .hello-parent {
 
 .hello-parent {
   display: flex;
-  margin-top: 12rem;
+  margin-top: 7rem;
+  padding-left: 8rem;
 }
 
 .hello-word {
