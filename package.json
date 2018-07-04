@@ -20,7 +20,6 @@
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-table-of-contents": "^0.3.6",
     "module": "^1.2.5",
-    "node-sass": "^4.9.0",
     "sass-loader": "^7.0.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
