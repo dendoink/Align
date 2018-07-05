@@ -121,9 +121,15 @@ export default {
     display: block;
     font-weight: 100;
     cursor: pointer;
-    border-bottom: 1px solid #5a8492;
-    font-size: 1.5rem;
-    
+    font-size: 1.2rem;
+    text-align: right;
+}
+.dropdown-content span:hover{
+    color: #35505b;
+    border-bottom:1px solid #5a8492;
+    padding-right:2rem;
+    letter-spacing:1px;
+    transition: all 0.3s ease-out;
 }
 
 /* .dropdown-content a:hover {} */

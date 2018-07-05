@@ -50,3 +50,18 @@ export const getAllCategories = (allPosts) => {
   categories = Array.from(new Set([...categories]))
   return categories
 }
+
+/**
+ * @description 数组分割
+ * @param {object} array 待分割数组
+ * @param {number} size 分割后的子数组长度
+ */
+export const sliceArray = (array, size = 7) => {
+  var result = [];
+  for (var x = 0; x < Math.ceil(array.length / size); x++) {
+      var start = x * size;
+      var end = start + size;
+      result.push(array.slice(start, end));
+  }
+  return result;
+}   

@@ -8,16 +8,68 @@ let pageroutes = [
     component: () => import('../posts/2018-04-25-React.md')
   },
   {
-    path: "/Vue/README",
-    component: () => import('../posts/README.md')
+    path: "/Tutorial/2018-04-25-React",
+    component: () => import('../posts/2018-04-25-React.md')
   },
   {
-    path: "/post/README",
-    component: () => import('../posts/README.md')
+    path: "/Vue/2018-05-20-Vuepress",
+    component: () => import('../posts/2018-05-20-Vuepress.md')
   },
   {
-    path: "/Vuepress/README",
-    component: () => import('../posts/README.md')
+    path: "/post/2018-05-20-Vuepress",
+    component: () => import('../posts/2018-05-20-Vuepress.md')
+  },
+  {
+    path: "/Vuepress/2018-05-20-Vuepress",
+    component: () => import('../posts/2018-05-20-Vuepress.md')
+  },
+  {
+    path: "/Tutorial/2018-05-20-Vuepress",
+    component: () => import('../posts/2018-05-20-Vuepress.md')
+  },
+  {
+    path: "/Git/2018-05-20-Vuepress",
+    component: () => import('../posts/2018-05-20-Vuepress.md')
+  },
+  {
+    path: "/Vue/2018-05-27-Begin",
+    component: () => import('../posts/2018-05-27-Begin.md')
+  },
+  {
+    path: "/post/2018-05-27-Begin",
+    component: () => import('../posts/2018-05-27-Begin.md')
+  },
+  {
+    path: "/Vuepress/2018-05-27-Begin",
+    component: () => import('../posts/2018-05-27-Begin.md')
+  },
+  {
+    path: "/Tutorial/2018-05-27-Begin",
+    component: () => import('../posts/2018-05-27-Begin.md')
+  },
+  {
+    path: "/Git/2018-05-27-Begin",
+    component: () => import('../posts/2018-05-27-Begin.md')
+  },
+  {
+    path: "/HTML5/2018-05-30-W3C-Translate-Eventloop",
+    component: () => import('../posts/2018-05-30-W3C-Translate-Eventloop.md')
+  },
+  {
+    path: "/post/2018-05-30-W3C-Translate-Eventloop",
+    component: () => import('../posts/2018-05-30-W3C-Translate-Eventloop.md')
+  },
+  {
+    path: "/W3C/2018-05-30-W3C-Translate-Eventloop",
+    component: () => import('../posts/2018-05-30-W3C-Translate-Eventloop.md')
+  },
+  {
+    path: "/Translate/2018-05-30-W3C-Translate-Eventloop",
+    component: () => import('../posts/2018-05-30-W3C-Translate-Eventloop.md')
+  },
+  {
+    path: "/EventLoop/2018-05-30-W3C-Translate-Eventloop",
+    component: () => import('../posts/2018-05-30-W3C-Translate-Eventloop.md')
   },
   {
     path: "/Git/2018-17-22-Git",
@@ -30,17 +82,5 @@ let pageroutes = [
   {
     path: "/Tutorial/2018-17-22-Git",
     component: () => import('../posts/2018-17-22-Git.md')
-  },
-  {
-    path: "/HTML5/README",
-    component: () => import('../posts/README.md')
-  },
-  {
-    path: "/post/README",
-    component: () => import('../posts/README.md')
-  },
-  {
-    path: "/Git/README",
-    component: () => import('../posts/README.md')
   }]
 export default pageroutes

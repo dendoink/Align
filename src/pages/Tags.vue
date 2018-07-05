@@ -2,11 +2,13 @@
   <div>
     <div class="container">
       <nav class="Tag-nav">
-          <ul class="Tag-ul">
+        <template v-for="tags in sliceTags">
+          <ul :style="{'justify-content' : tags.length === 7 ? 'space-around' : 'flex-start'}" class="Tag-ul" :key="tags">
             <li v-for="tag in tags" :key="tag">
               <span @click="select(tag)">{{ tag }}</span>
             </li>
           </ul>
+        </template>
       </nav>
       <hr>
       <PostList v-bind:defaultTag="this.selectedTag"/>
@@ -16,12 +18,12 @@
 
 <script>
 import { postData } from "../utils/data.js"
-import { getAllTags } from "../utils/datafilter.js"
+import { getAllTags, sliceArray } from "../utils/datafilter.js"
 export default {
   name: 'Tags',
   data () {
     return {
-      tags: getAllTags(JSON.parse(postData)),
+      sliceTags: sliceArray(getAllTags(JSON.parse(postData))),
       selectedTag: 'Git'
     }
   },
@@ -57,7 +59,8 @@ export default {
 }
 .Tag-nav ul {
     padding: 0 !important;
-    display: initial;
+    display: flex;
+    justify-content: space-around;
 }
 .Tag-nav ul li {
     display: inline;
@@ -78,12 +81,18 @@ export default {
 .Tag-nav li:first-child > span:after {background-color: #3498db;}
 .Tag-nav li:nth-child(2) > span:after {background-color: #ffd071;}
 .Tag-nav li:nth-child(3) > span:after {background-color: #f0776c;}
-.Tag-nav li:last-child > span:after {background-color: #1abc9c;}
+.Tag-nav li:nth-child(4) > span:after {background-color: #343a40;}
+.Tag-nav li:nth-child(5) > span:after {background-color: #17a2b8;}
+.Tag-nav li:nth-child(6) > span:after {background-color: #dc3545;}
+.Tag-nav li:nth-child(7) > span:after {background-color: #1abc9c;}
 /*------ Tag-nav ------*/
 .Tag-nav li:first-child > span {color:#3498db;}
 .Tag-nav li:nth-child(2) > span {color: #ffd071;}
 .Tag-nav li:nth-child(3) > span {color: #f0776c;}
-.Tag-nav li:last-child > span {color: #1abc9c;}
+.Tag-nav li:nth-child(4) > span {color: #343a40;}
+.Tag-nav li:nth-child(5) > span {color: #17a2b8;}
+.Tag-nav li:nth-child(6) > span {color: #dc3545;}
+.Tag-nav li:nth-child(7) > span {color: #1abc9c;}
 
 .Tag-nav li > span:after {
     content: "";
