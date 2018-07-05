@@ -108,7 +108,7 @@ export default {
 }
 
 .dropdown-content {
-    display: none;
+    opacity: 0;
     position: absolute;
     min-width: 100%;
     z-index: 100;
@@ -129,12 +129,13 @@ export default {
     border-bottom:1px solid #5a8492;
     padding-right:2rem;
     letter-spacing:1px;
+    font-size: 1.3rem;
     transition: all 0.3s ease-out;
 }
 
 /* .dropdown-content a:hover {} */
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {opacity: 1;transition: all 0.4s ease-in-out;}
 
 .dropdown:hover .dropbtn {color: #5a8492;}
 </style>
