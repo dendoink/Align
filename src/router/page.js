@@ -32,23 +32,11 @@ let pageroutes = [
     component: () => import('../posts/2018-05-20-Vuepress.md')
   },
   {
-    path: "/Vue/2018-05-27-Begin",
+    path: "/LIFE/2018-05-27-Begin",
     component: () => import('../posts/2018-05-27-Begin.md')
   },
   {
     path: "/post/2018-05-27-Begin",
-    component: () => import('../posts/2018-05-27-Begin.md')
-  },
-  {
-    path: "/Vuepress/2018-05-27-Begin",
-    component: () => import('../posts/2018-05-27-Begin.md')
-  },
-  {
-    path: "/Tutorial/2018-05-27-Begin",
-    component: () => import('../posts/2018-05-27-Begin.md')
-  },
-  {
-    path: "/Git/2018-05-27-Begin",
     component: () => import('../posts/2018-05-27-Begin.md')
   },
   {
