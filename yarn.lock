@@ -3732,6 +3732,15 @@ gray-matter@^2.0.0:
     js-yaml "^3.8.1"
     toml "^2.3.2"
 
+gray-matter@^4.0.1:
+  version "4.0.1"
+  resolved "http://registry.npm.taobao.org/gray-matter/download/gray-matter-4.0.1.tgz#375263c194f0d9755578c277e41b1c1dfdf22c7d"
+  dependencies:
+    js-yaml "^3.11.0"
+    kind-of "^6.0.2"
+    section-matter "^1.0.0"
+    strip-bom-string "^1.0.0"
+
 growly@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
@@ -4657,9 +4666,9 @@ js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
-js-yaml@^3.4.3, js-yaml@^3.8.1, js-yaml@^3.9.1:
+js-yaml@^3.11.0, js-yaml@^3.4.3, js-yaml@^3.8.1, js-yaml@^3.9.1:
   version "3.12.0"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.12.0.tgz#eaed656ec8344f10f527c6bfa1b6e2244de167d1"
+  resolved "http://registry.npm.taobao.org/js-yaml/download/js-yaml-3.12.0.tgz#eaed656ec8344f10f527c6bfa1b6e2244de167d1"
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
@@ -7092,6 +7101,13 @@ scss-tokenizer@^0.2.3:
     js-base64 "^2.1.8"
     source-map "^0.4.2"
 
+section-matter@^1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/section-matter/download/section-matter-1.0.0.tgz#e9041953506780ec01d59f292a19c7b850b84167"
+  dependencies:
+    extend-shallow "^2.0.1"
+    kind-of "^6.0.0"
+
 seek-bzip@^1.0.3, seek-bzip@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/seek-bzip/-/seek-bzip-1.0.5.tgz#cfe917cb3d274bcffac792758af53173eb1fabdc"
@@ -7580,6 +7596,10 @@ strip-bom-stream@^1.0.0:
   dependencies:
     first-chunk-stream "^1.0.0"
     strip-bom "^2.0.0"
+
+strip-bom-string@^1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/strip-bom-string/download/strip-bom-string-1.0.0.tgz#e5211e9224369fbb81d633a2f00044dc8cedad92"
 
 strip-bom@2.X, strip-bom@^2.0.0:
   version "2.0.0"

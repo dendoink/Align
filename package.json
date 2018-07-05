@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "element-ui": "^2.4.1",
+    "gray-matter": "^4.0.1",
     "highlight.js": "^9.12.0",
-    "jdown": "^0.6.4",
     "markdown-it": "^8.4.1",
     "markdown-it-anchor": "^5.0.2",
     "markdown-it-container": "^2.0.0",
