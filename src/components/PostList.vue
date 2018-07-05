@@ -51,7 +51,6 @@ export default {
   },
   computed: {
     allPosts: function () {
-      // date = this.defaultDate
       let result = JSON.parse(postData)
       if (this.defaultCate) {
         result = getAllPostsByCategories(result, this.defaultCate)

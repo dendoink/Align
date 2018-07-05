@@ -27,9 +27,9 @@ module.exports = async function getData() {
             var currentDate = new Date();
             var days = currentDate.getTime() - date.getTime();
             post.daysAgo = parseInt(days / (1000 * 60 * 60 * 24));
-            post.contents = result.content
             // 当文章的内容不为空时，添加文章对象到数组中
             if (post.contents  !== '') {
+              post.contents = '';
               var route = {};
               posts.push(post);
               route.name = post.name;
