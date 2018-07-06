@@ -108,13 +108,13 @@ export default {
 .Tag-nav ul li:hover span:nth-child(3) {color: #fff;z-index: 1;}
 .Tag-nav ul li:hover span:last-child {color: #fff;z-index: 1;}
 .Tag-nav li > span:hover:after {
-    content: "";
-    height: 118%;
-    top: -4px;
-    left: 0;
-    opacity: 1;
-    width: 100%;
-    z-index: -1;
+  content: "";
+  height: 118%;
+  top: -4px;
+  left: 0;
+  opacity: 1;
+  width: 100%;
+  z-index: -1;
 	transition: all 0.2s ease;
 }
 </style>

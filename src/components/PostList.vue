@@ -173,6 +173,8 @@ export default {
   background:#a09b9b;
 }
 
+
+
 .hovereffect .overlay {
   position: absolute;
   overflow: hidden;

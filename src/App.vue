@@ -6,7 +6,7 @@
           <span v-on:click="handleRouter('home')" class="menu_tags ">HOME</span>
           <span v-on:click="handleRouter('about')" class="menu_tags ">ABOUT</span>
           <span v-on:click="handleRouter('tags')" class="menu_tags ">TAGS</span>
-          <div class="dropdown">
+          <div class="dropdown menu_tags">
             <span class="dropbtn">CATEGORIES</span>
             <div class="dropdown-content">
               <span v-for="cate in categories" :key="cate" @click="handleRouter('categories',cate)">{{cate}}</span>
@@ -93,6 +93,8 @@ export default {
 .menu_tags:hover{
   color: #5a8492;
   border-bottom:1px solid #5a8492;
+  padding-right: 2rem;
+  transition: all 0.2s ease;
 }
 .dropbtn {
     color:#35505b;

@@ -12,7 +12,6 @@ const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
 const getData = require('./datagen')
 
-
 const spinner = ora('building for production...')
 spinner.start()
 getData()
