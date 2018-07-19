@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div v-for="post in allPosts" :key="post.title">
-            <div class="post_container" @click="handlePostLink(post.name)">
+        <div v-for="(post, index) in allPosts" :key="post.title">
+            <div class="post_container" @click="handlePostLink(index)">
                 <div class="post_entry">
                     <div class="hovereffect">
                         <img class="img-responsive" v-bind:src="post.coverimg" v-bind:alt="post.title">
-                        <div class="overlay" @click="handlePostLink(post.name)">
+                        <div class="overlay" @click="handlePostLink(index)">
                           <h2>{{post.title}}</h2>
                           <p class="post_info">
                             {{post.info}}
@@ -25,49 +25,63 @@
 </template>
 
 <script>
-import { postData } from "../utils/data.js"
-import { getAllCategories, getAllTags, getAllPostsByCategories, getAllPostsByTag } from "../utils/datafilter.js"
+import { postData } from "../utils/data.js";
+import {
+  getAllCategories,
+  getAllTags,
+  getAllPostsByCategories,
+  getAllPostsByTag
+} from "../utils/datafilter.js";
 export default {
   // 主页
   name: "PostList",
   props: {
     defaultCate: {
       type: String,
-      default: ''
+      default: ""
     },
     defaultTag: {
       type: String,
-      default: ''
+      default: ""
     },
     defaultDate: {
       type: String,
-      default: ''
+      default: ""
     }
   },
-  data () {
+  data() {
     return {
       tags: getAllTags(JSON.parse(postData))
-    }
+    };
   },
   computed: {
-    allPosts: function () {
-      let result = JSON.parse(postData)
+    allPosts: function() {
+      let result = JSON.parse(postData);
       if (this.defaultCate) {
-        result = getAllPostsByCategories(result, this.defaultCate)
-      } else if(this.defaultTag){
-        result = getAllPostsByTag(result, this.defaultTag)
-      } else{
-        return result
+        result = getAllPostsByCategories(result, this.defaultCate);
+      } else if (this.defaultTag) {
+        result = getAllPostsByTag(result, this.defaultTag);
+      } else {
+        return result;
       }
-      return result
+      return result;
     }
   },
   methods: {
-    handlePostLink: function (postName, dir = 'post') {
-      this.$router.push({path: `/${dir}/${postName}`, query: { postname: postName }})
+    handlePostLink: function(
+      index,
+      dir = "post"
+    ) {
+      let postName = this.allPosts[index].name
+      this.$router.push({
+        path: `/${dir}/${postName}`,
+        query: {
+          index: index
+        }
+      });
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -77,25 +91,25 @@ export default {
   background: #fff;
   border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 1px 2px rgba(150,150,150,0.3);
+  box-shadow: 0 1px 2px rgba(150, 150, 150, 0.3);
 }
-.post_container:hover{
+.post_container:hover {
   box-shadow: -3px 3px #ececec;
 }
 .post_container h1 {
-  color:#6b6b6b;
+  color: #6b6b6b;
   font-weight: 600;
   line-height: 1.125;
   margin: 1rem 0px 0px 0px;
   padding: 0;
   text-align: left;
 }
-.post_container h1:hover{
-  color:#ff7878;
-  text-decoration:underline;
+.post_container h1:hover {
+  color: #ff7878;
+  text-decoration: underline;
 }
 .post_container a {
-  text-decoration:none;
+  text-decoration: none;
 }
 .post_entry {
   display: inline-block;
@@ -127,7 +141,7 @@ export default {
 .post_date + span {
   margin-left: 2rem;
 }
-.post_date::after{
+.post_date::after {
   content: " DAYS AGO";
 }
 .tag {
@@ -157,8 +171,8 @@ export default {
   text-decoration: none;
   color: #898989;
 }
-.post_read_more a:hover{
-  color:  #434343;
+.post_read_more a:hover {
+  color: #434343;
   box-shadow: 0px 2px #cccccc;
 }
 
@@ -170,10 +184,8 @@ export default {
   position: relative;
   text-align: center;
   cursor: default;
-  background:#a09b9b;
+  background: #064263cf;
 }
-
-
 
 .hovereffect .overlay {
   position: absolute;
@@ -190,8 +202,8 @@ export default {
   width: calc(100% + 20px);
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: translate3d(-10px,0,0);
-  transform: translate3d(-10px,0,0);
+  -webkit-transform: translate3d(-10px, 0, 0);
+  transform: translate3d(-10px, 0, 0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -199,8 +211,8 @@ export default {
 .hovereffect:hover img {
   opacity: 0.4;
   filter: alpha(opacity=40);
-  -webkit-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .hovereffect h2 {
@@ -222,32 +234,34 @@ export default {
   width: 100%;
   height: 2px;
   background: #fff;
-  content: '';
+  content: "";
   -webkit-transition: -webkit-transform 0.35s;
   transition: transform 0.35s;
-  -webkit-transform: translate3d(-100%,0,0);
-  transform: translate3d(-100%,0,0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
 }
 
 .hovereffect:hover h2:after {
-  -webkit-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
-.hovereffect a, .hovereffect p {
-  color: #FFF;
+.hovereffect a,
+.hovereffect p {
+  color: #fff;
   opacity: 0;
   filter: alpha(opacity=0);
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: translate3d(100%,0,0);
-  transform: translate3d(100%,0,0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
 }
 
-.hovereffect:hover a, .hovereffect:hover p {
+.hovereffect:hover a,
+.hovereffect:hover p {
   opacity: 1;
   filter: alpha(opacity=100);
-  -webkit-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 </style>

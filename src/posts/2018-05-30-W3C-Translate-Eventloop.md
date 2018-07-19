@@ -13,16 +13,6 @@ coverimg: "http://ww1.sinaimg.cn/large/88b26e1cgy1frtsa3wqgmj20sg0lcq9n.jpg"
 本文版权归译者所有。禁止用于商业用途，转载请注明出处。
 :::
 
-# 目录
-
-- [目录](#目录)
-- [Event loops](#event-loops)
-    - [定义](#定义)
-        - [browsing contexts event loop](#browsing-contexts-event-loop)
-        - [workers event loop](#workers-event-loop)
-        - [Task queues & event loop](#task-queues--event-loop)
-    - [处理过程模型](#处理过程模型)
-
 # Event loops
 
 ## 定义

@@ -3,7 +3,7 @@
     <div class="container">
       <nav class="Tag-nav">
         <template v-for="tags in sliceTags">
-          <ul :style="{'justify-content' : tags.length === 7 ? 'space-around' : 'flex-start'}" class="Tag-ul" :key="tags">
+          <ul :style="{'justify-content' : tags.length === 7 ? 'space-around' : 'flex-start'}" class="Tag-ul" :key="tags.index">
             <li v-for="tag in tags" :key="tag">
               <span @click="select(tag)">{{ tag }}</span>
             </li>

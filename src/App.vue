@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="header">
+    <div :class="menuFixed ? 'header header-fixed' : 'header'">
       <div class="menu_bar">
         <div class="menu_bar_list">
           <span v-on:click="handleRouter('home')" class="menu_tags ">HOME</span>
@@ -22,31 +22,44 @@
 </template>
 
 <script scoped>
-import { postData } from "./utils/data.js"
-import { getAllCategories } from "./utils/datafilter.js"
+import { postData } from "./utils/data.js";
+import { getAllCategories } from "./utils/datafilter.js";
 export default {
   name: "App",
-  data () {
+  data() {
     return {
-    }
+      menuFixed: false
+    };
   },
   methods: {
-    handleRouter: function (dir, categorie = "") {
-      let path
-     if (categorie) {
-        path = `/${dir}?${dir}=${categorie}`
+    handleRouter: function(dir, categorie = "") {
+      let path;
+      if (categorie) {
+        path = `/${dir}?${dir}=${categorie}`;
       } else {
-        path = `/${dir}`
+        path = `/${dir}`;
       }
-      this.$router.push(path)
+      this.$router.push(path);
+    },
+    menu: function() {
+      let scrollCount =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      if (scrollCount > 130) {
+        this.menuFixed = true;
+      } else {
+        this.menuFixed = false;
+      }
     }
   },
   computed: {
-    categories: function () {
-      return Array.from(new Set(getAllCategories(JSON.parse(postData))))
+    categories: function() {
+      return Array.from(new Set(getAllCategories(JSON.parse(postData))));
     }
+  },
+  mounted() {
+    window.addEventListener("scroll", this.menu);
   }
-}
+};
 </script>
 
 <style>
@@ -77,67 +90,87 @@ export default {
 .info_title {
   font-size: 12px;
 }
-.menu_bar{
+.menu_bar {
   margin-top: 2rem;
 }
 .menu_bar_list {
   padding: 0px 10px;
 }
-.menu_bar_list .menu_tags{
+.menu_bar_list .menu_tags {
   padding: 5px 10px;
   cursor: pointer;
   color: #35505b;
   margin: 1rem;
   font-weight: 100;
 }
-.menu_tags:hover{
+.menu_tags:hover {
   color: #5a8492;
-  border-bottom:1px solid #5a8492;
+  border-bottom: 1px solid #5a8492;
   padding-right: 2rem;
   transition: all 0.2s ease;
 }
 .dropbtn {
-    color:#35505b;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    background: none;
+  color: #35505b;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  background: none;
 }
 
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .dropdown-content {
-    opacity: 0;
-    position: absolute;
-    min-width: 100%;
-    z-index: 100;
+  opacity: 0;
+  position: absolute;
+  min-width: 100%;
+  z-index: 100;
+  top: 52px;
+}
+.header-fixed {
+  position: fixed;
+  z-index: 1000;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #71717154;
+}
+.header-fixed .dropdown-content {
+  background: #ffffff;
 }
 
-.dropdown-content span{
-    color: #5a8492;
-    padding: 10px 16px;
-    text-decoration: none;
-    display: block;
-    font-weight: 100;
-    cursor: pointer;
-    font-size: 1.2rem;
-    text-align: right;
+.dropdown-content span {
+  color: #5a8492;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-weight: 100;
+  cursor: pointer;
+  font-size: 1.2rem;
+  text-align: right;
 }
-.dropdown-content span:hover{
-    color: #35505b;
-    border-bottom:1px solid #5a8492;
-    padding-right:2rem;
-    letter-spacing:1px;
-    font-size: 1.3rem;
-    transition: all 0.3s ease-out;
+.dropdown-content span:hover {
+  color: #35505b;
+  border-bottom: 1px solid #5a8492;
+  padding-right: 2rem;
+  letter-spacing: 1px;
+  font-size: 1.3rem;
+  transition: all 0.3s ease-out;
 }
 
 /* .dropdown-content a:hover {} */
 
-.dropdown:hover .dropdown-content {opacity: 1;transition: all 0.4s ease-in-out;}
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
+}
 
-.dropdown:hover .dropbtn {color: #5a8492;}
+.dropdown:hover .dropbtn {
+  color: #5a8492;
+}
 </style>
