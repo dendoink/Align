@@ -29,6 +29,10 @@
             </g>
         </svg>
     </div>
+    <awesome-icon name="brands/github" ></awesome-icon>
+    <awesome-icon name="brands/linkedin" ></awesome-icon>
+    <awesome-icon name="brands/twitter" ></awesome-icon>
+    <awesome-icon name="envelope" ></awesome-icon>
 </div>
 </template>
 

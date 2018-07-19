@@ -61,10 +61,10 @@ export default {
     }
   },
   created() {
-    var a  = fecha.format(new Date(), "dddd MMMM Do, YYYY")
+    var a = fecha.format(new Date(), "dddd MMMM Do, YYYY");
     this.allPosts = this.allPosts.map(item => {
       item.date = fecha.format(new Date(item.date), "dddd MMMM Do, YYYY");
-    })
+    });
     let index = this.$route.query.index;
     this.currentPost = this.allPosts[index];
     // 所有文档长度为1
@@ -143,6 +143,12 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.post-header > h1 {
+  cursor: pointer;
+}
+.post-header > h1:hover {
+  color: #42b983;
 }
 .post-time {
   text-align: left;

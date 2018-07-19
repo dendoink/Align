@@ -3,10 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
 import './assets/docs.scss'
-Vue.use(ElementUI)
+// 不关心打包体积时一次引入全部图标
+import 'vue-awesome/icons'
+/* 任选一种注册组件的方式 */
+import Icon from 'vue-awesome/components/Icon'
+
+// 全局注册（在 `main .js` 文件中）
+Vue.component('awesome-icon', Icon)
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
