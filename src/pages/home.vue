@@ -1,5 +1,5 @@
 <template>
-  <div class="home_post-list">
+  <div class="home_post_list">
       <PostList rowsNumber = '1'/>
       <PostList rowsNumber = '2'/>
       <PostList rowsNumber = '3'/>
@@ -36,7 +36,7 @@ export default {
   margin: 0 auto;
   position: relative;
 }
-.home_post-list {
+.home_post_list {
   display: flex;
 }
 </style>

@@ -60,15 +60,15 @@ let pageroutes = [
     component: () => import('../posts/2018-05-30-W3C-Translate-Eventloop.md')
   },
   {
-    path: "/Git/2018-17-22-Git",
-    component: () => import('../posts/2018-17-22-Git.md')
+    path: "/Git/2018-12-21-Git",
+    component: () => import('../posts/2018-12-21-Git.md')
   },
   {
-    path: "/post/2018-17-22-Git",
-    component: () => import('../posts/2018-17-22-Git.md')
+    path: "/post/2018-12-21-Git",
+    component: () => import('../posts/2018-12-21-Git.md')
   },
   {
-    path: "/Tutorial/2018-17-22-Git",
-    component: () => import('../posts/2018-17-22-Git.md')
+    path: "/Tutorial/2018-12-21-Git",
+    component: () => import('../posts/2018-12-21-Git.md')
   }]
 export default pageroutes

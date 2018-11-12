@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <div class="container">
+    <div class="tag_container">
       <nav class="Tag-nav">
         <template v-for="tags in sliceTags">
           <ul :style="{'justify-content' : tags.length === 7 ? 'space-around' : 'flex-start'}" class="Tag-ul" :key="tags.index">
@@ -13,7 +12,6 @@
       <hr>
       <PostList v-bind:defaultTag="this.selectedTag"/>
     </div>
-  </div>
 </template>
 
 <script>
@@ -30,8 +28,8 @@ export default {
   components: {
     PostList: () => import('../components/PostList')
   },
-  methods:{
-    select: function(tag){
+  methods: {
+    select: function (tag) {
       this.selectedTag = tag
     }
   }
@@ -42,7 +40,7 @@ export default {
 .post_list{
   margin-top: 6rem;
 }
-.container{
+.tag_container{
   font-family: 'Lato', sans-serif;
   max-width: 800px;
   width: 800px;

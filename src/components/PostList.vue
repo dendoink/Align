@@ -51,13 +51,26 @@
                 </template>
             </div>
         </div>
+        <div v-show="!rowsNumber" class="post_info_list">
+          <ul class="post_info_ul">
+            <li class="post_info_item" v-for="(post, index) in allPosts" :key="post.title + index">
+                <div class="post_info_head">{{post.title}}</div>
+                <div class="post_info_tags">
+                  <span v-for="tag in post.tags" :key="tag">
+                    {{tag}}
+                  </span>
+                </div>
+                <div class="post_info_date">{{post.date}}</div>
+            </li>
+          </ul>
+        </div>
     </div>
 </template>
 
 <script>
 import { postData } from '../utils/data.js'
 import {
-  getAllCategories,
+  // getAllCategories,
   getAllTags,
   getAllPostsByCategories,
   getAllPostsByTag
@@ -82,7 +95,7 @@ export default {
       type: String
     }
   },
-  data() {
+  data () {
     return {
       tags: getAllTags(JSON.parse(postData)),
       firstColumnPosts: [],
@@ -91,7 +104,7 @@ export default {
     }
   },
   computed: {
-    allPosts: function() {
+    allPosts: function () {
       let result = JSON.parse(postData)
       if (this.defaultCate) {
         result = getAllPostsByCategories(result, this.defaultCate)
@@ -104,7 +117,7 @@ export default {
     }
   },
   methods: {
-    handlePostLink: function(index, dir = 'post') {
+    handlePostLink: function (index, dir = 'post') {
       let postName = this.allPosts[index].name
       this.$router.push({
         path: `/${dir}/${postName}`,
@@ -113,7 +126,7 @@ export default {
         }
       })
     },
-    sliceArray: function(array) {
+    sliceArray: function (array) {
       for (let x = 0; x < array.length; x += 3) {
         if (array[x]) {
           this.firstColumnPosts.push(array[x])
@@ -127,8 +140,10 @@ export default {
       }
     }
   },
-  created() {
-    this.sliceArray(this.allPosts)
+  created () {
+    if (this.rowsNumber) {
+      this.sliceArray(this.allPosts)
+    }
   }
 }
 </script>
@@ -156,6 +171,22 @@ export default {
   cursor: pointer;
   margin-bottom: 1.5rem !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.tag_container .post_list_container{
+  width: 100%;
+}
+.tag_container .post_list_container .post_info_list{
+  width: 100%;
+}
+.post_info_list .post_info_ul {
+  width: 100%;
+}
+.post_info_ul .post_info_item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  line-height: 4rem;
+  border-bottom: 1px solid #ccc;
 }
 .post_header {
   width: 100%;

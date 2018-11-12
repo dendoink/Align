@@ -5,8 +5,8 @@
         <div class="menu_bar_list">
           <span v-on:click="handleRouter('home')" class="menu_tags ">HOME</span>
           <span v-on:click="handleRouter('about')" class="menu_tags ">ABOUT</span>
-          <!-- <span v-on:click="handleRouter('tags')" class="menu_tags ">TAGS</span>
-          <div class="dropdown menu_tags">
+          <span v-on:click="handleRouter('tags')" class="menu_tags ">TAGS</span>
+          <!-- <div class="dropdown menu_tags">
             <span class="dropbtn">CATEGORIES</span>
             <div class="dropdown-content">
               <span v-for="cate in categories" :key="cate" @click="handleRouter('categories',cate)">{{cate}}</span>
