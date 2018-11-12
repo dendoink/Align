@@ -1,9 +1,9 @@
 <template>
-<div>
-    <div class="container">
-        <PostList/>
-    </div>
-</div>
+  <div class="home_post-list">
+      <PostList/>
+      <PostList/>
+      <PostList/>
+  </div>
 </template>
 
 <script>
@@ -35,5 +35,8 @@ export default {
   width: 800px;
   margin: 0 auto;
   position: relative;
+}
+.home_post-list {
+  display: flex;
 }
 </style>

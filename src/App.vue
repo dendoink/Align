@@ -16,55 +16,55 @@
       </div>
     </div>
     <div class="post_list">
-       <router-view/>
+       <router-view class="router-view"/>
     </div>
   </div>
 </template>
 
 <script scoped>
-import { postData } from "./utils/data.js";
-import { getAllCategories } from "./utils/datafilter.js";
+import { postData } from './utils/data.js'
+import { getAllCategories } from './utils/datafilter.js'
 export default {
-  name: "App",
+  name: 'App',
   data() {
     return {
       menuFixed: false
-    };
+    }
   },
   methods: {
-    handleRouter: function(dir, categorie = "") {
-      let path;
+    handleRouter: function(dir, categorie = '') {
+      let path
       if (categorie) {
-        path = `/${dir}?${dir}=${categorie}`;
+        path = `/${dir}?${dir}=${categorie}`
       } else {
-        path = `/${dir}`;
+        path = `/${dir}`
       }
-      this.$router.push(path);
+      this.$router.push(path)
     },
     menu: function() {
       let scrollCount =
-        document.body.scrollTop || document.documentElement.scrollTop;
+        document.body.scrollTop || document.documentElement.scrollTop
       if (scrollCount > 130) {
-        this.menuFixed = true;
+        this.menuFixed = true
       } else {
-        this.menuFixed = false;
+        this.menuFixed = false
       }
     }
   },
   computed: {
     categories: function() {
-      return Array.from(new Set(getAllCategories(JSON.parse(postData))));
+      return Array.from(new Set(getAllCategories(JSON.parse(postData))))
     }
   },
   mounted() {
-    window.addEventListener("scroll", this.menu);
+    window.addEventListener('scroll', this.menu)
   }
-};
+}
 </script>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -73,7 +73,7 @@ export default {
 .avatar {
   height: 3rem;
   width: 3rem;
-  background-image: url("./assets/avatar.png");
+  background-image: url('./assets/avatar.png');
   background-size: cover;
   display: block;
   border-radius: 50%;
@@ -86,6 +86,7 @@ export default {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  transition: all 0.5s ease-in-out;
 }
 .info_title {
   font-size: 12px;
@@ -139,6 +140,7 @@ export default {
   right: 0;
   background: #ffffff;
   border-bottom: 1px solid #71717154;
+  transition: all 0.5s ease-in-out;
 }
 .header-fixed .dropdown-content {
   background: #ffffff;
@@ -162,7 +164,12 @@ export default {
   font-size: 1.3rem;
   transition: all 0.3s ease-out;
 }
-
+.post_list {
+  text-align: left;
+  letter-spacing: 0.5px;
+  padding: 10px 4%;
+  font-size: 0.9rem;
+}
 /* .dropdown-content a:hover {} */
 
 .dropdown:hover .dropdown-content {

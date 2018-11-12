@@ -1,100 +1,115 @@
 <template>
-    <div>
-        <div v-for="(post, index) in allPosts" :key="post.title">
-            <div class="post_container" @click="handlePostLink(index)">
-                <div class="post_entry">
-                    <div class="hovereffect">
-                        <img class="img-responsive" v-bind:src="post.coverimg" v-bind:alt="post.title">
-                        <div class="overlay" @click="handlePostLink(index)">
-                          <h2>{{post.title}}</h2>
-                          <p class="post_info">
-                            {{post.info}}
-                           </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="post_meta">
-                    <template v-for="tag in post.tags">
-                      <span class="tag" :key="tag">{{tag}}</span>
-                    </template>
-                    <span class="post_date">{{post.daysAgo}}</span>
-                </div>
-            </div>
-        </div>
+    <div class="post_list_container">
+          <div class="post_container" v-for="(post, index) in allPosts" :key="post.title">
+              <header class="post_header">
+                <span class="post_date">{{post.daysAgo}}</span>
+                <h4 @click="handlePostLink(index)">{{post.title}}</h4>
+              </header>
+              <div class="post_entry">
+                <img class="img-responsive" @click="handlePostLink(index)" v-bind:src="post.coverimg" v-bind:alt="post.title">
+              </div>
+              <div class="post_meta">
+                  <p class="post_info" :key="tag">
+                          {{post.info}}
+                  </p>
+                  <template v-for="tag in post.tags">
+                    <span class="tag" :key="tag">{{tag}}</span>
+                  </template>
+              </div>
+          </div>
     </div>
 </template>
 
 <script>
-import { postData } from "../utils/data.js";
+import { postData } from '../utils/data.js'
 import {
   getAllCategories,
   getAllTags,
   getAllPostsByCategories,
   getAllPostsByTag
-} from "../utils/datafilter.js";
+} from '../utils/datafilter.js'
 export default {
   // 主页
-  name: "PostList",
+  name: 'PostList',
   props: {
     defaultCate: {
       type: String,
-      default: ""
+      default: ''
     },
     defaultTag: {
       type: String,
-      default: ""
+      default: ''
     },
     defaultDate: {
       type: String,
-      default: ""
+      default: ''
     }
   },
   data() {
     return {
       tags: getAllTags(JSON.parse(postData))
-    };
+    }
   },
   computed: {
     allPosts: function() {
-      let result = JSON.parse(postData);
+      let result = JSON.parse(postData)
       if (this.defaultCate) {
-        result = getAllPostsByCategories(result, this.defaultCate);
+        result = getAllPostsByCategories(result, this.defaultCate)
       } else if (this.defaultTag) {
-        result = getAllPostsByTag(result, this.defaultTag);
+        result = getAllPostsByTag(result, this.defaultTag)
       } else {
-        return result;
+        return result
       }
-      return result;
+      return result
     }
   },
   methods: {
-    handlePostLink: function(
-      index,
-      dir = "post"
-    ) {
+    handlePostLink: function(index, dir = 'post') {
       let postName = this.allPosts[index].name
       this.$router.push({
         path: `/${dir}/${postName}`,
         query: {
           index: index
         }
-      });
+      })
     }
   }
-};
+}
 </script>
 
 <style scoped>
-.post_container {
-  margin-top: 2rem;
-  padding: 1rem;
-  background: #fff;
-  border-radius: 6px;
-  cursor: pointer;
-  box-shadow: 0 1px 2px rgba(150, 150, 150, 0.3);
+.post_list_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33.3%;
 }
-.post_container:hover {
-  box-shadow: -3px 3px #ececec;
+.post_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: transparent;
+  background-clip: border-box;
+  border: 0 solid rgba(0, 0, 0, 0.125);
+  border-radius: 0;
+  align-items: center;
+  margin: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  margin-bottom: 1.5rem!important;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.post_header {
+  width: 100%;
+  padding: 0.75rem 10%;
+  margin-bottom: 0;
+  border-bottom: 0 solid rgba(0, 0, 0, 0.125);
+  text-align: left;
+}
+.post_header h4:hover {
+  color: #42b983;
 }
 .post_container h1 {
   color: #6b6b6b;
@@ -113,18 +128,9 @@ export default {
 }
 .post_entry {
   display: inline-block;
+  width: 80%;
 }
 
-.post_entry .hovereffect {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  max-width: 100%;
-  line-height: 1.4rem;
-  cursor: pointer;
-}
 .post_entry img {
   height: auto;
   max-width: 100%;
@@ -133,6 +139,7 @@ export default {
   text-align: right;
   margin-top: 4px;
   margin-bottom: 1rem;
+  padding: 0% 10%;
 }
 .post_date {
   font-weight: 500;
@@ -142,26 +149,27 @@ export default {
   margin-left: 2rem;
 }
 .post_date::after {
-  content: " DAYS AGO";
+  content: ' DAYS AGO';
 }
 .tag {
-  background: #ff7878;
-  color: #fff;
+  color: #ffacac;
   border-radius: 5px;
   font-weight: 600;
   padding: 0px 0.5rem;
-  margin-left: 1rem;
+  margin-right: 1rem;
   float: left;
 }
 .post_info {
   text-align: left;
   letter-spacing: 0.5px;
+  padding: 10px 4%;
+  font-size: 0.9rem;
 }
 .post_info::after {
   font-size: 1.5rem;
-  content: "...";
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  content: '...';
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 300;
 }
 .post_read_more {
@@ -175,93 +183,16 @@ export default {
   color: #434343;
   box-shadow: 0px 2px #cccccc;
 }
-
-.hovereffect {
+.post_entry img{
+  transition: all .2s ease-in-out;
   width: 100%;
-  height: 100%;
-  float: left;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-  cursor: default;
-  background: #064263cf;
+  border-radius: calc(.25rem - 1px);
+  vertical-align: middle;
+  border-style: none;
 }
-
-.hovereffect .overlay {
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  padding: 3rem 3rem;
-}
-
-.hovereffect img {
-  display: block;
-  position: relative;
-  max-width: none;
-  width: calc(100% + 20px);
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: translate3d(-10px, 0, 0);
-  transform: translate3d(-10px, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.hovereffect:hover img {
-  opacity: 0.4;
-  filter: alpha(opacity=40);
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
-.hovereffect h2 {
-  text-transform: uppercase;
-  color: #fff;
-  text-align: center;
-  position: relative;
-  font-size: 2.3rem;
-  overflow: hidden;
-  padding: 1em 0;
-  background-color: transparent;
-  opacity: 1;
-}
-
-.hovereffect h2:after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #fff;
-  content: "";
-  -webkit-transition: -webkit-transform 0.35s;
-  transition: transform 0.35s;
-  -webkit-transform: translate3d(-100%, 0, 0);
-  transform: translate3d(-100%, 0, 0);
-}
-
-.hovereffect:hover h2:after {
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
-.hovereffect a,
-.hovereffect p {
-  color: #fff;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: translate3d(100%, 0, 0);
-  transform: translate3d(100%, 0, 0);
-}
-
-.hovereffect:hover a,
-.hovereffect:hover p {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+.post_entry img:hover {
+  box-shadow: 0 18px 32px -18px #000;
+  -webkit-transform: translateY(-6px);
+  transform: translateY(-6px);
 }
 </style>
