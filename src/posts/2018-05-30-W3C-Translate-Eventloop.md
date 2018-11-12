@@ -6,7 +6,7 @@ date:   2018-05-30
 categories: HTML5
 tags: [W3C,HTML5,Translate,EventLoop]
 info: "Javascript中的EventLoop 一直都是新手很难理解的概念，甚至一些从业多年的前端人员也不熟悉其内部的机制"
-coverimg: "http://ww1.sinaimg.cn/large/88b26e1cgy1frtsa3wqgmj20sg0lcq9n.jpg"
+coverimg: "https://ws1.sinaimg.cn/large/88b26e1cgy1fx5b4q44dcj21lv280e81.jpg"
 ---
 
 :::warning 本文是根据[W3C最新WebAPI标准](https://www.w3.org/TR/2017/REC-html52-20171214/webappapis.html#event-loops)翻译而来。部分内容有作者自己的理解。

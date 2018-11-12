@@ -1,8 +1,8 @@
 <template>
   <div class="home_post-list">
-      <PostList/>
-      <PostList/>
-      <PostList/>
+      <PostList rowsNumber = '1'/>
+      <PostList rowsNumber = '2'/>
+      <PostList rowsNumber = '3'/>
   </div>
 </template>
 

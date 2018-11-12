@@ -1,22 +1,56 @@
 <template>
     <div class="post_list_container">
-          <div class="post_container" v-for="(post, index) in allPosts" :key="post.title">
-              <header class="post_header">
-                <span class="post_date">{{post.daysAgo}}</span>
-                <h4 @click="handlePostLink(index)">{{post.title}}</h4>
-              </header>
-              <div class="post_entry">
-                <img class="img-responsive" @click="handlePostLink(index)" v-bind:src="post.coverimg" v-bind:alt="post.title">
-              </div>
-              <div class="post_meta">
-                  <p class="post_info" :key="tag">
-                          {{post.info}}
-                  </p>
-                  <template v-for="tag in post.tags">
-                    <span class="tag" :key="tag">{{tag}}</span>
-                  </template>
-              </div>
-          </div>
+        <div v-show="rowsNumber === '1'" class="post_container" v-for="(post, index) in firstColumnPosts" :key="post.title">
+            <header class="post_header">
+              <span class="post_date">{{post.daysAgo}}</span>
+              <h4 @click="handlePostLink(index)">{{post.title}}</h4>
+            </header>
+            <div class="post_entry">
+              <img class="img-responsive" @click="handlePostLink(index)" v-bind:src="post.coverimg" v-bind:alt="post.title">
+            </div>
+            <div class="post_meta">
+                <p class="post_info" :key="tag">
+                        {{post.info}}
+                </p>
+                <template v-for="tag in post.tags">
+                  <span class="tag" :key="tag">{{tag}}</span>
+                </template>
+            </div>
+        </div>
+        <div v-show="rowsNumber === '2'" class="post_container" v-for="(post, index) in secondColumnPosts" :key="post.title">
+            <header class="post_header">
+              <span class="post_date">{{post.daysAgo}}</span>
+              <h4 @click="handlePostLink(index)">{{post.title}}</h4>
+            </header>
+            <div class="post_entry">
+              <img class="img-responsive" @click="handlePostLink(index)" v-bind:src="post.coverimg" v-bind:alt="post.title">
+            </div>
+            <div class="post_meta">
+                <p class="post_info" :key="tag">
+                        {{post.info}}
+                </p>
+                <template v-for="tag in post.tags">
+                  <span class="tag" :key="tag">{{tag}}</span>
+                </template>
+            </div>
+        </div>
+        <div v-show="rowsNumber === '3'" class="post_container" v-for="(post, index) in thirdColumnPosts" :key="post.title">
+            <header class="post_header">
+              <span class="post_date">{{post.daysAgo}}</span>
+              <h4 @click="handlePostLink(index)">{{post.title}}</h4>
+            </header>
+            <div class="post_entry">
+              <img class="img-responsive" @click="handlePostLink(index)" v-bind:src="post.coverimg" v-bind:alt="post.title">
+            </div>
+            <div class="post_meta">
+                <p class="post_info" :key="tag">
+                        {{post.info}}
+                </p>
+                <template v-for="tag in post.tags">
+                  <span class="tag" :key="tag">{{tag}}</span>
+                </template>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -43,11 +77,17 @@ export default {
     defaultDate: {
       type: String,
       default: ''
+    },
+    rowsNumber: {
+      type: String
     }
   },
   data() {
     return {
-      tags: getAllTags(JSON.parse(postData))
+      tags: getAllTags(JSON.parse(postData)),
+      firstColumnPosts: [],
+      secondColumnPosts: [],
+      thirdColumnPosts: []
     }
   },
   computed: {
@@ -72,7 +112,23 @@ export default {
           index: index
         }
       })
+    },
+    sliceArray: function(array) {
+      for (let x = 0; x < array.length; x += 3) {
+        if (array[x]) {
+          this.firstColumnPosts.push(array[x])
+        }
+        if (array[x + 1]) {
+          this.secondColumnPosts.push(array[x + 1])
+        }
+        if (array[x + 2]) {
+          this.thirdColumnPosts.push(array[x + 2])
+        }
+      }
     }
+  },
+  created() {
+    this.sliceArray(this.allPosts)
   }
 }
 </script>
@@ -98,8 +154,8 @@ export default {
   margin: 1rem;
   padding: 0.5rem;
   cursor: pointer;
-  margin-bottom: 1.5rem!important;
-  border-bottom: 1px solid rgba(0,0,0,.1);
+  margin-bottom: 1.5rem !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .post_header {
   width: 100%;
@@ -107,6 +163,12 @@ export default {
   margin-bottom: 0;
   border-bottom: 0 solid rgba(0, 0, 0, 0.125);
   text-align: left;
+}
+.post_header h4 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 2.2;
+  color: inherit;
 }
 .post_header h4:hover {
   color: #42b983;
@@ -165,6 +227,10 @@ export default {
   padding: 10px 4%;
   font-size: 0.9rem;
 }
+.post_info::first-letter {
+  color: #42b983;
+  font-size: 1.3rem;
+}
 .post_info::after {
   font-size: 1.5rem;
   content: '...';
@@ -183,10 +249,10 @@ export default {
   color: #434343;
   box-shadow: 0px 2px #cccccc;
 }
-.post_entry img{
-  transition: all .2s ease-in-out;
+.post_entry img {
+  transition: all 0.2s ease-in-out;
   width: 100%;
-  border-radius: calc(.25rem - 1px);
+  border-radius: calc(0.25rem - 1px);
   vertical-align: middle;
   border-style: none;
 }

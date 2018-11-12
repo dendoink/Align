@@ -169,6 +169,7 @@ export default {
   letter-spacing: 0.5px;
   padding: 10px 4%;
   font-size: 0.9rem;
+
 }
 /* .dropdown-content a:hover {} */
 
@@ -179,5 +180,25 @@ export default {
 
 .dropdown:hover .dropbtn {
   color: #5a8492;
+}
+@media (min-width: 576px){
+  .home_post-list {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .home_post-list {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .home_post-list {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .home_post-list {
+      max-width: 1220px;
+  }
 }
 </style>
