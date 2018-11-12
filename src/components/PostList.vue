@@ -44,7 +44,7 @@
             </div>
             <div class="post_meta">
                 <p class="post_info">
-                        {{post.info}}
+                  {{post.info}}
                 </p>
                 <template v-for="tag in post.tags">
                   <span class="tag" :key="tag">{{tag}}</span>
