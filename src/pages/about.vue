@@ -1,67 +1,56 @@
 <template>
-<div>
-    <div class="hello-parent">
-        <svg class="hello-word" width="365" height="365" viewBox="0 0 365 365">
-            <g id="H-letter">
-                <line class="H-left-stroke" x1="17" y1="0" x2="17" y2="124" stroke="#000" fill="none" stroke-width="34" />
-                <line class="H-mid-stroke" x1="33" y1="62" x2="68" y2="62" stroke="#000" fill="none" stroke-width="34" />
-                <line class="H-right-stroke" x1="84" y1="0" x2="84" y2="124" stroke="#000" fill="none" stroke-width="34" />
-            </g>
-            <g id="E-letter">
-                <line class="E-left-stroke" x1="138" y1="0" x2="138" y2="124" stroke="#000" fill="none" stroke-width="34" />
-                <line class="E-top-stroke" x1="154" y1="17" x2="201" y2="17" stroke="#000" fill="none" stroke-width="34" />
-                <line class="E-mid-stroke" x1="154" y1="62" x2="196" y2="62" stroke="#000" fill="none" stroke-width="34" />
-                <line class="E-bottom-stroke" x1="154" y1="107" x2="201" y2="107" stroke="#000" fill="none" stroke-width="34" />
-            </g>
-            <g id="L-one-letter">
-                <line class="L-one-long-stroke" x1="17" y1="153" x2="17" y2="277" stroke="#000" fill="none" stroke-width="34" />
-                <line class="L-one-short-stroke" x1="33" y1="260" x2="77" y2="260" stroke="#000" fill="none" stroke-width="34" />
-            </g>
-            <g id="L-two-letter">
-                <line class="L-two-long-stroke" x1="104" y1="153" x2="104" y2="277" stroke="#000" fill="none" stroke-width="34" />
-                <line class="L-two-short-stroke" x1="120" y1="260" x2="164" y2="260" stroke="#000" fill="none" stroke-width="34" />
-            </g>
-            <g id="O-letter">
-                <circle class="O-stroke" cx="231" cy="215" r="48" stroke="#000" fill="none" stroke-width="31" />
-            </g>
-            <g id="red-dot">
-                <line x1="325" y1="260" x2="325" y2="260" stroke="#FF5851" class="red-dot" />
-            </g>
-        </svg>
-    </div>
-    <awesome-icon name="brands/github" ></awesome-icon>
+  <div class="online-resume-container">
+      <svg class="hello-word" width="100" height="100" viewBox="0 0 365 365">
+          <g id="H-letter">
+              <line class="H-left-stroke" x1="17" y1="0" x2="17" y2="124" stroke="#000" fill="none" stroke-width="34" />
+              <line class="H-mid-stroke" x1="33" y1="62" x2="68" y2="62" stroke="#000" fill="none" stroke-width="34" />
+              <line class="H-right-stroke" x1="84" y1="0" x2="84" y2="124" stroke="#000" fill="none" stroke-width="34" />
+          </g>
+          <g id="E-letter">
+              <line class="E-left-stroke" x1="138" y1="0" x2="138" y2="124" stroke="#000" fill="none" stroke-width="34" />
+              <line class="E-top-stroke" x1="154" y1="17" x2="201" y2="17" stroke="#000" fill="none" stroke-width="34" />
+              <line class="E-mid-stroke" x1="154" y1="62" x2="196" y2="62" stroke="#000" fill="none" stroke-width="34" />
+              <line class="E-bottom-stroke" x1="154" y1="107" x2="201" y2="107" stroke="#000" fill="none" stroke-width="34" />
+          </g>
+          <g id="L-one-letter">
+              <line class="L-one-long-stroke" x1="17" y1="153" x2="17" y2="277" stroke="#000" fill="none" stroke-width="34" />
+              <line class="L-one-short-stroke" x1="33" y1="260" x2="77" y2="260" stroke="#000" fill="none" stroke-width="34" />
+          </g>
+          <g id="L-two-letter">
+              <line class="L-two-long-stroke" x1="104" y1="153" x2="104" y2="277" stroke="#000" fill="none" stroke-width="34" />
+              <line class="L-two-short-stroke" x1="120" y1="260" x2="164" y2="260" stroke="#000" fill="none" stroke-width="34" />
+          </g>
+          <g id="O-letter">
+              <circle class="O-stroke" cx="231" cy="215" r="48" stroke="#000" fill="none" stroke-width="31" />
+          </g>
+          <g id="red-dot">
+              <line x1="325" y1="260" x2="325" y2="260" stroke="#FF5851" class="red-dot" />
+          </g>
+      </svg>
+  </div>
+    <!-- <awesome-icon name="brands/github" ></awesome-icon>
     <awesome-icon name="brands/linkedin" ></awesome-icon>
     <awesome-icon name="brands/twitter" ></awesome-icon>
-    <awesome-icon name="envelope" ></awesome-icon>
-</div>
+    <awesome-icon name="envelope" ></awesome-icon> -->
 </template>
 
 <script>
 export default {
   // About
   name: 'About',
-  data () {
-    return {
-    }
+  data() {
+    return {}
   }
 }
 </script>
 
 <style scoped>
-html, body, .hello-parent {
+html,
+body,
+.hello-parent {
   height: 100%;
   width: 100%;
   margin: 0;
-}
-
-.hello-parent {
-  display: flex;
-  margin-top: 7rem;
-  padding-left: 8rem;
-}
-
-.hello-word {
-  margin:auto;
 }
 /* H Animation */
 

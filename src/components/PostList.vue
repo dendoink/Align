@@ -9,7 +9,7 @@
               <img class="img-responsive" @click="handlePostLink(index)" v-bind:src="post.coverimg" v-bind:alt="post.title">
             </div>
             <div class="post_meta">
-                <p class="post_info" :key="tag">
+                <p class="post_info">
                         {{post.info}}
                 </p>
                 <template v-for="tag in post.tags">
@@ -26,7 +26,7 @@
               <img class="img-responsive" @click="handlePostLink(index)" v-bind:src="post.coverimg" v-bind:alt="post.title">
             </div>
             <div class="post_meta">
-                <p class="post_info" :key="tag">
+                <p class="post_info">
                         {{post.info}}
                 </p>
                 <template v-for="tag in post.tags">
@@ -43,7 +43,7 @@
               <img class="img-responsive" @click="handlePostLink(index)" v-bind:src="post.coverimg" v-bind:alt="post.title">
             </div>
             <div class="post_meta">
-                <p class="post_info" :key="tag">
+                <p class="post_info">
                         {{post.info}}
                 </p>
                 <template v-for="tag in post.tags">
