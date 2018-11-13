@@ -18,6 +18,9 @@
     <div class="post_list">
        <router-view class="router-view"/>
     </div>
+    <div class="copy-right">
+      © Dendoink. All rights reserved.
+    </div>
   </div>
 </template>
 
@@ -96,6 +99,7 @@ export default {
 }
 .menu_bar {
   margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 .menu_bar_list {
   padding: 0px 10px;

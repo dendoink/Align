@@ -54,13 +54,8 @@
         <div v-show="!rowsNumber" class="post_info_list">
           <ul class="post_info_ul">
             <li class="post_info_item" v-for="(post, index) in allPosts" :key="post.title + index">
-                <div class="post_info_head">{{post.title}}</div>
-                <div class="post_info_tags">
-                  <span v-for="tag in post.tags" :key="tag">
-                    {{tag}}
-                  </span>
-                </div>
-                <div class="post_info_date">{{post.date}}</div>
+                <div class="post_info_head" @click="handlePostLink(index)">{{post.title}}</div>
+                <div class="post_info_date">{{post.date | moment}}</div>
             </li>
           </ul>
         </div>
@@ -69,8 +64,8 @@
 
 <script>
 import { postData } from '../utils/data.js'
+import moment from 'moment'
 import {
-  // getAllCategories,
   getAllTags,
   getAllPostsByCategories,
   getAllPostsByTag
@@ -95,7 +90,7 @@ export default {
       type: String
     }
   },
-  data () {
+  data() {
     return {
       tags: getAllTags(JSON.parse(postData)),
       firstColumnPosts: [],
@@ -104,7 +99,7 @@ export default {
     }
   },
   computed: {
-    allPosts: function () {
+    allPosts: function() {
       let result = JSON.parse(postData)
       if (this.defaultCate) {
         result = getAllPostsByCategories(result, this.defaultCate)
@@ -114,11 +109,32 @@ export default {
         return result
       }
       return result
+    },
+    currentPosts: function() {
+      let result = this.allPosts
+      switch (this.rowsNumber) {
+        case '1':
+          result = this.firstColumnPosts
+          break
+        case '2':
+          result = this.secondColumnPosts
+          break
+        case '3':
+          result = this.thirdColumnPosts
+          break
+        default:
+          break
+      }
+      return result
     }
   },
   methods: {
-    handlePostLink: function (index, dir = 'post') {
-      let postName = this.allPosts[index].name
+    handlePostLink: function(index, dir = 'post') {
+      window.localStorage.setItem(
+        'currentPosts',
+        JSON.stringify(this.currentPosts)
+      )
+      let postName = this.currentPosts[index].name
       this.$router.push({
         path: `/${dir}/${postName}`,
         query: {
@@ -126,7 +142,7 @@ export default {
         }
       })
     },
-    sliceArray: function (array) {
+    sliceArray: function(array) {
       for (let x = 0; x < array.length; x += 3) {
         if (array[x]) {
           this.firstColumnPosts.push(array[x])
@@ -140,7 +156,12 @@ export default {
       }
     }
   },
-  created () {
+  filters: {
+    moment: function(date) {
+      return moment(date).format('MMMM Do YYYY')
+    }
+  },
+  created() {
     if (this.rowsNumber) {
       this.sliceArray(this.allPosts)
     }
@@ -172,21 +193,31 @@ export default {
   margin-bottom: 1.5rem !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-.tag_container .post_list_container{
+.tag_container .post_list_container {
   width: 100%;
 }
-.tag_container .post_list_container .post_info_list{
+.tag_container .post_list_container .post_info_list {
   width: 100%;
 }
 .post_info_list .post_info_ul {
   width: 100%;
+  margin-top: 1rem;
 }
 .post_info_ul .post_info_item {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
   line-height: 4rem;
   border-bottom: 1px solid #ccc;
+}
+.post_info_item .post_info_head {
+  cursor: pointer;
+}
+.post_info_item .post_info_head:hover {
+  color: #42b983;
+}
+.post_info_item .post_info_date {
+  font-size: 0.6rem;
+  color: #9a9797;
 }
 .post_header {
   width: 100%;

@@ -5,7 +5,7 @@
               <div class="post-header">
                 <h1>{{currentPost.title}}</h1>
                 <span class="post-time">
-                    {{currentPost.date}}
+                    {{currentPost.date | moment}}
                 </span>
               </div>
               <router-view :key="key"/>
@@ -31,8 +31,8 @@
 
 <script>
 import "highlight.js/styles/atom-one-dark.css";
-import fecha from "fecha";
 import { postData } from "../utils/data.js";
+import moment from 'moment'
 export default {
   name: "Post",
   data() {
@@ -40,20 +40,11 @@ export default {
       index: this.$route.query.index,
       currentPost: {},
       previous: {},
-      next: {}
+      next: {},
+      allPosts: JSON.parse(window.localStorage.getItem('currentPosts')||'[]')
     };
   },
   computed: {
-    allPosts: function() {
-      let result = JSON.parse(postData);
-      if (this.defaultCate) {
-        result = getAllPostsByCategories(result, this.defaultCate);
-      }
-      if (this.defaultTag) {
-        result = getAllPostsByTag(result, this.defaultTag);
-      }
-      return result;
-    },
     key() {
       return this.$route.query.index !== undefined
         ? this.$route.query.index + new Date()
@@ -61,10 +52,6 @@ export default {
     }
   },
   created() {
-    var a = fecha.format(new Date(), "dddd MMMM Do, YYYY");
-    this.allPosts = this.allPosts.map(item => {
-      item.date = fecha.format(new Date(item.date), "dddd MMMM Do, YYYY");
-    });
     let index = this.$route.query.index;
     this.currentPost = this.allPosts[index];
     // 所有文档长度为1
@@ -102,6 +89,11 @@ export default {
           index: index
         }
       });
+    }
+  },
+  filters: {
+     moment: function(date) {
+      return moment(date).format('MMMM Do YYYY')
     }
   },
   watch: {

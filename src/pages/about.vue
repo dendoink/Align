@@ -53,7 +53,28 @@ body,
   margin: 0;
 }
 /* H Animation */
-
+.online-resume-container {
+  height: 100vh;
+}
+.online-resume-container::before{
+  content: '';
+  display: block;
+  background-image: linear-gradient(155deg, #42b983 13%, #adadad 70%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  -moz-pointer-events: none;
+  -webkit-pointer-events: none;
+  -ms-pointer-events: none;
+  pointer-events: none;
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
 .H-left-stroke {
   stroke-dasharray: 124px;
   stroke-dashoffset: 124px;
