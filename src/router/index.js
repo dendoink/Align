@@ -6,14 +6,18 @@ import About from '../pages/About'
 import Tags from '../pages/Tags'
 import pageroutes from './page'
 import Post from '../pages/Post'
-
-// import { routes } from '../utils/data'
+import Landing from '../pages/Landing'
 Vue.use(Router)
 export default new Router({
   routes: [
     {
       path: '/',
       redirect: '/Landing'
+    },
+    {
+      path: '/landing',
+      name: 'Landing',
+      component: Landing
     },
     {
       path: '/home',
