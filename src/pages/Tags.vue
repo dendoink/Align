@@ -73,8 +73,8 @@ export default {
 .tag_nav ul li a {
   cursor: pointer;
   border-radius: 6.1875rem;
-  font-size: 0.6875rem;
-  font-weight: 300;
+  font-size: 1rem;
+  font-weight: 600;
   padding: 0.4375rem 0.9375rem;
   color: #343a40b5;
   background-color: #f8fafd75;
@@ -89,7 +89,9 @@ export default {
 }
 .tag_nav ul li a:hover {
   font-weight: 900;
-  background: #fbfbfb75;
+  background: #4caf506e;
+  color: #ffffff;
+  border: 0px;
   box-shadow: 0 4px 11px rgba(248, 250, 253, 0.35);
   transition: all 0.3s ease-in-out;
 }

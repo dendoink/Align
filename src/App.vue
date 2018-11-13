@@ -3,15 +3,15 @@
     <div :class="menuFixed ? 'header header-fixed' : 'header'">
       <div class="menu_bar">
         <div class="menu_bar_list">
-          <span v-on:click="handleRouter('home')" class="menu_tags ">HOME</span>
+          <span v-on:click="handleRouter('home')" class="menu_tags ">ALL POSTS</span>
           <span v-on:click="handleRouter('tags')" class="menu_tags ">TAGS</span>
           <span v-on:click="handleRouter('landing')" class="menu_tags ">ABOUT</span>
         </div>
       </div>
     </div>
-    <div class="post_list">
-       <router-view class="router-view"/>
-    </div>
+    <!-- <div class="post_list"> -->
+    <router-view class="router-view"/>
+    <!-- </div> -->
     <div class="copy-right">
       © Dendoink. All rights reserved.
     </div>
@@ -23,13 +23,13 @@ import { postData } from './utils/data.js'
 import { getAllCategories } from './utils/datafilter.js'
 export default {
   name: 'App',
-  data() {
+  data () {
     return {
       menuFixed: false
     }
   },
   methods: {
-    handleRouter: function(dir, categorie = '') {
+    handleRouter: function (dir, categorie = '') {
       let path
       if (categorie) {
         path = `/${dir}?${dir}=${categorie}`
@@ -170,10 +170,17 @@ export default {
   letter-spacing: 0.5px;
   padding: 10px 4%;
   font-size: 0.9rem;
-
 }
-/* .dropdown-content a:hover {} */
 
+.copy-right {
+  height: 4rem;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  cursor: pointer;
+}
 .dropdown:hover .dropdown-content {
   opacity: 1;
   transition: all 0.4s ease-in-out;
