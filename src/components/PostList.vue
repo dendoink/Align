@@ -106,8 +106,14 @@ export default {
       } else if (this.defaultTag) {
         result = getAllPostsByTag(result, this.defaultTag)
       } else {
+        result.sort((a, b) => {
+          return a.daysAgo - b.daysAgo
+        })
         return result
       }
+      result.sort((a, b) => {
+        return a.daysAgo - b.daysAgo
+      })
       return result
     },
     currentPosts: function() {
@@ -338,9 +344,9 @@ export default {
 @-webkit-keyframes bounce-left {
   0% {
     -webkit-transform: translateX(-48px);
-            transform: translateX(-48px);
+    transform: translateX(-48px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
     opacity: 1;
   }
   24% {
@@ -348,27 +354,27 @@ export default {
   }
   40% {
     -webkit-transform: translateX(-26px);
-            transform: translateX(-26px);
+    transform: translateX(-26px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   65% {
     -webkit-transform: translateX(-13px);
-            transform: translateX(-13px);
+    transform: translateX(-13px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   82% {
     -webkit-transform: translateX(-6.5px);
-            transform: translateX(-6.5px);
+    transform: translateX(-6.5px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   93% {
     -webkit-transform: translateX(-4px);
-            transform: translateX(-4px);
+    transform: translateX(-4px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   25%,
   55%,
@@ -376,24 +382,24 @@ export default {
   87%,
   98% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
   100% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
     opacity: 1;
   }
 }
 @keyframes bounce-left {
   0% {
     -webkit-transform: translateX(-48px);
-            transform: translateX(-48px);
+    transform: translateX(-48px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
     opacity: 1;
   }
   24% {
@@ -401,27 +407,27 @@ export default {
   }
   40% {
     -webkit-transform: translateX(-26px);
-            transform: translateX(-26px);
+    transform: translateX(-26px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   65% {
     -webkit-transform: translateX(-13px);
-            transform: translateX(-13px);
+    transform: translateX(-13px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   82% {
     -webkit-transform: translateX(-6.5px);
-            transform: translateX(-6.5px);
+    transform: translateX(-6.5px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   93% {
     -webkit-transform: translateX(-4px);
-            transform: translateX(-4px);
+    transform: translateX(-4px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   25%,
   55%,
@@ -429,15 +435,15 @@ export default {
   87%,
   98% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
   100% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
     opacity: 1;
   }
 }
@@ -455,9 +461,9 @@ export default {
 @-webkit-keyframes bounce-right {
   0% {
     -webkit-transform: translateX(48px);
-            transform: translateX(48px);
+    transform: translateX(48px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
     opacity: 1;
   }
   24% {
@@ -465,27 +471,27 @@ export default {
   }
   40% {
     -webkit-transform: translateX(26px);
-            transform: translateX(26px);
+    transform: translateX(26px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   65% {
     -webkit-transform: translateX(13px);
-            transform: translateX(13px);
+    transform: translateX(13px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   82% {
     -webkit-transform: translateX(6.5px);
-            transform: translateX(6.5px);
+    transform: translateX(6.5px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   93% {
     -webkit-transform: translateX(4px);
-            transform: translateX(4px);
+    transform: translateX(4px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   25%,
   55%,
@@ -493,24 +499,24 @@ export default {
   87%,
   98% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
   100% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
     opacity: 1;
   }
 }
 @keyframes bounce-right {
   0% {
     -webkit-transform: translateX(48px);
-            transform: translateX(48px);
+    transform: translateX(48px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
     opacity: 1;
   }
   24% {
@@ -518,27 +524,27 @@ export default {
   }
   40% {
     -webkit-transform: translateX(26px);
-            transform: translateX(26px);
+    transform: translateX(26px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   65% {
     -webkit-transform: translateX(13px);
-            transform: translateX(13px);
+    transform: translateX(13px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   82% {
     -webkit-transform: translateX(6.5px);
-            transform: translateX(6.5px);
+    transform: translateX(6.5px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   93% {
     -webkit-transform: translateX(4px);
-            transform: translateX(4px);
+    transform: translateX(4px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   25%,
   55%,
@@ -546,17 +552,30 @@ export default {
   87%,
   98% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
   100% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
     opacity: 1;
   }
 }
-
+@media screen and (max-width: 600px) and (min-width: 300px) {
+  .post_list_container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .tag_page_post_list .post_list_container .post_info_list .post_info_ul {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .post_info_list .post_info_ul .post_info_item .post_info_head {
+    font-size: 1rem;
+    min-width: 50%;
+  }
+}
 </style>

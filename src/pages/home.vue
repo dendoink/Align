@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import { postData } from "../utils/data.js"
-import { getAllCategories } from "../utils/datafilter.js"
+import { postData } from '../utils/data.js'
+import { getAllCategories } from '../utils/datafilter.js'
 export default {
   // 主页
-  name: "Home",
-  data () {
+  name: 'Home',
+  data() {
     return {
       allPosts: JSON.parse(postData),
       categories: getAllCategories(JSON.parse(postData))
@@ -38,5 +38,11 @@ export default {
 }
 .home_post_list {
   display: flex;
+}
+@media screen and (max-width: 600px) and (min-width: 300px) {
+  .home_post_list {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>

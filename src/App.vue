@@ -23,13 +23,13 @@ import { postData } from './utils/data.js'
 import { getAllCategories } from './utils/datafilter.js'
 export default {
   name: 'App',
-  data () {
+  data() {
     return {
       menuFixed: false
     }
   },
   methods: {
-    handleRouter: function (dir, categorie = '') {
+    handleRouter: function(dir, categorie = '') {
       let path
       if (categorie) {
         path = `/${dir}?${dir}=${categorie}`
@@ -66,7 +66,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background: url(http://ww1.sinaimg.cn/large/88b26e1cgy1ftdstdeacbj212f0d73zv.jpg) top no-repeat;
+  background: url(http://ww1.sinaimg.cn/large/88b26e1cgy1ftdstdeacbj212f0d73zv.jpg)
+    top no-repeat;
   background-size: contain;
   height: 100vh;
 }
@@ -189,7 +190,13 @@ export default {
 .dropdown:hover .dropbtn {
   color: #5a8492;
 }
-@media (min-width: 576px){
+@media screen and (max-width: 600px) and (min-width: 300px) {
+  .copy-right {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) {
   .home_post-list {
     max-width: 540px;
   }
@@ -206,7 +213,7 @@ export default {
 }
 @media (min-width: 1200px) {
   .home_post-list {
-      max-width: 1220px;
+    max-width: 1220px;
   }
 }
 </style>

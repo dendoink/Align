@@ -40,6 +40,10 @@ let pageroutes = [
     component: () => import('../posts/2018-05-27-Begin.md')
   },
   {
+    path: "/Life/2018-05-27-Begin",
+    component: () => import('../posts/2018-05-27-Begin.md')
+  },
+  {
     path: "/HTML5/2018-05-30-W3C-Translate-Eventloop",
     component: () => import('../posts/2018-05-30-W3C-Translate-Eventloop.md')
   },
@@ -60,15 +64,31 @@ let pageroutes = [
     component: () => import('../posts/2018-05-30-W3C-Translate-Eventloop.md')
   },
   {
-    path: "/Git/2018-12-21-Git",
-    component: () => import('../posts/2018-12-21-Git.md')
+    path: "/Git/2018-10-21-Git",
+    component: () => import('../posts/2018-10-21-Git.md')
   },
   {
-    path: "/post/2018-12-21-Git",
-    component: () => import('../posts/2018-12-21-Git.md')
+    path: "/post/2018-10-21-Git",
+    component: () => import('../posts/2018-10-21-Git.md')
   },
   {
-    path: "/Tutorial/2018-12-21-Git",
-    component: () => import('../posts/2018-12-21-Git.md')
+    path: "/Tutorial/2018-10-21-Git",
+    component: () => import('../posts/2018-10-21-Git.md')
+  },
+  {
+    path: "/LIFE/2018-11-14-Life",
+    component: () => import('../posts/2018-11-14-Life.md')
+  },
+  {
+    path: "/post/2018-11-14-Life",
+    component: () => import('../posts/2018-11-14-Life.md')
+  },
+  {
+    path: "/Life/2018-11-14-Life",
+    component: () => import('../posts/2018-11-14-Life.md')
+  },
+  {
+    path: "/Tutorial/2018-11-14-Life",
+    component: () => import('../posts/2018-11-14-Life.md')
   }]
 export default pageroutes

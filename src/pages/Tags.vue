@@ -1,14 +1,14 @@
 <template>
     <div class="tag_container">
-      <div class="tag_page_post_list">
-        <PostList v-bind:defaultTag="this.selectedTag"/>
-      </div>
       <div class="tag_nav">
            <ul class="Tag-ul">
             <li v-for="tag in allTags" :key="tag">
               <a @click="select(tag)">{{ tag }}</a>
             </li>
           </ul>
+      </div>
+      <div class="tag_page_post_list">
+        <PostList v-bind:defaultTag="this.selectedTag"/>
       </div>
     </div>
 </template>
@@ -94,5 +94,18 @@ export default {
   border: 0px;
   box-shadow: 0 4px 11px rgba(248, 250, 253, 0.35);
   transition: all 0.3s ease-in-out;
+}
+@media screen and (max-width: 600px) and (min-width: 300px) {
+  .tag_container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .tag_container .tag_page_post_list {
+    width: 100%;
+  }
+  .tag_container .tag_nav {
+    height: auto;
+    width: 100%;
+  }
 }
 </style>

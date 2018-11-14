@@ -1,6 +1,8 @@
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
 
-html{overflow-y:scroll;}
+html {
+  overflow-y: scroll;
+}
 
 html,
 body {
@@ -15,7 +17,8 @@ pre {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace !important;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace !important;
   line-height: 1.4;
 }
 
@@ -34,7 +37,7 @@ hr {
   position: relative;
 
   &:before {
-    content: "!";
+    content: '!';
     position: absolute;
     width: 25px;
     height: 25px;
@@ -50,9 +53,9 @@ hr {
   &.warning,
   &.danger {
     text-align: left;
-    padding: .1rem 1.5rem;
+    padding: 0.1rem 1.5rem;
     margin: 1rem 0;
-    border-left: .3rem solid;
+    border-left: 0.3rem solid;
   }
 
   &.tip {
@@ -104,16 +107,15 @@ table {
     padding: 0.6em 1em;
   }
 }
-.content{
-  h2:nth-child(2){
+.content {
+  h2:nth-child(2) {
     display: none;
   }
-  
 }
-.content h2{
+.content h2 {
   cursor: pointer;
 }
-.content h2:hover{
+.content h2:hover {
   color: #42b983;
 }
 
@@ -137,7 +139,7 @@ table {
   h6 {
     text-align: left;
     color: #444;
-    margin: .65em 0;
+    margin: 0.65em 0;
 
     &:hover .header-anchor {
       opacity: 1;
@@ -147,6 +149,9 @@ table {
   p {
     text-align: left;
     line-height: 1.65;
+    img {
+      width: 100%;
+    }
   }
 
   ul {
@@ -163,19 +168,83 @@ table {
     }
   }
 }
+@media screen and (max-width: 600px) and (min-width: 300px) {
+  .hljs {
+    border-radius: 0px;
+  }
+  .post-content {
+    .header-anchor {
+      font-size: 0.85em;
+      float: left;
+      margin-left: -0.8em;
+      padding-right: 0.23em;
+      margin-top: 0.125em;
+      opacity: 0;
+      text-decoration: none;
+      color: #3eaf7c;
+      cursor: pointer;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      text-align: left;
+      color: #444;
+      margin: 0.65em 0;
 
+      &:hover .header-anchor {
+        opacity: 1;
+      }
+    }
+    h1 {
+      font-size: 1.4rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+    }
+    h4 {
+      font-size: 1.1rem;
+    }
+    p {
+      text-align: left;
+      line-height: 1.65;
+      img {
+        width: 100%;
+      }
+    }
+
+    ul {
+      text-align: left;
+      li {
+        line-height: 1.65;
+      }
+    }
+
+    ol {
+      text-align: left;
+      li {
+        line-height: 1.65;
+      }
+    }
+  }
+}
 /*过渡效果*/
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .2s
+  transition: opacity 0.2s;
 }
 
 .fade-enter,
 .fade-leave-to /* .fade-leave-active below version 2.1.8 */
-{
-  opacity: 0
+ {
+  opacity: 0;
 }
 
-.hljs{
+.hljs {
   text-align: left;
 }

@@ -30,104 +30,104 @@
 </template>
 
 <script>
-import "highlight.js/styles/atom-one-dark.css";
-import { postData } from "../utils/data.js";
+import 'highlight.js/styles/atom-one-dark.css'
+import { postData } from '../utils/data.js'
 import moment from 'moment'
 export default {
-  name: "Post",
+  name: 'Post',
   data() {
     return {
       index: this.$route.query.index,
       currentPost: {},
       previous: {},
       next: {},
-      allPosts: JSON.parse(window.localStorage.getItem('currentPosts')||'[]')
-    };
+      allPosts: JSON.parse(window.localStorage.getItem('currentPosts') || '[]')
+    }
   },
   computed: {
     key() {
       return this.$route.query.index !== undefined
         ? this.$route.query.index + new Date()
-        : 0 + new Date();
+        : 0 + new Date()
     }
   },
   created() {
-    let index = this.$route.query.index;
-    this.currentPost = this.allPosts[index];
+    let index = this.$route.query.index
+    this.currentPost = this.allPosts[index]
     // 所有文档长度为1
     if (this.allPosts.length === 1) {
-      this.previous = this.allPosts[0];
-      this.previous.index = 0;
-      this.next = this.allPosts[0];
-      this.next.index = 0;
+      this.previous = this.allPosts[0]
+      this.previous.index = 0
+      this.next = this.allPosts[0]
+      this.next.index = 0
     } else if (index === 0) {
       // 第一个元素
-      this.previous = this.allPosts[this.allPosts.length - 1];
-      this.previous.index = this.allPosts.length - 1;
-      this.next = this.allPosts[index + 1];
-      this.next.index = index + 1;
+      this.previous = this.allPosts[this.allPosts.length - 1]
+      this.previous.index = this.allPosts.length - 1
+      this.next = this.allPosts[index + 1]
+      this.next.index = index + 1
     } else if (index === this.allPosts.length - 1) {
       // 最后一个元素
-      this.previous = this.allPosts[index - 1];
-      this.previous.index = index - 1;
-      this.next = this.allPosts[0];
-      this.next.index = 0;
+      this.previous = this.allPosts[index - 1]
+      this.previous.index = index - 1
+      this.next = this.allPosts[0]
+      this.next.index = 0
     } else {
       // 中间元素
-      this.previous = this.allPosts[index - 1];
-      this.previous.index = index - 1;
-      this.next = this.allPosts[index + 1];
-      this.next.index = index + 1;
+      this.previous = this.allPosts[index - 1]
+      this.previous.index = index - 1
+      this.next = this.allPosts[index + 1]
+      this.next.index = index + 1
     }
   },
   methods: {
-    handlePostLink: function(index, dir = "post") {
-      let postName = this.allPosts[index].name;
+    handlePostLink: function(index, dir = 'post') {
+      let postName = this.allPosts[index].name
       this.$router.push({
         path: `/${dir}/${postName}`,
         query: {
           index: index
         }
-      });
+      })
     }
   },
   filters: {
-     moment: function(date) {
+    moment: function(date) {
       return moment(date).format('MMMM Do YYYY')
     }
   },
   watch: {
     $route(to, from) {
-      let index = this.$route.query.index;
-      this.currentPost = this.allPosts[index];
+      let index = this.$route.query.index
+      this.currentPost = this.allPosts[index]
       // 所有文档长度为1
       if (this.allPosts.length === 1) {
-        this.previous = this.allPosts[0];
-        this.previous.index = 0;
-        this.next = this.allPosts[0];
-        this.next.index = 0;
+        this.previous = this.allPosts[0]
+        this.previous.index = 0
+        this.next = this.allPosts[0]
+        this.next.index = 0
       } else if (index === 0) {
         // 第一个元素
-        this.previous = this.allPosts[this.allPosts.length - 1];
-        this.previous.index = this.allPosts.length - 1;
-        this.next = this.allPosts[index + 1];
-        this.next.index = index + 1;
+        this.previous = this.allPosts[this.allPosts.length - 1]
+        this.previous.index = this.allPosts.length - 1
+        this.next = this.allPosts[index + 1]
+        this.next.index = index + 1
       } else if (index === this.allPosts.length - 1) {
         // 最后一个元素
-        this.previous = this.allPosts[index - 1];
-        this.previous.index = index - 1;
-        this.next = this.allPosts[0];
-        this.next.index = 0;
+        this.previous = this.allPosts[index - 1]
+        this.previous.index = index - 1
+        this.next = this.allPosts[0]
+        this.next.index = 0
       } else {
         // 中间元素
-        this.previous = this.allPosts[index - 1];
-        this.previous.index = index - 1;
-        this.next = this.allPosts[index + 1];
-        this.next.index = index + 1;
+        this.previous = this.allPosts[index - 1]
+        this.previous.index = index - 1
+        this.next = this.allPosts[index + 1]
+        this.next.index = index + 1
       }
     }
   }
-};
+}
 </script>
 
 <style scoped lang="scss">
@@ -225,11 +225,8 @@ export default {
   width: 12px;
   height: 12px;
   border: 12px solid #fff;
-  /* border-bottom-color: #58e39e; */
-  /* border-left-color: #fa7d7d; */
   border-right-color: #00000078;
   border-radius: 0px;
-  margin-left: 8rem;
 }
 
 .next-arrow {
@@ -238,6 +235,19 @@ export default {
   border: 12px solid #fff;
   border-left-color: #00000078;
   border-radius: 0px;
-  margin-right: 8rem;
+}
+@media screen and (max-width: 600px) and (min-width: 300px) {
+  .post-wrap {
+    margin: 1rem;
+  }
+  .post-wrap .post-content {
+    padding: 0rem;
+  }
+  .post-header h1 {
+    font-size: 1.4rem;
+  }
+  .post-header .post-time {
+    font-size: 1rem;
+  }
 }
 </style>
