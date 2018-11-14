@@ -61,7 +61,7 @@ export default {
       rgba(175, 175, 201, 0.42),
       rgba(175, 175, 201, 0.42)
     ),
-    url(../assets/landing.jpg);
+    url(https://ws1.sinaimg.cn/large/88b26e1cgy1fx7bqbh1y7j22b432wx6s.jpg);
   background-position: 0% 0%, center;
   background-repeat: repeat, no-repeat;
   background-size: auto, cover;
