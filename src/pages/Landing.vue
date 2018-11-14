@@ -18,9 +18,9 @@
           <a href="mailto:dendise7en@gmail.com"><awesome-icon name="envelope" scale='2'></awesome-icon></a>
           <a href="https://www.linkedin.com/in/%E7%BF%BC%E9%BE%99-%E5%94%90-826235130/"><awesome-icon name="brands/linkedin"></awesome-icon></a>
         </div>
-        <div class="to_blog_button">
+        <div class="to_blog_button" @click="handleRoute()">
           <p class="left_line line"></p>
-            <p class="to_blog_content" @click="handleRoute()">Vist blog</p>
+            <p class="to_blog_content">Visit blog</p>
           <p class="right_line line"></p>
         </div>
       </div>
@@ -200,6 +200,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   margin-top: 0.5rem;
+  min-height: 
 }
 .to_blog_button .line {
   width: 30%;
