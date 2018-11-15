@@ -29,30 +29,7 @@
       </div>
       <div class="section">
         <h3 class="section_header">Skills</h3>
-        <h3 class="section_subheader">
-          I 'm a <strong>Frontend Developer</strong> from Shanghai,CN. I aim to make a difference through my creative solution.
-        </h3>
-        <p> Worked with project teams to create user-friendly and appealing application interfaces and websites.
-          Cooperate with co-worker from different apartment of the company and do the best we can.
-        </p>
-        <div class="info_list">
-          <div class="info_line">
-            <div class="info_item">
-              <span class="info">Name:</span>Dendi.Tang
-            </div>
-            <div class="info_item">
-              <span class="info">Date of birth:</span>December 9,1992
-            </div>
-          </div>
-          <div class="info_line">
-            <div class="info_item">
-              <span class="info">Email:</span>dendise7en@gmail.com
-            </div>
-            <div class="info_item">
-              <span class="info">Phone:</span>+86 13391328920
-            </div>
-          </div>
-        </div>
+        <ProgressBarList></ProgressBarList>
       </div>
     </div>
 </template>
@@ -66,7 +43,7 @@ export default {
     }
   },
   components: {
-    PostList: () => import('../components/PostList')
+    ProgressBarList: () => import('../components/ProgressBarList')
   },
   methods: {
     select: function (tag) {
