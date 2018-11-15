@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../pages/Home'
 import Categories from '../pages/Categories'
-import About from '../pages/About'
+import Resume from '../pages/Resume'
 import Tags from '../pages/Tags'
 import pageroutes from './page'
 import Post from '../pages/Post'
@@ -25,9 +25,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
-      name: 'About',
-      component: About
+      path: '/resume',
+      name: 'Resume',
+      component: Resume
     }, {
       path: '/tags',
       name: 'Tags',

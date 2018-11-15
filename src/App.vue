@@ -5,7 +5,8 @@
         <div class="menu_bar_list">
           <span v-on:click="handleRouter('home')" class="menu_tags ">ALL POSTS</span>
           <span v-on:click="handleRouter('tags')" class="menu_tags ">TAGS</span>
-          <span v-on:click="handleRouter('landing')" class="menu_tags ">ABOUT</span>
+          <span v-on:click="handleRouter('resume')" class="menu_tags ">ABOUT</span>
+          <span v-on:click="handleRouter('landing')" class="menu_tags ">LANDING</span>
         </div>
       </div>
     </div>
@@ -23,13 +24,13 @@ import { postData } from './utils/data.js'
 import { getAllCategories } from './utils/datafilter.js'
 export default {
   name: 'App',
-  data() {
+  data () {
     return {
       menuFixed: false
     }
   },
   methods: {
-    handleRouter: function(dir, categorie = '') {
+    handleRouter: function (dir, categorie = '') {
       let path
       if (categorie) {
         path = `/${dir}?${dir}=${categorie}`
@@ -38,7 +39,7 @@ export default {
       }
       this.$router.push(path)
     },
-    menu: function() {
+    menu: function () {
       let scrollCount =
         document.body.scrollTop || document.documentElement.scrollTop
       if (scrollCount > 130) {
@@ -49,11 +50,11 @@ export default {
     }
   },
   computed: {
-    categories: function() {
+    categories: function () {
       return Array.from(new Set(getAllCategories(JSON.parse(postData))))
     }
   },
-  mounted() {
+  mounted () {
     window.addEventListener('scroll', this.menu)
   }
 }
