@@ -112,6 +112,12 @@ table {
     display: none;
   }
 }
+.content {
+  .auto_img {
+    width: auto;
+    display: flex;
+  }
+}
 .content h2 {
   cursor: pointer;
 }
@@ -154,6 +160,7 @@ table {
     }
     .auto_img {
       width: auto;
+      display: flex;
     }
   }
 
