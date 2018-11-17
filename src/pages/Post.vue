@@ -69,13 +69,13 @@ export default {
     } else if (index === this.allPosts.length - 1) {
       // 最后一个元素
       this.previous = this.allPosts[index - 1]
-      this.previous.index = index - 1
+      this.previous.index = index >= 1 ? index - 1 : index
       this.next = this.allPosts[0]
       this.next.index = 0
     } else {
       // 中间元素
       this.previous = this.allPosts[index - 1]
-      this.previous.index = index - 1
+      this.previous.index = index >= 1 ? index - 1 : index
       this.next = this.allPosts[index + 1]
       this.next.index = index + 1
     }
