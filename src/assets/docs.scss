@@ -151,12 +151,19 @@ table {
       opacity: 1;
     }
   }
+  h2, h3 {
+    margin-top: 3rem;
+  }
 
   p {
     text-align: left;
     line-height: 1.65;
     img {
       width: 100%;
+    }
+    code {
+      padding-left: 4px;
+      padding-right: 4px;
     }
     .auto_img {
       width: auto;

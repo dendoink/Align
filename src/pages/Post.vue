@@ -183,7 +183,7 @@ export default {
 .footer {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 2rem;
+  margin: 2rem 6rem;
 }
 .previous,
 .next {
