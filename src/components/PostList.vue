@@ -2,7 +2,8 @@
     <div class="post_list_container">
         <div v-show="rowsNumber === '1'" class="post_container" v-for="(post, index) in firstColumnPosts" :key="post.title">
             <header class="post_header">
-              <span class="post_date">{{post.daysAgo}}</span>
+              <!-- 这里加一个filter来显示对应的daysago的信息 -->
+              <span class="post_date">{{post.date | daysAgo}}</span>
               <h4 @click="handlePostLink(index)">{{post.title}}</h4>
             </header>
             <div class="post_entry">
@@ -19,7 +20,7 @@
         </div>
         <div v-show="rowsNumber === '2'" class="post_container" v-for="(post, index) in secondColumnPosts" :key="post.title">
             <header class="post_header">
-              <span class="post_date">{{post.daysAgo}}</span>
+              <span class="post_date">{{post.date | daysAgo}}</span>
               <h4 @click="handlePostLink(index)">{{post.title}}</h4>
             </header>
             <div class="post_entry">
@@ -36,7 +37,7 @@
         </div>
         <div v-show="rowsNumber === '3'" class="post_container" v-for="(post, index) in thirdColumnPosts" :key="post.title">
             <header class="post_header">
-              <span class="post_date">{{post.daysAgo}}</span>
+              <span class="post_date">{{post.date | daysAgo}}</span>
               <h4 @click="handlePostLink(index)">{{post.title}}</h4>
             </header>
             <div class="post_entry">
@@ -107,12 +108,12 @@ export default {
         result = getAllPostsByTag(result, this.defaultTag)
       } else {
         result.sort((a, b) => {
-          return a.daysAgo - b.daysAgo
+          return new Date(b.date) - new Date(a.date)
         })
         return result
       }
       result.sort((a, b) => {
-        return a.daysAgo - b.daysAgo
+        return new Date(b.date) - new Date(a.date)
       })
       return result
     },
@@ -165,6 +166,10 @@ export default {
   filters: {
     moment: function(date) {
       return moment(date).format('MMMM Do YYYY')
+    },
+    daysAgo: function(date) {
+      let days = new Date() - new Date(date)
+      return parseInt(days / (1000 * 60 * 60 * 24))
     }
   },
   created() {

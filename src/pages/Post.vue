@@ -16,6 +16,7 @@
           <span class="title-text">END</span>
           <span class="line"></span>
       </div>
+      <div id="gitalk-container"></div>
       <div class="footer">
           <div class="previous" @click="handlePostLink(previous.index)">
               <div class="previous-arrow"></div>
@@ -33,10 +34,21 @@
 import 'highlight.js/styles/atom-one-dark.css'
 import { postData } from '../utils/data.js'
 import moment from 'moment'
+import Gitalk from 'gitalk'
 export default {
   name: 'Post',
   data() {
     return {
+      gitalk: new Gitalk({
+        clientID: "5d97d2d1231c3eaf974d",
+        clientSecret: "544884e252a439b090e4f33c7d0cce3db521e87f",
+        repo: "PersonalSite",
+        owner: "DendiSe7enGitHub",
+        admin: ["DendiSe7enGitHub"],
+        id: window.location.hash, // 默认为pathname,如果你也是像我这样用vue搭建的，我建议使用hash，原因具体后面会讨论到。
+        distractionFreeMode: false, // Facebook-like distraction free mode
+        perPage: 20
+      }),
       index: this.$route.query.index,
       currentPost: {},
       previous: {},
@@ -126,6 +138,9 @@ export default {
         this.next.index = index + 1
       }
     }
+  },
+  mounted(){
+    this.gitalk.render("gitalk-container");
   }
 }
 </script>

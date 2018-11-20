@@ -23,10 +23,10 @@ module.exports = async function getData() {
             if (err) throw err;
             var result = matter(data);
             var post = Object.assign({}, result.data)
-            var date = new Date(`${post.date}`.replace(/-/g, "/"));
-            var currentDate = new Date();
-            var days = currentDate.getTime() - date.getTime();
-            post.daysAgo = parseInt(days / (1000 * 60 * 60 * 24));
+            // var date = new Date(`${post.date}`.replace(/-/g, "/"));
+            // var currentDate = new Date();
+            // var days = currentDate.getTime() - date.getTime();
+            // post.daysAgo = parseInt(days / (1000 * 60 * 60 * 24));
             // 当文章的内容不为空时，添加文章对象到数组中
             if (post.contents  !== '') {
               post.contents = '';
