@@ -90,5 +90,29 @@ let pageroutes = [
   {
     path: "/Tutorial/2018-11-14-Life",
     component: () => import('../posts/2018-11-14-Life.md')
+  },
+  {
+    path: "/LIFE/2018-11-23-Async",
+    component: () => import('../posts/2018-11-23-Async.md')
+  },
+  {
+    path: "/post/2018-11-23-Async",
+    component: () => import('../posts/2018-11-23-Async.md')
+  },
+  {
+    path: "/Javascript/2018-11-23-Async",
+    component: () => import('../posts/2018-11-23-Async.md')
+  },
+  {
+    path: "/Async/2018-11-23-Async",
+    component: () => import('../posts/2018-11-23-Async.md')
+  },
+  {
+    path: "/Generator/2018-11-23-Async",
+    component: () => import('../posts/2018-11-23-Async.md')
+  },
+  {
+    path: "/Promise/2018-11-23-Async",
+    component: () => import('../posts/2018-11-23-Async.md')
   }]
 export default pageroutes
