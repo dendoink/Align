@@ -137,9 +137,6 @@ export default {
         this.next.index = index + 1
       }
     }
-  },
-  mounted(){
-    // this.gitalk.render("gitalk-container");
   }
 }
 </script>
