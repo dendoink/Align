@@ -54,7 +54,6 @@ export default {
   },
   created() {
     let index = Number(this.$route.query.index)
-    debugger
     this.currentPost = this.allPosts[index]
     // 所有文档长度为1
     if (this.allPosts.length === 1) {
@@ -262,5 +261,17 @@ export default {
   .post-header .post-time {
     font-size: 1rem;
   }
+  .footer{
+    margin: 0rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+  .previous span{
+    margin-left: 0.5rem;
+  }
+  .next span{
+    margin-right: 0.5rem;
+  }
 }
+
 </style>

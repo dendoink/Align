@@ -55,7 +55,7 @@ export default {
 <style scoped>
 .resume_container {
   width: 60%;
-  font: 400 14px 'Poppins', sans-serif;
+  font: 400 1rem 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   line-height: 30px;
   color: #727272;
@@ -139,6 +139,16 @@ h3 {
   .tag_container .tag_nav {
     height: auto;
     width: 100%;
+  }
+  .resume_container {
+    width: 90%;
+  }
+  .info_line{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .section .section_subheader{
+    font-size: 1.2rem;
   }
 }
 </style>

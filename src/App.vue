@@ -3,34 +3,32 @@
     <div :class="menuFixed ? 'header header-fixed' : 'header'">
       <div class="menu_bar">
         <div class="menu_bar_list">
-          <span v-on:click="handleRouter('home')" class="menu_tags ">ALL POSTS</span>
-          <span v-on:click="handleRouter('tags')" class="menu_tags ">TAGS</span>
-          <span v-on:click="handleRouter('resume')" class="menu_tags ">ABOUT</span>
-          <span v-on:click="handleRouter('landing')" class="menu_tags ">LANDING</span>
+          <span v-on:click="handleRouter('home')" class="menu_tags">ALL POSTS</span>
+          <span v-on:click="handleRouter('tags')" class="menu_tags">TAGS</span>
+          <span v-on:click="handleRouter('resume')" class="menu_tags">ABOUT</span>
+          <span v-on:click="handleRouter('landing')" class="menu_tags landing_tag">LANDING</span>
         </div>
       </div>
     </div>
     <!-- <div class="post_list"> -->
     <router-view class="router-view"/>
     <!-- </div> -->
-    <div class="copy-right">
-      © Dendoink. All rights reserved.
-    </div>
+    <div class="copy-right">© Dendoink. All rights reserved.</div>
   </div>
 </template>
 
 <script scoped>
-import { postData } from './utils/data.js'
-import { getAllCategories } from './utils/datafilter.js'
+import { postData } from "./utils/data.js";
+import { getAllCategories } from "./utils/datafilter.js";
 export default {
-  name: 'App',
-  data () {
+  name: "App",
+  data() {
     return {
       menuFixed: false
     }
   },
   methods: {
-    handleRouter: function (dir, categorie = '') {
+    handleRouter: function(dir, categorie = "") {
       let path
       if (categorie) {
         path = `/${dir}?${dir}=${categorie}`
@@ -39,7 +37,7 @@ export default {
       }
       this.$router.push(path)
     },
-    menu: function () {
+    menu: function() {
       let scrollCount =
         document.body.scrollTop || document.documentElement.scrollTop
       if (scrollCount > 130) {
@@ -50,19 +48,19 @@ export default {
     }
   },
   computed: {
-    categories: function () {
+    categories: function() {
       return Array.from(new Set(getAllCategories(JSON.parse(postData))))
     }
   },
-  mounted () {
-    window.addEventListener('scroll', this.menu)
+  mounted() {
+    window.addEventListener("scroll", this.menu)
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -75,7 +73,7 @@ export default {
 .avatar {
   height: 3rem;
   width: 3rem;
-  background-image: url('./assets/avatar.png');
+  background-image: url("./assets/avatar.png");
   background-size: cover;
   display: block;
   border-radius: 50%;
@@ -193,6 +191,15 @@ export default {
 }
 @media screen and (max-width: 600px) and (min-width: 300px) {
   .copy-right {
+    display: none;
+  }
+  .menu_tags:hover {
+    color: #5a8492;
+    border-bottom: 1px solid #5a8492;
+    transition: all 0.2s ease;
+    padding-right: 0rem;
+  }
+  .landing_tag {
     display: none;
   }
 }

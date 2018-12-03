@@ -59,9 +59,10 @@ export default {
   height: 100vh;
 }
 .tag_nav ul {
-  padding-left: 1rem;
   list-style: none;
   margin-top: 2rem;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 .tag_nav ul li {
   list-style-type: none;
@@ -106,6 +107,17 @@ export default {
   .tag_container .tag_nav {
     height: auto;
     width: 100%;
+  }
+  .tag_nav ul li a{
+    font-size: 0.5rem;
+  }
+  .tag_nav ul li a:hover {
+    font-weight: auto;
+    background: #4caf506e;
+    color: #ffffff;
+    border: 0px;
+    box-shadow: 0 4px 11px rgba(248, 250, 253, 0.35);
+    transition: all 0.3s ease-in-out;
   }
 }
 </style>

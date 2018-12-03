@@ -579,7 +579,7 @@ export default {
     padding-right: 1rem;
   }
   .post_info_list .post_info_ul .post_info_item .post_info_head {
-    font-size: 1rem;
+    font-size: 0.5rem;
     min-width: 50%;
   }
 }
