@@ -53,7 +53,8 @@ export default {
     }
   },
   created() {
-    let index = this.$route.query.index
+    let index = Number(this.$route.query.index)
+    debugger
     this.currentPost = this.allPosts[index]
     // 所有文档长度为1
     if (this.allPosts.length === 1) {
@@ -99,7 +100,7 @@ export default {
   },
   watch: {
     $route(to, from) {
-      let index = this.$route.query.index
+      let index = Number(this.$route.query.index)
       this.currentPost = this.allPosts[index]
       // 所有文档长度为1
       if (this.allPosts.length === 1) {
