@@ -32,6 +32,7 @@
 
 <script>
 import 'highlight.js/styles/atom-one-dark.css'
+import { postData } from '../utils/data.js'
 import moment from 'moment'
 export default {
   name: 'Post',
@@ -41,7 +42,7 @@ export default {
       currentPost: {},
       previous: {},
       next: {},
-      allPosts: JSON.parse(window.localStorage.getItem('currentPosts') || '[]')
+      allPosts: JSON.parse(window.localStorage.getItem('currentPosts') || postData)
     }
   },
   computed: {
