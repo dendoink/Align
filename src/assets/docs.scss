@@ -130,15 +130,8 @@ table {
 
 .post-content {
   .header-anchor {
-    font-size: 0.85em;
-    float: left;
-    margin-left: -0.8em;
-    padding-right: 0.23em;
-    margin-top: 0.125em;
     opacity: 0;
-    text-decoration: none;
-    color: #3eaf7c;
-    cursor: pointer;
+    color: #fff;
   }
   h1,
   h2,
@@ -152,12 +145,25 @@ table {
 
     &:hover .header-anchor {
       opacity: 1;
+      color: #fff;
     }
   }
   h2, h3 {
     margin-top: 3rem;
   }
-
+  h3 {
+    display: block;
+    margin-top: 28px;
+    margin-bottom: 14px;
+    background-color: transparent;
+    color: rgb(54, 54, 54);
+    text-align: left;
+    font-weight: 700;
+    font-size: 24px;
+    font-family: Tahoma, Arial, "Hiragino Sans GB", 冬青黑, "Microsoft YaHei", 微软雅黑, SimSun, 宋体, Heiti, 黑体, sans-serif;
+    line-height: 32px;
+    border-left: 5px solid rgb(255, 200, 31);
+  }
   p {
     text-align: left;
     line-height: 1.65;
@@ -194,15 +200,8 @@ table {
   }
   .post-content {
     .header-anchor {
-      font-size: 0.85em;
-      float: left;
-      margin-left: -0.8em;
-      padding-right: 0.23em;
-      margin-top: 0.125em;
       opacity: 0;
-      text-decoration: none;
-      color: #3eaf7c;
-      cursor: pointer;
+      color: #fff;
     }
     h1,
     h2,
@@ -216,6 +215,7 @@ table {
 
       &:hover .header-anchor {
         opacity: 1;
+        color: #fff;
       }
     }
     h1 {

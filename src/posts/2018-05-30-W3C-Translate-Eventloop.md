@@ -15,11 +15,11 @@ coverimg: "https://ws1.sinaimg.cn/large/88b26e1cgy1fx5b4q44dcj21lv280e81.jpg"
 
 # Event loops
 
-## 定义
+### 定义
 
 为了协调事件，用户交互，脚本，渲染，网络系统之类的。用户代理必须用`event loop`来描述。有两种`event loop`机制，在browsing contexts环境中的和在workers环境中的的。
 
-### browsing contexts event loop
+#### browsing contexts event loop
 在每一个用户代理中，至少要有一个browsing context `event loop`，并且最多只能有一个unit of related similar-origin browsing contexts `event loop`。
 
 :::tip
@@ -35,11 +35,11 @@ coverimg: "https://ws1.sinaimg.cn/large/88b26e1cgy1fx5b4q44dcj21lv280e81.jpg"
 一个`browsing context event loop`至少要有一个对应的浏览器上下文环境，如果它对应的上下文环境都已经没有了，那`event loop`也结束了。
 :::
 
-### workers event loop
+#### workers event loop
 相对于`browsing context event loop`来说，`workers event loop`会简单很多.
 每一个`workers`有一个`event loop`并且`worker processing model `来管理`event loop`的生命周期
 
-### Task queues & event loop
+#### Task queues & event loop
 一个`event loop`有一个或者多个任务队列，一个任务队列是一系列命令的列表，用来执行类似于以下类型工作的计算:
 
 * Events
@@ -81,7 +81,7 @@ HTML parser 令牌化一个或者多个字节，然后加工一些`resulting tok
 `performing a microtask checkpoint flag`的值被设置为`true` 而在此时，如果再进行调用，则会被拒绝。
 
 
-## 处理过程模型
+### 处理过程模型
 
 当下面这些步骤存在时，一个`event loop`必须一直按照这些步骤保持执行：
 

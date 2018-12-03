@@ -166,11 +166,17 @@ export default {
   display: flex;
   margin: 2rem 6rem 0px 6rem;
   border-radius: 2px;
+  justify-content: center;
   .post-content {
-    display: block;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    padding: 0rem 4.5rem 4.5em 4.5rem;
-    width: 100%;
+    max-width: 1000px;
+    background: #ffffff94;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 50px;
+    border-radius: 10px;
   }
 }
 .widget-title {
