@@ -142,6 +142,7 @@ h3 {
   }
   .resume_container {
     width: 90%;
+    padding: 0%;
   }
   .info_line{
     flex-direction: column;
