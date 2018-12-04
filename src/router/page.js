@@ -32,18 +32,6 @@ let pageroutes = [
     component: () => import('../posts/2018-05-20-Vuepress.md')
   },
   {
-    path: "/LIFE/2018-05-27-Begin",
-    component: () => import('../posts/2018-05-27-Begin.md')
-  },
-  {
-    path: "/post/2018-05-27-Begin",
-    component: () => import('../posts/2018-05-27-Begin.md')
-  },
-  {
-    path: "/Life/2018-05-27-Begin",
-    component: () => import('../posts/2018-05-27-Begin.md')
-  },
-  {
     path: "/HTML5/2018-05-30-W3C-Translate-Eventloop",
     component: () => import('../posts/2018-05-30-W3C-Translate-Eventloop.md')
   },
