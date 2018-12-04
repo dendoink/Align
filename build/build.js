@@ -17,7 +17,7 @@ const moment = require('moment')
 const spinner = ora('building for production...')
 spinner.start()
 getData()
-const commitMessage = process.argv.length === 3 ? process.argv[2] : `AutoUpdate${moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}`
+const commitMessage = process.argv.length === 3 ? `${process.argv[2]}:[${moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}]` : `AutoUpdate:[${moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}]`
 async function autoUpdate() {
   console.log(chalk.cyan(
     `Start to upload whole project to coding.net`
