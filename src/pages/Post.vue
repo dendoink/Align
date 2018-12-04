@@ -14,7 +14,6 @@
       <span class="title-text">END</span>
       <span class="line"></span>
     </div>
-    <!-- <div id="gitalk-container"></div> -->
     <div class="footer">
       <div class="previous" @click="handlePostLink(previous.index)">
         <div class="previous-arrow"></div>
@@ -242,11 +241,6 @@ export default {
   border: 12px solid #fff;
   border-left-color: #00000078;
   border-radius: 0px;
-}
-.gitalk-container .gt-container {
-  margin-left: auto;
-  max-width: 80%;
-  margin-right: auto;
 }
 @media screen and (max-width: 1000px) and (min-width: 300px) {
   .post-wrap {

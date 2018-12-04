@@ -6,6 +6,7 @@ const path = require('path')
 const moment = require('moment')
 module.exports = {
   commitMessage: process.argv.length === 3 ? `${process.argv[2]}:[${moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}]` : `AutoUpdate:[${moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}]`,
+  distOriginSSh: 'git@git.coding.net:dendise7en/static-site-source.git',
   dev: {
 
     // Paths

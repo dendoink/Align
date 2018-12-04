@@ -11,7 +11,8 @@ const webpack = require('webpack')
 const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
 const getData = require('./datagen')
-const execa = require('execa')
+const shell = require('shelljs')
+// const execa = require('execa')
 
 
 const spinner = ora('building for production...')
@@ -21,15 +22,28 @@ async function autoUpdate() {
   console.log(chalk.cyan(
     `Start to upload whole project to coding.net`
   ))
-  await execa('git', ['add', '-A'], { stdio: 'inherit' })
-  await execa('git', ['commit', '-m', config.commitMessage], { stdio: 'inherit' })
-  await execa('git', ['push', 'origin', 'master', '-f'], { stdio: 'inherit' })
-  await execa('cd', ['dist/'], { stdio: 'inherit' })
-  await execa('git', ['init'], { stdio: 'inherit' })
-  await execa('git', ['remote','add','origin','git@git.coding.net:dendise7en/static-site-source.git'], { stdio: 'inherit' })
-  await execa('git', ['add', '-A'], { stdio: 'inherit' })
-  await execa('git', ['commit', '-m', config.commitMessage], { stdio: 'inherit' })
-  await execa('git', ['push', 'origin', 'master', '-f'], { stdio: 'inherit' })
+  if (!shell.which('git')) {
+    //向命令行打印git命令不可用的提示信息
+    shell.echo('Sorry, this script requires git');
+    //退出当前进程
+    shell.exit(1);
+  }
+  // 推送当前目录代码
+  await shell.exec('git add .')
+  await shell.exec(`git commit -m '${config.commitMessage}'`).code
+  await shell.echo('git push origin master -f');
+  // 推送子目录代码
+  await shell.cd('dist');
+  await shell.exec('git init')
+  await shell.exec(`git add origin '${config.distOriginSSh}'`)
+  await shell.exec('git add .')
+  let code = await shell.exec(`git commit -m '${config.commitMessage}'`).code
+  if (code !== 0) {
+    await shell.echo('Error: Git commit failed');
+    await shell.exit(100);
+  } else {
+    await shell.echo('git push origin master -f');
+  }
   console.log(chalk.green(
     `finished`
   ))
