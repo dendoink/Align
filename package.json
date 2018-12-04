@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "execa": "^1.0.0",
     "gitalk": "^1.4.1",
     "gray-matter": "^4.0.1",
     "highlight.js": "^9.12.0",
