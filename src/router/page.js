@@ -130,5 +130,21 @@ let pageroutes = [
   {
     path: "/Vue/2018-12-03-demo",
     component: () => import('../posts/2018-12-03-demo.md')
+  },
+  {
+    path: "/Demo/2019-12-04-demo",
+    component: () => import('../posts/2019-12-04-demo.md')
+  },
+  {
+    path: "/post/2019-12-04-demo",
+    component: () => import('../posts/2019-12-04-demo.md')
+  },
+  {
+    path: "/Tutorial/2019-12-04-demo",
+    component: () => import('../posts/2019-12-04-demo.md')
+  },
+  {
+    path: "/Vue/2019-12-04-demo",
+    component: () => import('../posts/2019-12-04-demo.md')
   }]
 export default pageroutes
