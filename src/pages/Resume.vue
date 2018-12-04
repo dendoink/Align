@@ -128,7 +128,7 @@ h3 {
   font-weight: 600;
   margin-right: 1rem;
 }
-@media screen and (max-width: 600px) and (min-width: 300px) {
+@media screen and (max-width: 1000px) and (min-width: 300px) {
   .tag_container {
     flex-direction: column;
     width: 100%;

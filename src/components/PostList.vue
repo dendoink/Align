@@ -142,12 +142,7 @@ export default {
         JSON.stringify(this.currentPosts)
       )
       let postName = this.currentPosts[index].name
-      this.$router.push({
-        path: `/${dir}/${postName}`,
-        query: {
-          index: index
-        }
-      })
+      this.$router.push(`/${dir}/${postName}`)
     },
     sliceArray: function(array) {
       for (let x = 0; x < array.length; x += 3) {
@@ -569,7 +564,7 @@ export default {
     opacity: 1;
   }
 }
-@media screen and (max-width: 600px) and (min-width: 300px) {
+@media screen and (max-width: 1000px) and (min-width: 300px) {
   .post_list_container {
     flex-direction: column;
     width: 100%;

@@ -273,7 +273,7 @@ export default {
     opacity: 1;
   }
 }
-@media screen and (max-width: 600px) and (min-width: 300px) {
+@media screen and (max-width: 1000px) and (min-width: 300px) {
   .landing_outter .landing_main {
     width: 20rem;
     height: 30rem;

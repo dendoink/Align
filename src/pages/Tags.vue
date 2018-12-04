@@ -96,7 +96,7 @@ export default {
   box-shadow: 0 4px 11px rgba(248, 250, 253, 0.35);
   transition: all 0.3s ease-in-out;
 }
-@media screen and (max-width: 600px) and (min-width: 300px) {
+@media screen and (max-width: 1000px) and (min-width: 300px) {
   .tag_container {
     flex-direction: column;
     width: 100%;

@@ -1,134 +1,134 @@
 <template>
   <div>
-      <div class="post-wrap">
-          <div class="post-content">
-              <div class="post-header">
-                <h1>{{currentPost.title}}</h1>
-                <span class="post-time">
-                    {{currentPost.date | moment}}
-                </span>
-              </div>
-              <router-view :key="key"/>
-          </div>
+    <div class="post-wrap">
+      <div class="post-content">
+        <div class="post-header">
+          <h1>{{currentPost.title}}</h1>
+          <span class="post-time">{{currentPost.date | moment}}</span>
+        </div>
+        <router-view :key="key"/>
       </div>
-      <div class="widget-title">
-          <span class="line"></span>
-          <span class="title-text">END</span>
-          <span class="line"></span>
+    </div>
+    <div class="widget-title">
+      <span class="line"></span>
+      <span class="title-text">END</span>
+      <span class="line"></span>
+    </div>
+    <!-- <div id="gitalk-container"></div> -->
+    <div class="footer">
+      <div class="previous" @click="handlePostLink(previous.index)">
+        <div class="previous-arrow"></div>
+        <span>上一篇: {{previous.title}}</span>
       </div>
-      <!-- <div id="gitalk-container"></div> -->
-      <div class="footer">
-          <div class="previous" @click="handlePostLink(previous.index)">
-              <div class="previous-arrow"></div>
-              <span>上一篇: {{previous.title}}</span>
-          </div>
-          <div class="next" @click="handlePostLink(next.index)">
-              <span>下一篇 {{next.title}}</span>
-              <div class="next-arrow"></div>
-          </div>
+      <div class="next" @click="handlePostLink(next.index)">
+        <span>下一篇 {{next.title}}</span>
+        <div class="next-arrow"></div>
       </div>
+    </div>
   </div>
 </template>
 
 <script>
-import 'highlight.js/styles/atom-one-dark.css'
-import { postData } from '../utils/data.js'
-import moment from 'moment'
+import "highlight.js/styles/atom-one-dark.css";
+import { postData } from "../utils/data.js";
+import moment from "moment";
 export default {
-  name: 'Post',
+  name: "Post",
   data() {
     return {
       index: this.$route.query.index,
       currentPost: {},
       previous: {},
       next: {},
-      allPosts: JSON.parse(window.localStorage.getItem('currentPosts') || postData)
-    }
+      allPosts:
+        window.innerWidth <= 1000
+          ? JSON.parse(postData)
+          : JSON.parse(window.localStorage.getItem("currentPosts") || postData)
+    };
   },
   computed: {
     key() {
       return this.$route.query.index !== undefined
         ? this.$route.query.index + new Date()
-        : 0 + new Date()
+        : 0 + new Date();
     }
   },
   created() {
-    let index = Number(this.$route.query.index)
-    this.currentPost = this.allPosts[index]
+    let index = this.allPosts.findIndex(item => {
+      return item.name === this.$route.path.split("/")[2];
+    });
+    this.currentPost = this.allPosts[index];
     // 所有文档长度为1
     if (this.allPosts.length === 1) {
-      this.previous = this.allPosts[0]
-      this.previous.index = 0
-      this.next = this.allPosts[0]
-      this.next.index = 0
+      this.previous = this.allPosts[0];
+      this.previous.index = 0;
+      this.next = this.allPosts[0];
+      this.next.index = 0;
     } else if (index === 0) {
       // 第一个元素
-      this.previous = this.allPosts[this.allPosts.length - 1]
-      this.previous.index = this.allPosts.length - 1
-      this.next = this.allPosts[index + 1]
-      this.next.index = index + 1
+      this.previous = this.allPosts[this.allPosts.length - 1];
+      this.previous.index = this.allPosts.length - 1;
+      this.next = this.allPosts[index + 1];
+      this.next.index = index + 1;
     } else if (index === this.allPosts.length - 1) {
       // 最后一个元素
-      this.previous = this.allPosts[index - 1]
-      this.previous.index = index >= 1 ? index - 1 : index
-      this.next = this.allPosts[0]
-      this.next.index = 0
+      this.previous = this.allPosts[index - 1];
+      this.previous.index = index >= 1 ? index - 1 : index;
+      this.next = this.allPosts[0];
+      this.next.index = 0;
     } else {
       // 中间元素
-      this.previous = this.allPosts[index - 1]
-      this.previous.index = index >= 1 ? index - 1 : index
-      this.next = this.allPosts[index + 1]
-      this.next.index = index + 1
+      this.previous = this.allPosts[index - 1];
+      this.previous.index = index >= 1 ? index - 1 : index;
+      this.next = this.allPosts[index + 1];
+      this.next.index = index + 1;
     }
   },
   methods: {
-    handlePostLink: function(index, dir = 'post') {
-      let postName = this.allPosts[index].name
-      this.$router.push({
-        path: `/${dir}/${postName}`,
-        query: {
-          index: index
-        }
-      })
+    handlePostLink: function(index, dir = "post") {
+      let postName = this.allPosts[index].name;
+      this.$router.push(`/${dir}/${postName}`);
     }
   },
   filters: {
     moment: function(date) {
-      return moment(date).format('MMMM Do YYYY')
+      return moment(date).format("MMMM Do YYYY");
     }
   },
   watch: {
     $route(to, from) {
-      let index = Number(this.$route.query.index)
-      this.currentPost = this.allPosts[index]
+      let index = this.allPosts.findIndex(item => {
+        return item.name === this.$route.path.split("/")[2];
+      });
+      this.currentPost = this.allPosts[index];
       // 所有文档长度为1
       if (this.allPosts.length === 1) {
-        this.previous = this.allPosts[0]
-        this.previous.index = 0
-        this.next = this.allPosts[0]
-        this.next.index = 0
+        this.previous = this.allPosts[0];
+        this.previous.index = 0;
+        this.next = this.allPosts[0];
+        this.next.index = 0;
       } else if (index === 0) {
         // 第一个元素
-        this.previous = this.allPosts[this.allPosts.length - 1]
-        this.previous.index = this.allPosts.length - 1
-        this.next = this.allPosts[index + 1]
-        this.next.index = index + 1
+        this.previous = this.allPosts[this.allPosts.length - 1];
+        this.previous.index = this.allPosts.length - 1;
+        this.next = this.allPosts[index + 1];
+        this.next.index = index + 1;
       } else if (index === this.allPosts.length - 1) {
         // 最后一个元素
-        this.previous = this.allPosts[index - 1]
-        this.previous.index = index - 1
-        this.next = this.allPosts[0]
-        this.next.index = 0
+        this.previous = this.allPosts[index - 1];
+        this.previous.index = index - 1;
+        this.next = this.allPosts[0];
+        this.next.index = 0;
       } else {
         // 中间元素
-        this.previous = this.allPosts[index - 1]
-        this.previous.index = index - 1
-        this.next = this.allPosts[index + 1]
-        this.next.index = index + 1
+        this.previous = this.allPosts[index - 1];
+        this.previous.index = index - 1;
+        this.next = this.allPosts[index + 1];
+        this.next.index = index + 1;
       }
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -243,12 +243,12 @@ export default {
   border-left-color: #00000078;
   border-radius: 0px;
 }
-.gitalk-container .gt-container{
+.gitalk-container .gt-container {
   margin-left: auto;
   max-width: 80%;
   margin-right: auto;
 }
-@media screen and (max-width: 600px) and (min-width: 300px) {
+@media screen and (max-width: 1000px) and (min-width: 300px) {
   .post-wrap {
     margin: 1rem;
   }
@@ -261,17 +261,19 @@ export default {
   .post-header .post-time {
     font-size: 1rem;
   }
-  .footer{
+  .footer {
     margin: 0rem;
     margin-top: 1rem;
     margin-bottom: 2rem;
   }
-  .previous span{
+  .previous span {
     margin-left: 0.5rem;
   }
-  .next span{
+  .next span {
     margin-right: 0.5rem;
   }
+  .post_meta {
+  width: 100%; 
+  }
 }
-
 </style>

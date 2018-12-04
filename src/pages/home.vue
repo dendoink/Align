@@ -20,11 +20,6 @@ export default {
   },
   components: {
     PostList: () => import('../components/PostList')
-  },
-  methods: {
-    // handlePostLink: function (postName, dir = 'post') {
-    //   this.$router.push({path: `/${dir}/${postName}`, query: { postname: postName }})
-    // }
   }
 }
 </script>
@@ -39,7 +34,7 @@ export default {
 .home_post_list {
   display: flex;
 }
-@media screen and (max-width: 600px) and (min-width: 300px) {
+@media screen and (max-width: 1000px) and (min-width: 300px) {
   .home_post_list {
     display: flex;
     flex-direction: column;

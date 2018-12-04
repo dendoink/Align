@@ -189,7 +189,7 @@ export default {
 .dropdown:hover .dropbtn {
   color: #5a8492;
 }
-@media screen and (max-width: 600px) and (min-width: 300px) {
+@media screen and (max-width: 1000px) and (min-width: 300px) {
   .copy-right {
     display: none;
   }
