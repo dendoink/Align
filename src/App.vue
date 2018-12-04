@@ -18,8 +18,8 @@
 </template>
 
 <script scoped>
-import { postData } from "./utils/data.js";
-import { getAllCategories } from "./utils/datafilter.js";
+import { postData } from "./utils/data.js"
+import { getAllCategories } from "./utils/datafilter.js"
 export default {
   name: "App",
   data() {
