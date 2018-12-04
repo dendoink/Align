@@ -31,7 +31,10 @@ async function autoUpdate() {
   // 推送当前目录代码
   await shell.exec('git add .')
   await shell.exec(`git commit -m '${config.commitMessage}'`).code
-  await shell.echo('git push origin master -f');
+  await shell.exec('git push origin master -f');
+  console.log(chalk.green(
+    `main dir-> succeed`
+  ))
   console.log(chalk.cyan(
     `Start to upload dist to coding.net`
   ))
@@ -46,11 +49,11 @@ async function autoUpdate() {
     await shell.echo('Error: Git commit failed');
     await shell.exit(100);
   } else {
-    await shell.echo('git push origin master -f');
+    await shell.exec('git push origin master -f');
+    console.log(chalk.green(
+      `dist-> succeed`
+    ))
   }
-  console.log(chalk.green(
-    `finished`
-  ))
 }
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
   if (err) throw err
