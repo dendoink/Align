@@ -35,7 +35,7 @@ async function autoUpdate() {
   // 推送子目录代码
   await shell.cd('dist');
   await shell.exec('git init')
-  await shell.exec(`git add origin '${config.distOriginSSh}'`)
+  await shell.exec(`git remote add origin '${config.distOriginSSh}'`)
   await shell.exec('git add .')
   let code = await shell.exec(`git commit -m '${config.commitMessage}'`).code
   if (code !== 0) {
