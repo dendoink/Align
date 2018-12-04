@@ -47,7 +47,7 @@ async function autoUpdate() {
   let code = await shell.exec(`git commit -m '${config.commitMessage}'`).code
   if (code !== 0) {
     await shell.echo('Error: Git commit failed');
-    await shell.exit(100);
+    await shell.exit(code);
   } else {
     await shell.exec('git push origin master -f');
     console.log(chalk.green(
