@@ -32,6 +32,9 @@ async function autoUpdate() {
   await shell.exec('git add .')
   await shell.exec(`git commit -m '${config.commitMessage}'`).code
   await shell.echo('git push origin master -f');
+  console.log(chalk.cyan(
+    `Start to upload dist to coding.net`
+  ))
   // 推送子目录代码
   await shell.cd('dist');
   await shell.exec(config.initLocal)
