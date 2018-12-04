@@ -3,8 +3,9 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-
+const moment = require('moment')
 module.exports = {
+  commitMessage: process.argv.length === 3 ? `${process.argv[2]}:[${moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}]` : `AutoUpdate:[${moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}]`,
   dev: {
 
     // Paths

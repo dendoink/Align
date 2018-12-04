@@ -12,19 +12,23 @@ const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
 const getData = require('./datagen')
 const execa = require('execa')
-const moment = require('moment')
+
 
 const spinner = ora('building for production...')
 spinner.start()
 getData()
-const commitMessage = process.argv.length === 3 ? `${process.argv[2]}:[${moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}]` : `AutoUpdate:[${moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}]`
 async function autoUpdate() {
   console.log(chalk.cyan(
     `Start to upload whole project to coding.net`
   ))
-  await execa('git', ['status'], { stdio: 'inherit' })
   await execa('git', ['add', '-A'], { stdio: 'inherit' })
-  await execa('git', ['commit', '-m', commitMessage], { stdio: 'inherit' })
+  await execa('git', ['commit', '-m', config.commitMessage], { stdio: 'inherit' })
+  await execa('git', ['push', 'origin', 'master', '-f'], { stdio: 'inherit' })
+  await execa('cd', ['dist/'], { stdio: 'inherit' })
+  await execa('git', ['init'], { stdio: 'inherit' })
+  await execa('git', ['remote','add','origin','git@git.coding.net:dendise7en/static-site-source.git'], { stdio: 'inherit' })
+  await execa('git', ['add', '-A'], { stdio: 'inherit' })
+  await execa('git', ['commit', '-m', config.commitMessage], { stdio: 'inherit' })
   await execa('git', ['push', 'origin', 'master', '-f'], { stdio: 'inherit' })
   console.log(chalk.green(
     `finished`
