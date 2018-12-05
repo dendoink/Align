@@ -22,9 +22,11 @@
   </body>
 </html>
 <script>
-var disqus_config = () => {
-  this.page.url = location.href;
-  this.page.identifier = location.href;
+window.disqus_config = () => {
+  if (this.page) {
+    this.page.url = location.href;
+    this.page.identifier = location.hash;
+  }
 };
 (function() {
   // DON'T EDIT BELOW THIS LINE
