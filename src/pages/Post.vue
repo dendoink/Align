@@ -156,7 +156,7 @@ export default {
 }
 .post-wrap {
   display: flex;
-  margin: 2rem 6rem 0px 6rem;
+  margin: 6rem 6rem 0px 6rem;
   border-radius: 2px;
   justify-content: center;
   .post-content {
