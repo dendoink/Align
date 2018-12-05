@@ -1,91 +1,140 @@
 <template>
-    <div class="post_list_container">
-        <div v-show="rowsNumber === '1'" class="post_container" v-for="(post, index) in firstColumnPosts" :key="post.title">
-            <header class="post_header">
-              <!-- 这里加一个filter来显示对应的daysago的信息 -->
-              <span class="post_date">{{post.date | daysAgo}}</span>
-              <h4 @click="handlePostLink(index)">{{post.title}}</h4>
-            </header>
-            <div class="post_entry">
-              <img class="img-responsive" @click="handlePostLink(index)" v-bind:src="post.coverimg" v-bind:alt="post.title">
-            </div>
-            <div class="post_meta">
-                <p class="post_info">
-                        {{post.info}}
-                </p>
-                <template v-for="tag in post.tags">
-                  <span class="tag" :key="tag">{{tag}}</span>
-                </template>
-            </div>
-        </div>
-        <div v-show="rowsNumber === '2'" class="post_container" v-for="(post, index) in secondColumnPosts" :key="post.title">
-            <header class="post_header">
-              <span class="post_date">{{post.date | daysAgo}}</span>
-              <h4 @click="handlePostLink(index)">{{post.title}}</h4>
-            </header>
-            <div class="post_entry">
-              <img class="img-responsive" @click="handlePostLink(index)" v-bind:src="post.coverimg" v-bind:alt="post.title">
-            </div>
-            <div class="post_meta">
-                <p class="post_info">
-                        {{post.info}}
-                </p>
-                <template v-for="tag in post.tags">
-                  <span class="tag" :key="tag">{{tag}}</span>
-                </template>
-            </div>
-        </div>
-        <div v-show="rowsNumber === '3'" class="post_container" v-for="(post, index) in thirdColumnPosts" :key="post.title">
-            <header class="post_header">
-              <span class="post_date">{{post.date | daysAgo}}</span>
-              <h4 @click="handlePostLink(index)">{{post.title}}</h4>
-            </header>
-            <div class="post_entry">
-              <img class="img-responsive" @click="handlePostLink(index)" v-bind:src="post.coverimg" v-bind:alt="post.title">
-            </div>
-            <div class="post_meta">
-                <p class="post_info">
-                  {{post.info}}
-                </p>
-                <template v-for="tag in post.tags">
-                  <span class="tag" :key="tag">{{tag}}</span>
-                </template>
-            </div>
-        </div>
-        <div v-show="!rowsNumber" class="post_info_list">
-          <ul class="post_info_ul">
-            <li class="post_info_item" v-for="(post, index) in allPosts" :key="post.title + index">
-                <div class="post_info_head" @click="handlePostLink(index)">{{post.title}}</div>
-                <div class="post_info_date">{{post.date | moment}}</div>
-            </li>
-          </ul>
-        </div>
+  <div class="post_list_container">
+    <div
+      v-show="rowsNumber === '1'"
+      class="post_container"
+      v-for="(post, index) in firstColumnPosts"
+      :key="post.title"
+    >
+      <header class="post_header">
+        <!-- 这里加一个filter来显示对应的daysago的信息 -->
+        <span class="post_date">{{post.date | daysAgo}}</span>
+        <h4 @click="handlePostLink(index)">{{post.title}}</h4>
+      </header>
+      <div class="post_entry">
+        <img
+          class="img-responsive"
+          @click="handlePostLink(index)"
+          v-bind:src="post.coverimg"
+          v-bind:alt="post.title"
+        >
+      </div>
+      <div class="post_meta">
+        <p class="post_info">
+          {{post.info}}
+        </p>
+        <template v-for="tag in post.tags">
+          <span
+            class="tag"
+            :key="tag"
+          >{{tag}}</span>
+        </template>
+      </div>
     </div>
+    <div
+      v-show="rowsNumber === '2'"
+      class="post_container"
+      v-for="(post, index) in secondColumnPosts"
+      :key="post.title"
+    >
+      <header class="post_header">
+        <span class="post_date">{{post.date | daysAgo}}</span>
+        <h4 @click="handlePostLink(index)">{{post.title}}</h4>
+      </header>
+      <div class="post_entry">
+        <img
+          class="img-responsive"
+          @click="handlePostLink(index)"
+          v-bind:src="post.coverimg"
+          v-bind:alt="post.title"
+        >
+      </div>
+      <div class="post_meta">
+        <p class="post_info">
+          {{post.info}}
+        </p>
+        <template v-for="tag in post.tags">
+          <span
+            class="tag"
+            :key="tag"
+          >{{tag}}</span>
+        </template>
+      </div>
+    </div>
+    <div
+      v-show="rowsNumber === '3'"
+      class="post_container"
+      v-for="(post, index) in thirdColumnPosts"
+      :key="post.title"
+    >
+      <header class="post_header">
+        <span class="post_date">{{post.date | daysAgo}}</span>
+        <h4 @click="handlePostLink(index)">{{post.title}}</h4>
+      </header>
+      <div class="post_entry">
+        <img
+          class="img-responsive"
+          @click="handlePostLink(index)"
+          v-bind:src="post.coverimg"
+          v-bind:alt="post.title"
+        >
+      </div>
+      <div class="post_meta">
+        <p class="post_info">
+          {{post.info}}
+        </p>
+        <template v-for="tag in post.tags">
+          <span
+            class="tag"
+            :key="tag"
+          >{{tag}}</span>
+        </template>
+      </div>
+    </div>
+    <div
+      v-show="!rowsNumber"
+      class="post_info_list"
+    >
+      <ul class="post_info_ul">
+        <li
+          class="post_info_item"
+          v-for="(post, index) in allPosts"
+          :key="post.title + index"
+        >
+          <div
+            class="post_info_head"
+            @click="handlePostLink(index)"
+          >{{post.title}}</div>
+          <div class="post_info_date">{{post.date | moment}}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script>
-import { postData } from '../utils/data.js'
-import moment from 'moment'
+import { postData } from "../utils/data.js";
+import moment from "moment";
 import {
   getAllTags,
   getAllPostsByCategories,
   getAllPostsByTag
-} from '../utils/datafilter.js'
+} from "../utils/datafilter.js";
 export default {
   // 主页
-  name: 'PostList',
+  name: "PostList",
   props: {
     defaultCate: {
       type: String,
-      default: ''
+      default: ""
     },
     defaultTag: {
       type: String,
-      default: ''
+      default: ""
     },
     defaultDate: {
       type: String,
-      default: ''
+      default: ""
     },
     rowsNumber: {
       type: String
@@ -97,82 +146,82 @@ export default {
       firstColumnPosts: [],
       secondColumnPosts: [],
       thirdColumnPosts: []
-    }
+    };
   },
   computed: {
     allPosts: function() {
-      let result = JSON.parse(postData)
+      let result = JSON.parse(postData);
       if (this.defaultCate) {
-        result = getAllPostsByCategories(result, this.defaultCate)
+        result = getAllPostsByCategories(result, this.defaultCate);
       } else if (this.defaultTag) {
-        result = getAllPostsByTag(result, this.defaultTag)
+        result = getAllPostsByTag(result, this.defaultTag);
       } else {
         result.sort((a, b) => {
-          return new Date(b.date) - new Date(a.date)
-        })
-        return result
+          return new Date(b.date) - new Date(a.date);
+        });
+        return result;
       }
       result.sort((a, b) => {
-        return new Date(b.date) - new Date(a.date)
-      })
-      return result
+        return new Date(b.date) - new Date(a.date);
+      });
+      return result;
     },
     currentPosts: function() {
-      let result = this.allPosts
+      let result = this.allPosts;
       switch (this.rowsNumber) {
-        case '1':
-          result = this.firstColumnPosts
-          break
-        case '2':
-          result = this.secondColumnPosts
-          break
-        case '3':
-          result = this.thirdColumnPosts
-          break
+        case "1":
+          result = this.firstColumnPosts;
+          break;
+        case "2":
+          result = this.secondColumnPosts;
+          break;
+        case "3":
+          result = this.thirdColumnPosts;
+          break;
         default:
-          break
+          break;
       }
-      return result
+      return result;
     }
   },
   methods: {
-    handlePostLink: function(index, dir = 'post') {
+    handlePostLink: function(index, dir = "post") {
       window.localStorage.setItem(
-        'currentPosts',
+        "currentPosts",
         JSON.stringify(this.currentPosts)
-      )
-      let postName = this.currentPosts[index].name
-      this.$router.push(`/${dir}/${postName}`)
+      );
+      let postName = this.currentPosts[index].name;
+      this.$router.push(`/${dir}/${postName}`);
     },
     sliceArray: function(array) {
       for (let x = 0; x < array.length; x += 3) {
         if (array[x]) {
-          this.firstColumnPosts.push(array[x])
+          this.firstColumnPosts.push(array[x]);
         }
         if (array[x + 1]) {
-          this.secondColumnPosts.push(array[x + 1])
+          this.secondColumnPosts.push(array[x + 1]);
         }
         if (array[x + 2]) {
-          this.thirdColumnPosts.push(array[x + 2])
+          this.thirdColumnPosts.push(array[x + 2]);
         }
       }
     }
   },
   filters: {
     moment: function(date) {
-      return moment(date).format('MMMM Do YYYY')
+      return moment(date).format("MMMM Do YYYY");
     },
     daysAgo: function(date) {
-      let days = new Date() - new Date(date)
-      return parseInt(days / (1000 * 60 * 60 * 24))
+      let days = new Date() - new Date(date);
+      return parseInt(days / (1000 * 60 * 60 * 24));
     }
   },
   created() {
     if (this.rowsNumber) {
-      this.sliceArray(this.allPosts)
+      this.sliceArray(this.allPosts);
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -291,7 +340,7 @@ export default {
   margin-left: 2rem;
 }
 .post_date::after {
-  content: ' DAYS AGO';
+  content: " DAYS AGO";
 }
 .tag {
   color: #ffacac;
@@ -313,9 +362,9 @@ export default {
 }
 .post_info::after {
   font-size: 1.5rem;
-  content: '...';
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  content: "...";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 300;
 }
 .post_read_more {

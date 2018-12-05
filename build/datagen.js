@@ -57,7 +57,7 @@ module.exports = async function getData() {
             });
           })
         });
-        let postsStr = `export let postData = '${JSON.stringify(posts)}'`
+        let postsStr = `export let postData = '${JSON.stringify(posts)}';`
         // 将数组对象存入data.js
         fs.writeFile(path.resolve(__dirname, '../src/utils/data.js'), postsStr, { 'flag': 'a' }, function (err) {
           if (err) {

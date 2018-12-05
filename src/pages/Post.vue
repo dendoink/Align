@@ -6,7 +6,7 @@
           <h1>{{currentPost.title}}</h1>
           <span class="post-time">{{currentPost.date | moment}}</span>
         </div>
-        <router-view :key="key"/>
+        <router-view :key="key" />
       </div>
     </div>
     <div class="comments">
@@ -18,11 +18,17 @@
       <span class="line"></span>
     </div>
     <div class="footer">
-      <div class="previous" @click="handlePostLink(previous.index)">
+      <div
+        class="previous"
+        @click="handlePostLink(previous.index)"
+      >
         <div class="previous-arrow"></div>
         <span>上一篇: {{previous.title}}</span>
       </div>
-      <div class="next" @click="handlePostLink(next.index)">
+      <div
+        class="next"
+        @click="handlePostLink(next.index)"
+      >
         <span>下一篇 {{next.title}}</span>
         <div class="next-arrow"></div>
       </div>

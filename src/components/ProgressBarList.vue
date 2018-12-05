@@ -1,14 +1,21 @@
 <template>
-    <div class="progress_bar_list_container" >
-      <div class="progress_bar" v-for="skill in skills" :key="skill.label">
-        <label class="progress_bar_label">{{skill.label}}</label>
-        <div class="progress">
-          <div class="bar" :style="{width: skill.percentage}">
-            <span>{{skill.percentage}}</span>
-          </div>
+  <div class="progress_bar_list_container">
+    <div
+      class="progress_bar"
+      v-for="skill in skills"
+      :key="skill.label"
+    >
+      <label class="progress_bar_label">{{skill.label}}</label>
+      <div class="progress">
+        <div
+          class="bar"
+          :style="{width: skill.percentage}"
+        >
+          <span>{{skill.percentage}}</span>
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -28,13 +35,13 @@ export default {
         { label: "Git", percentage: "70%" },
         { label: "Webpack", percentage: "50%" }
       ]
-    }
+    };
   },
   methods: {
     handlePostLink: function(index, dir = "post") {}
   },
   created() {}
-}
+};
 </script>
 
 <style scoped>
@@ -78,7 +85,7 @@ export default {
   line-height: 40px;
   text-align: center;
   color: #fff;
-  background: #9E9E9E;
+  background: #9e9e9e;
   border-radius: 50%;
   position: absolute;
   top: -16px;

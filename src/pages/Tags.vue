@@ -1,39 +1,42 @@
 <template>
-    <div class="tag_container">
-      <div class="tag_nav">
-           <ul class="Tag-ul">
-            <li v-for="tag in allTags" :key="tag">
-              <a @click="select(tag)">{{ tag }}</a>
-            </li>
-          </ul>
-      </div>
-      <div class="tag_page_post_list">
-        <PostList v-bind:defaultTag="this.selectedTag"/>
-      </div>
+  <div class="tag_container">
+    <div class="tag_nav">
+      <ul class="Tag-ul">
+        <li
+          v-for="tag in allTags"
+          :key="tag"
+        >
+          <a @click="select(tag)">{{ tag }}</a>
+        </li>
+      </ul>
     </div>
+    <div class="tag_page_post_list">
+      <PostList v-bind:defaultTag="this.selectedTag" />
+    </div>
+  </div>
 </template>
 
 <script>
-import { postData } from '../utils/data.js'
-import { getAllTags } from '../utils/datafilter.js'
+import { postData } from "../utils/data.js";
+import { getAllTags } from "../utils/datafilter.js";
 export default {
-  name: 'Tags',
+  name: "Tags",
   data() {
     return {
       allTags: getAllTags(JSON.parse(postData)),
       // sliceTags: sliceArray(getAllTags(JSON.parse(postData))),
-      selectedTag: 'Git'
-    }
+      selectedTag: "Git"
+    };
   },
   components: {
-    PostList: () => import('../components/PostList')
+    PostList: () => import("../components/PostList")
   },
   methods: {
     select: function(tag) {
-      this.selectedTag = tag
+      this.selectedTag = tag;
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -41,7 +44,7 @@ export default {
   margin-top: 6rem;
 }
 .tag_container {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   max-width: 800px;
   width: 800px;
   margin: 0 auto;
@@ -108,7 +111,7 @@ export default {
     height: auto;
     width: 100%;
   }
-  .tag_nav ul li a{
+  .tag_nav ul li a {
     font-size: 0.5rem;
   }
   .tag_nav ul li a:hover {

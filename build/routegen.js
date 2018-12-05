@@ -15,7 +15,7 @@ exports.genRoutesFile = async function (pages) {
   }`
 
   return (
-    `let pageroutes = [${pages.map(genRoute).join(',')}]\n`+
-    `export default pageroutes`
+    `let pageroutes = [${pages.map(genRoute).join(',')}];\n`+
+    `export default pageroutes;`
   )
 }

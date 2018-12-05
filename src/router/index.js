@@ -1,13 +1,13 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '../pages/Home'
-import Categories from '../pages/Categories'
-import Resume from '../pages/Resume'
-import Tags from '../pages/Tags'
-import pageroutes from './page'
-import Post from '../pages/Post'
-import Landing from '../pages/Landing'
-Vue.use(Router)
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from '../pages/Home';
+import Categories from '../pages/Categories';
+import Resume from '../pages/Resume';
+import Tags from '../pages/Tags';
+import pageroutes from './page';
+import Post from '../pages/Post';
+import Landing from '../pages/Landing';
+Vue.use(Router);
 const routerConfig = new Router({
   routes: [
     {
@@ -28,27 +28,28 @@ const routerConfig = new Router({
       path: '/resume',
       name: 'Resume',
       component: Resume
-    }, {
+    },
+    {
       path: '/tags',
       name: 'Tags',
       component: Tags
-    }, {
+    },
+    {
       path: '/categories',
       name: 'Categories',
       component: Categories
-    }, {
+    },
+    {
       path: '/post',
       name: 'Post',
       component: Post,
-      children: [
-        ...pageroutes
-      ]
+      children: [...pageroutes]
     }
   ]
-})
-routerConfig.mode = history
+});
+routerConfig.mode = history;
 routerConfig.afterEach(() => {
   // 页面回到顶部
-  window.scrollTo(0, 0)
-})
-export default routerConfig
+  window.scrollTo(0, 0);
+});
+export default routerConfig;

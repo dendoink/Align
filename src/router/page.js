@@ -102,5 +102,5 @@ let pageroutes = [
   {
     path: "/Promise/2018-11-23-Async",
     component: () => import('../posts/2018-11-23-Async.md')
-  }]
-export default pageroutes
+  }];
+export default pageroutes;

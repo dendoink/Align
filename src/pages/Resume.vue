@@ -1,61 +1,60 @@
 <template>
-    <div class="resume_container">
-      <div class="section">
-        <h3 class="section_header">Profile</h3>
-        <h3 class="section_subheader">
-          I 'm a <strong>Frontend Developer</strong> from Shanghai,CN. I aim to make a difference through my creative solution.
-        </h3>
-        <p> Worked with project teams to create user-friendly and appealing application interfaces and websites.
-          Cooperate with co-worker from different apartment of the company and do the best we can.
-        </p>
-        <div class="info_list">
-          <div class="info_line">
-            <div class="info_item">
-              <span class="info">Name:</span>Dendi.Tang
-            </div>
-            <div class="info_item">
-              <span class="info">Date of birth:</span>December 9,1992
-            </div>
+  <div class="resume_container">
+    <div class="section">
+      <h3 class="section_header">Profile</h3>
+      <h3 class="section_subheader">
+        I 'm a <strong>Frontend Developer</strong> from Shanghai,CN. I aim to make a difference through my creative solution.
+      </h3>
+      <p> Worked with project teams to create user-friendly and appealing application interfaces and websites.
+        Cooperate with co-worker from different apartment of the company and do the best we can.
+      </p>
+      <div class="info_list">
+        <div class="info_line">
+          <div class="info_item">
+            <span class="info">Name:</span>Dendi.Tang
           </div>
-          <div class="info_line">
-            <div class="info_item">
-              <span class="info">Email:</span>dendise7en@gmail.com
-            </div>
-            <div class="info_item">
-              <span class="info">Phone:</span>+86 13391328920
-            </div>
+          <div class="info_item">
+            <span class="info">Date of birth:</span>December 9,1992
+          </div>
+        </div>
+        <div class="info_line">
+          <div class="info_item">
+            <span class="info">Email:</span>dendise7en@gmail.com
+          </div>
+          <div class="info_item">
+            <span class="info">Phone:</span>+86 13391328920
           </div>
         </div>
       </div>
-      <div class="section">
-        <h3 class="section_header">Skills</h3>
-        <ProgressBarList></ProgressBarList>
-      </div>
     </div>
+    <div class="section">
+      <h3 class="section_header">Skills</h3>
+      <ProgressBarList></ProgressBarList>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Resume',
-  data () {
+  name: "Resume",
+  data() {
     return {
-      selectedTag: 'Git'
-    }
+      selectedTag: "Git"
+    };
   },
   components: {
-    ProgressBarList: () => import('../components/ProgressBarList')
+    ProgressBarList: () => import("../components/ProgressBarList")
   },
   methods: {
-    select: function (tag) {
-    }
+    select: function(tag) {}
   }
-}
+};
 </script>
 
 <style scoped>
 .resume_container {
   width: 60%;
-  font: 400 1rem 'Poppins', sans-serif;
+  font: 400 1rem "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   line-height: 30px;
   color: #727272;
@@ -65,7 +64,7 @@ export default {
   border: 10px solid #fff;
   padding: 5%;
   margin-top: 5rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -108,7 +107,7 @@ h3 {
   text-transform: none;
   font-weight: 300;
 }
-.section .section_subheader strong{
+.section .section_subheader strong {
   font-weight: 600;
 }
 .section .info_list {
@@ -118,7 +117,7 @@ h3 {
   margin: 1rem 0;
   overflow: auto;
 }
-.section .info_list .info_line{
+.section .info_list .info_line {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
@@ -144,11 +143,11 @@ h3 {
     width: 90%;
     padding: 0%;
   }
-  .info_line{
+  .info_line {
     flex-direction: column;
     align-items: flex-start;
   }
-  .section .section_subheader{
+  .section .section_subheader {
     font-size: 1.2rem;
   }
 }

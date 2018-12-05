@@ -1,27 +1,27 @@
 <template>
   <div class="home_post_list">
-      <PostList rowsNumber = '1'/>
-      <PostList rowsNumber = '2'/>
-      <PostList rowsNumber = '3'/>
+    <PostList rowsNumber='1' />
+    <PostList rowsNumber='2' />
+    <PostList rowsNumber='3' />
   </div>
 </template>
 
 <script>
-import { postData } from '../utils/data.js'
-import { getAllCategories } from '../utils/datafilter.js'
+import { postData } from "../utils/data.js";
+import { getAllCategories } from "../utils/datafilter.js";
 export default {
   // 主页
-  name: 'Home',
+  name: "Home",
   data() {
     return {
       allPosts: JSON.parse(postData),
       categories: getAllCategories(JSON.parse(postData))
-    }
+    };
   },
   components: {
-    PostList: () => import('../components/PostList')
+    PostList: () => import("../components/PostList")
   }
-}
+};
 </script>
 
 <style scoped>

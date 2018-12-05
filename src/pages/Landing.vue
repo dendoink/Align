@@ -1,47 +1,75 @@
 <template>
- <div class="landing_container">
-  <div class="landing_outter">
-    <div class="landing_main">
-      <div class="landing_inner">
-        <div class="inner_img"><img src="../assets/avatar.png" alt="" /></div>
-        <h1 class="tracking-in-expand"  @click="handleRoute()"><div class="arrow arrow_left"></div>Dendoink<div class="arrow arrow_right"></div></h1>
-        <div class="info_tags tracking-in-contract-bck" @click="handleRoute()">
-          <p class="info_tag">Dreamer</p>
-          &
-          <p class="info_tag">Coder</p>
-          &
-          <p class="info_tag">Writter</p>
-        </div>
-        <div class="info_icon_group">
-          <a href="https://github.com/DendiSe7enGitHub"><awesome-icon name="brands/github" scale='4'></awesome-icon></a>
-          <a href="https://twitter.com/DendiDang"><awesome-icon name="brands/twitter" scale='3'></awesome-icon></a>
-          <a href="mailto:dendise7en@gmail.com"><awesome-icon name="envelope" scale='2'></awesome-icon></a>
-          <a href="https://www.linkedin.com/in/%E7%BF%BC%E9%BE%99-%E5%94%90-826235130/"><awesome-icon name="brands/linkedin"></awesome-icon></a>
+  <div class="landing_container">
+    <div class="landing_outter">
+      <div class="landing_main">
+        <div class="landing_inner">
+          <div class="inner_img"><img
+              src="../assets/avatar.png"
+              alt=""
+            /></div>
+          <h1
+            class="tracking-in-expand"
+            @click="handleRoute()"
+          >
+            <div class="arrow arrow_left"></div>Dendoink<div class="arrow arrow_right"></div>
+          </h1>
+          <div
+            class="info_tags tracking-in-contract-bck"
+            @click="handleRoute()"
+          >
+            <p class="info_tag">Dreamer</p>
+            &
+            <p class="info_tag">Coder</p>
+            &
+            <p class="info_tag">Writter</p>
+          </div>
+          <div class="info_icon_group">
+            <a href="https://github.com/DendiSe7enGitHub">
+              <awesome-icon
+                name="brands/github"
+                scale='4'
+              ></awesome-icon>
+            </a>
+            <a href="https://twitter.com/DendiDang">
+              <awesome-icon
+                name="brands/twitter"
+                scale='3'
+              ></awesome-icon>
+            </a>
+            <a href="mailto:dendise7en@gmail.com">
+              <awesome-icon
+                name="envelope"
+                scale='2'
+              ></awesome-icon>
+            </a>
+            <a href="https://www.linkedin.com/in/%E7%BF%BC%E9%BE%99-%E5%94%90-826235130/">
+              <awesome-icon name="brands/linkedin"></awesome-icon>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
 export default {
-  name: 'Landing',
-  data () {
-    return {}
+  name: "Landing",
+  data() {
+    return {};
   },
   components: {},
   methods: {
-    handleRoute: function () {
-      this.$router.push('home')
+    handleRoute: function() {
+      this.$router.push("home");
     }
   }
-}
+};
 </script>
 
 <style scoped>
 .landing_container::before {
-  content: '';
+  content: "";
   display: block;
   position: fixed;
   top: 0;
@@ -140,7 +168,7 @@ export default {
 }
 .landing_inner > h1 {
   color: #ffffff;
-  font-family: 'Arial', 'sans-serif';
+  font-family: "Arial", "sans-serif";
   width: 100%;
   font-size: 1.5rem;
   line-height: 1.175;
@@ -216,25 +244,31 @@ export default {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1);
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+    0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25),
+    0 0 100px rgba(255, 255, 255, 0.1);
 }
-.tracking-in-expand .arrow{
+.tracking-in-expand .arrow {
   background: inherit;
-  border: 1rem solid #E91E63;
+  border: 1rem solid #e91e63;
 }
 .tracking-in-expand .arrow_left {
   border-right-color: transparent;
   border-top-color: transparent;
   border-bottom-color: transparent;
-  -webkit-animation: shake-left 0.7s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
-  animation: shake-left 0.7s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
+  -webkit-animation: shake-left 0.7s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    both infinite;
+  animation: shake-left 0.7s cubic-bezier(0.455, 0.03, 0.515, 0.955) both
+    infinite;
 }
 .tracking-in-expand .arrow_right {
   border-left-color: transparent;
   border-bottom-color: transparent;
   border-top-color: transparent;
-  -webkit-animation: shake-right 0.7s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
-  animation: shake-right 0.7s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
+  -webkit-animation: shake-right 0.7s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    both infinite;
+  animation: shake-right 0.7s cubic-bezier(0.455, 0.03, 0.515, 0.955) both
+    infinite;
 }
 .tracking-in-contract-bck {
   animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.61, 0.355, 1)
@@ -290,66 +324,66 @@ export default {
   0%,
   100% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
     -webkit-transform-origin: 100% 50%;
-            transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
   }
   10% {
     -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
+    transform: rotate(2deg);
   }
   20%,
   40%,
   60% {
     -webkit-transform: rotate(-4deg);
-            transform: rotate(-4deg);
+    transform: rotate(-4deg);
   }
   30%,
   50%,
   70% {
     -webkit-transform: rotate(4deg);
-            transform: rotate(4deg);
+    transform: rotate(4deg);
   }
   80% {
     -webkit-transform: rotate(-2deg);
-            transform: rotate(-2deg);
+    transform: rotate(-2deg);
   }
   90% {
     -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
+    transform: rotate(2deg);
   }
 }
 @keyframes shake-right {
   0%,
   100% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
     -webkit-transform-origin: 100% 50%;
-            transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
   }
   10% {
     -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
+    transform: rotate(2deg);
   }
   20%,
   40%,
   60% {
     -webkit-transform: rotate(-4deg);
-            transform: rotate(-4deg);
+    transform: rotate(-4deg);
   }
   30%,
   50%,
   70% {
     -webkit-transform: rotate(4deg);
-            transform: rotate(4deg);
+    transform: rotate(4deg);
   }
   80% {
     -webkit-transform: rotate(-2deg);
-            transform: rotate(-2deg);
+    transform: rotate(-2deg);
   }
   90% {
     -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
+    transform: rotate(2deg);
   }
 }
 
@@ -357,67 +391,66 @@ export default {
   0%,
   100% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
     -webkit-transform-origin: 0 50%;
-            transform-origin: 0 50%;
+    transform-origin: 0 50%;
   }
   10% {
     -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
+    transform: rotate(2deg);
   }
   20%,
   40%,
   60% {
     -webkit-transform: rotate(-4deg);
-            transform: rotate(-4deg);
+    transform: rotate(-4deg);
   }
   30%,
   50%,
   70% {
     -webkit-transform: rotate(4deg);
-            transform: rotate(4deg);
+    transform: rotate(4deg);
   }
   80% {
     -webkit-transform: rotate(-2deg);
-            transform: rotate(-2deg);
+    transform: rotate(-2deg);
   }
   90% {
     -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
+    transform: rotate(2deg);
   }
 }
 @keyframes shake-left {
   0%,
   100% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
     -webkit-transform-origin: 0 50%;
-            transform-origin: 0 50%;
+    transform-origin: 0 50%;
   }
   10% {
     -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
+    transform: rotate(2deg);
   }
   20%,
   40%,
   60% {
     -webkit-transform: rotate(-4deg);
-            transform: rotate(-4deg);
+    transform: rotate(-4deg);
   }
   30%,
   50%,
   70% {
     -webkit-transform: rotate(4deg);
-            transform: rotate(4deg);
+    transform: rotate(4deg);
   }
   80% {
     -webkit-transform: rotate(-2deg);
-            transform: rotate(-2deg);
+    transform: rotate(-2deg);
   }
   90% {
     -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
+    transform: rotate(2deg);
   }
 }
-
 </style>

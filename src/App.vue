@@ -3,59 +3,71 @@
     <div :class="menuFixed ? 'header header-fixed' : 'header'">
       <div class="menu_bar">
         <div class="menu_bar_list">
-          <span v-on:click="handleRouter('home')" class="menu_tags">ALL POSTS</span>
-          <span v-on:click="handleRouter('tags')" class="menu_tags">TAGS</span>
-          <span v-on:click="handleRouter('resume')" class="menu_tags">ABOUT</span>
-          <span v-on:click="handleRouter('landing')" class="menu_tags landing_tag">LANDING</span>
+          <span
+            v-on:click="handleRouter('home')"
+            class="menu_tags"
+          >ALL POSTS</span>
+          <span
+            v-on:click="handleRouter('tags')"
+            class="menu_tags"
+          >TAGS</span>
+          <span
+            v-on:click="handleRouter('resume')"
+            class="menu_tags"
+          >ABOUT</span>
+          <span
+            v-on:click="handleRouter('landing')"
+            class="menu_tags landing_tag"
+          >LANDING</span>
         </div>
       </div>
     </div>
     <!-- <div class="post_list"> -->
-    <router-view class="router-view"/>
+    <router-view class="router-view" />
     <!-- </div> -->
     <div class="copy-right">© Dendoink. All rights reserved.</div>
   </div>
 </template>
 
 <script scoped>
-import { postData } from "./utils/data.js"
-import { getAllCategories } from "./utils/datafilter.js"
+import { postData } from "./utils/data.js";
+import { getAllCategories } from "./utils/datafilter.js";
 export default {
   name: "App",
   data() {
     return {
       menuFixed: false
-    }
+    };
   },
   methods: {
     handleRouter: function(dir, categorie = "") {
-      let path
+      let path;
       if (categorie) {
-        path = `/${dir}?${dir}=${categorie}`
+        path = `/${dir}?${dir}=${categorie}`;
       } else {
-        path = `/${dir}`
+        path = `/${dir}`;
       }
-      this.$router.push(path)
+      this.$router.push(path);
     },
     menu: function() {
       let scrollCount =
-        document.body.scrollTop || document.documentElement.scrollTop
+        document.body.scrollTop || document.documentElement.scrollTop;
       if (scrollCount > 130) {
-        this.menuFixed = true
+        this.menuFixed = true;
       } else {
-        this.menuFixed = false
+        this.menuFixed = false;
       }
     }
   },
   computed: {
     categories: function() {
-      return Array.from(new Set(getAllCategories(JSON.parse(postData))))
+      return Array.from(new Set(getAllCategories(JSON.parse(postData))));
     }
   },
   mounted() {
-    window.addEventListener("scroll", this.menu)
+    window.addEventListener("scroll", this.menu);
   }
-}
+};
 </script>
 
 <style>
