@@ -8,7 +8,7 @@ import pageroutes from './page'
 import Post from '../pages/Post'
 import Landing from '../pages/Landing'
 Vue.use(Router)
-export default new Router({
+const routerConfig = new Router({
   routes: [
     {
       path: '/',
@@ -46,3 +46,9 @@ export default new Router({
     }
   ]
 })
+routerConfig.mode = history
+routerConfig.afterEach(() => {
+  // 页面回到顶部
+  window.scrollTo(0, 0)
+})
+export default routerConfig
