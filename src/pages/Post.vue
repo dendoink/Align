@@ -9,6 +9,9 @@
         <router-view :key="key"/>
       </div>
     </div>
+    <div class="comments">
+      <div id="disqus_thread"></div>
+    </div>
     <div class="widget-title">
       <span class="line"></span>
       <span class="title-text">END</span>
@@ -168,6 +171,19 @@ export default {
     border-radius: 10px;
   }
 }
+.comments {
+  display: flex;
+  margin: 2rem 6rem 0px 6rem;
+  border-radius: 2px;
+  justify-content: center;
+  #disqus_thread {
+    width: 100%;
+    max-width: 1000px;
+    padding-top: 50px;
+    border-radius: 10px;
+  }
+}
+
 .widget-title {
   margin: 0 auto;
   height: 40px;
@@ -267,7 +283,16 @@ export default {
     margin-right: 0.5rem;
   }
   .post_meta {
-  width: 100%; 
+    width: 100%;
+  }
+}
+// 小屏不显示评论信息
+@media screen and (max-width: 800px) and (min-width: 300px) {
+  .comments {
+    display: none;
+    #disqus_thread {
+      display: none;
+    }
   }
 }
 </style>
