@@ -3,26 +3,25 @@
     <div class="section">
       <h3 class="section_header">Profile</h3>
       <h3 class="section_subheader">
-        I 'm a <strong>Frontend Developer</strong> from Shanghai,CN. I aim to make a difference through my creative solution.
+        I 'm a <strong>{{userInfo.jobTitle}}</strong> from {{userInfo.location}}
       </h3>
-      <p> Worked with project teams to create user-friendly and appealing application interfaces and websites.
-        Cooperate with co-worker from different apartment of the company and do the best we can.
+      <p> {{userInfo.description}}
       </p>
       <div class="info_list">
         <div class="info_line">
           <div class="info_item">
-            <span class="info">Name:</span>Dendi.Tang
+            <span class="info">Name:</span>{{userInfo.name}}
           </div>
           <div class="info_item">
-            <span class="info">Date of birth:</span>December 9,1992
+            <span class="info">Date of birth:</span>{{userInfo.birth}}
           </div>
         </div>
         <div class="info_line">
           <div class="info_item">
-            <span class="info">Email:</span>dendise7en@gmail.com
+            <span class="info">Email:</span>{{userInfo.email}}
           </div>
           <div class="info_item">
-            <span class="info">Phone:</span>+86 13391328920
+            <span class="info">Phone:</span>{{userInfo.phone}}
           </div>
         </div>
       </div>
@@ -35,6 +34,7 @@
 </template>
 
 <script>
+const config = require("../../config/");
 export default {
   name: "Resume",
   data() {
@@ -47,6 +47,11 @@ export default {
   },
   methods: {
     select: function(tag) {}
+  },
+  computed: {
+    userInfo: function() {
+      return config.userInfo;
+    }
   }
 };
 </script>

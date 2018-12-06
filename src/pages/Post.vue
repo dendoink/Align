@@ -37,6 +37,7 @@
 import "highlight.js/styles/atom-one-dark.css";
 import { postData } from "../utils/data.js";
 import moment from "moment";
+const config = require('../../config/');
 export default {
   name: "Post",
   data() {
@@ -102,11 +103,14 @@ export default {
       if (!discussion) {
         return;
       }
+      if (!config.comments.repo) {
+        return;
+      }
       var script = document.createElement("script");
       script.src = "https://utteranc.es/client.js";
-      script.setAttribute("repo", "DendiSe7enGitHub/blog-comments-repo");
+      script.setAttribute("repo", config.comments.repo);
+      script.setAttribute("theme", config.comments.theme);
       script.setAttribute("issue-term", `${this.currentPost.title}`);
-      script.setAttribute("theme", "github-light");
       script.setAttribute("crossorigin", "anonymous");
       discussion.appendChild(script);
     }

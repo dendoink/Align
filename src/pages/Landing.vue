@@ -11,38 +11,38 @@
             class="tracking-in-expand"
             @click="handleRoute()"
           >
-            <div class="arrow arrow_left"></div>Dendoink<div class="arrow arrow_right"></div>
+            <div class="arrow arrow_left"></div>{{landing.blogName}}<div class="arrow arrow_right"></div>
           </h1>
           <div
             class="info_tags tracking-in-contract-bck"
             @click="handleRoute()"
           >
-            <p class="info_tag">Dreamer</p>
+            <p class="info_tag">{{landing.tagA}}</p>
             &
-            <p class="info_tag">Coder</p>
+            <p class="info_tag">{{landing.tagB}}</p>
             &
-            <p class="info_tag">Writter</p>
+            <p class="info_tag">{{landing.tagC}}</p>
           </div>
           <div class="info_icon_group">
-            <a href="https://github.com/DendiSe7enGitHub">
+            <a :href="landing.github">
               <awesome-icon
                 name="brands/github"
                 scale='4'
               ></awesome-icon>
             </a>
-            <a href="https://twitter.com/DendiDang">
+            <a :href="landing.twitter">
               <awesome-icon
                 name="brands/twitter"
                 scale='3'
               ></awesome-icon>
             </a>
-            <a href="mailto:dendise7en@gmail.com">
+            <a :href="landing.email">
               <awesome-icon
                 name="envelope"
                 scale='2'
               ></awesome-icon>
             </a>
-            <a href="https://www.linkedin.com/in/%E7%BF%BC%E9%BE%99-%E5%94%90-826235130/">
+            <a :href="landing.linkedIn">
               <awesome-icon name="brands/linkedin"></awesome-icon>
             </a>
           </div>
@@ -53,12 +53,14 @@
 </template>
 
 <script>
+const config = require("../../config/");
 export default {
   name: "Landing",
-  data() {
-    return {};
+  computed: {
+    landing: function() {
+      return config.ladingInfo;
+    }
   },
-  components: {},
   methods: {
     handleRoute: function() {
       this.$router.push("home");
@@ -313,7 +315,7 @@ export default {
     height: 30rem;
   }
   .landing_main .landing_inner {
-    min-height: 90%;
+    min-height: 65%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
