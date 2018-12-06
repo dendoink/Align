@@ -22,10 +22,11 @@
         </div>
       </div>
     </div>
-    <!-- <div class="post_list"> -->
     <router-view class="router-view" />
-    <!-- </div> -->
-    <div class="copy-right">© Dendoink. All rights reserved.</div>
+    <a
+      href="www.dendionk.com"
+      class="copy-right"
+    >©Power by Dendoink. All rights reserved.</a>
   </div>
 </template>
 
@@ -192,6 +193,7 @@ export default {
   align-items: center;
   border-top: 1px solid #ccc;
   cursor: pointer;
+  color: rgb(211, 96, 96);
 }
 .dropdown:hover .dropdown-content {
   opacity: 1;

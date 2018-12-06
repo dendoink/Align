@@ -36,7 +36,8 @@ module.exports = {
 ```
 
 3. 评论系统的配置
-   在目录`@/config/index.js`中
+
+- 在目录`@/config/index.js`中先配置以下信息
 
 ```javascript
 comments: {
@@ -46,6 +47,8 @@ comments: {
     theme: 'github-light'
   },
 ```
+
+- 配置[utteranc](https://utteranc.es/)相关信息
 
 4. 个人信息配置
 
@@ -76,11 +79,27 @@ userInfo: {
   },
 ```
 
-5. 主仓库推送: 未提供配置字段，当前仓库默认为主仓库
+5. Landing 页面配置
 
-6. 服务器配置:自动拉取更新后的代码[待补充]
+```javascript
+ ladingInfo: {
+    // landing 显示的名称
+    blogName: 'Dendionk',
+    tagA: 'Dreamer',
+    tagB: 'Coder',
+    tagC: 'Writter',
+    github: '',
+    twitter: '',
+    email: '',
+    linkedIn: ''
+  },
+```
 
-### 快速开始
+6. 主仓库推送: 未提供配置字段，当前仓库默认为主仓库
+
+7. 服务器配置:自动拉取更新后的代码[待补充]
+
+### 配置完成后预览本地,以及上传测试
 
 ```bash
 # install dependencies
@@ -135,3 +154,10 @@ yarn build
 有更多好的建议，欢迎 pr 或者 issue，这个博客生成系统还有许多的不足，会一直维护下去的。<br>
 
 大家可以在我的 [掘金账号](https://juejin.im/user/585a2f52128fe10069ba1b95)找到我，也欢迎邮件`dendise7en@gmail.com`与我沟通
+
+### 扫描下面的二维码可以轻易获得请我喝咖啡的机会一次！
+
+<div class='getPay' style="width:100%;display: flex;justify-content: center;">
+<img src='http://ww1.sinaimg.cn/large/88b26e1cgy1fxwzuk8v3mj20lr0lrwgu.jpg'/>
+<img src='http://ww1.sinaimg.cn/large/88b26e1cgy1fxwzujghtdj20dx0dxdh9.jpg'>
+</div>

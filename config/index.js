@@ -32,6 +32,17 @@ module.exports = {
     jobTitle: 'Frontend Developer',
     description: 'Things we do are all for love'
   },
+  ladingInfo: {
+    // landing 显示的名称
+    blogName: 'Dendionk',
+    tagA: 'Dreamer',
+    tagB: 'Coder',
+    tagC: 'Writter',
+    github: '',
+    twitter: '',
+    email: '',
+    linkedIn: ''
+  },
   commitMessage:
     process.argv.length === 3
       ? `${process.argv[2]}:[${moment().format(
