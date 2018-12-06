@@ -9,14 +9,12 @@
         <router-view :key="key" />
       </div>
     </div>
-    <div class="comments">
-      <div id="disqus_thread"></div>
-    </div>
-    <div class="widget-title">
+    <!-- <div class="widget-title">
       <span class="line"></span>
       <span class="title-text">END</span>
       <span class="line"></span>
-    </div>
+    </div> -->
+    <div id="dolldiscussion"></div>
     <div class="footer">
       <div
         class="previous"
@@ -35,7 +33,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import "highlight.js/styles/atom-one-dark.css";
 import { postData } from "../utils/data.js";
@@ -60,6 +57,9 @@ export default {
         ? this.$route.query.index + new Date()
         : 0 + new Date();
     }
+  },
+  mounted() {
+    this.utterances();
   },
   created() {
     let index = this.allPosts.findIndex(item => {
@@ -96,6 +96,19 @@ export default {
     handlePostLink: function(index, dir = "post") {
       let postName = this.allPosts[index].name;
       this.$router.push(`/${dir}/${postName}`);
+    },
+    utterances: function() {
+      var discussion = document.getElementById("dolldiscussion");
+      if (!discussion) {
+        return;
+      }
+      var script = document.createElement("script");
+      script.src = "https://utteranc.es/client.js";
+      script.setAttribute("repo", "DendiSe7enGitHub/blog-comments-repo");
+      script.setAttribute("issue-term", `${this.currentPost.title}`);
+      script.setAttribute("theme", "github-light");
+      script.setAttribute("crossorigin", "anonymous");
+      discussion.appendChild(script);
     }
   },
   filters: {
@@ -292,6 +305,7 @@ export default {
     width: 100%;
   }
 }
+
 // 小屏不显示评论信息
 @media screen and (max-width: 800px) and (min-width: 300px) {
   .comments {
