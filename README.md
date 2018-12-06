@@ -52,26 +52,32 @@ yarn build
   <tr>
     <th>功能</th>
     <th>进度</th>
+    <th>最近更新时间</th>
   </tr>
   <tr>
     <td>Resume简历页面</td>
     <td>开发完成</td>
+    <td>2018-11-30</td>
   </tr>
   <tr>
     <td>评论系统</td>
-    <td>2018-12-06完成:已接入[utteranc](https://utteranc.es/)</td>
+    <td>已接入[utteranc](https://utteranc.es/)</td>
+    <td>2018-12-06</td>
   </tr>
   <tr>
     <td>友链</td>
     <td>样式和形式待定</td>
+    <td>2018-12-06</td>
   </tr>
   <tr>
     <td>Reward页</td>
     <td>样式和形式待定</td>
+    <td>2018-12-06</td>
   </tr>
   <tr>
     <td>自动化部署</td>
-    <td>2018-12-05完成:在npm run build 之后，会自动推送到对应仓库，结合对应的托管平台的hooks，已经实现本地编译->远程服务器更新</td>
+    <td>完成:在npm run build 之后，会自动推送到对应仓库，结合对应的托管平台的hooks，已经实现本地编译->远程服务器更新</td>
+    <td>2018-12-06</td>
   </tr>
 </table>
 
