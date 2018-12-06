@@ -186,14 +186,15 @@ export default {
 }
 
 .copy-right {
-  height: 4rem;
+  margin-top: 4rem;
+  padding-right: 2rem;
+  height: 2rem;
   display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  border-top: 1px solid #ccc;
+  justify-content: flex-end;
+  align-items: flex-start;
   cursor: pointer;
   color: rgb(211, 96, 96);
+  font-size: 0.9rem;
 }
 .dropdown:hover .dropdown-content {
   opacity: 1;
