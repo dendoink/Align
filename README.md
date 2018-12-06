@@ -59,7 +59,7 @@ yarn build
   </tr>
   <tr>
     <td>评论系统</td>
-    <td>已接入[utteranc](https://utteranc.es/)</td>
+    <td>2018-12-06完成:已接入[utteranc](https://utteranc.es/)</td>
   </tr>
   <tr>
     <td>友链</td>
@@ -71,7 +71,7 @@ yarn build
   </tr>
   <tr>
     <td>自动化部署</td>
-    <td>已完成，在npm run build 之后，会自动推送到对应仓库，结合对应的托管平台的hooks，已经实现本地编译->远程服务器更新</td>
+    <td>2018-12-05完成:在npm run build 之后，会自动推送到对应仓库，结合对应的托管平台的hooks，已经实现本地编译->远程服务器更新</td>
   </tr>
 </table>
 
