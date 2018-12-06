@@ -157,7 +157,4 @@ yarn build
 
 ### 扫描下面的二维码可以轻易获得请我喝咖啡的机会一次！
 
-<div class='getPay' style="width:100%;display: flex;justify-content: center;">
-<img src='http://ww1.sinaimg.cn/large/88b26e1cgy1fxwzuk8v3mj20lr0lrwgu.jpg'/>
-<img src='http://ww1.sinaimg.cn/large/88b26e1cgy1fxwzujghtdj20dx0dxdh9.jpg'>
-</div>
+<img src="https://ws1.sinaimg.cn/large/88b26e1cly1fxx05t3mgcj20bk05kgmp.jpg"/>
