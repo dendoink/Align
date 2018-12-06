@@ -4,29 +4,81 @@
 
 ### 项目说明
 
-[->本站链接](http://www.dendoink.com/#/post/2018-11-14-Life?index=0)<br>
-[->掘金](https://juejin.im/post/5b53f9c4e51d4513ee6dcd3f)<br>
-[->segmentfault](https://segmentfault.com/a/1190000015721550?_ea=5230379)<br>
+[->项目说明@dendoink](http://www.dendoink.com/#/post/2018-11-14-Life?index=0)<br>
+[->项目说明@掘金](https://juejin.im/post/5b53f9c4e51d4513ee6dcd3f)<br>
 
 ### 推送配置
 
-1. dist推送:在目录`@/config/index.js`中配置如下字段:
+1. dist 推送:在目录`@/config/index.js`中配置如下字段:
+
+```javascript
+module.exports = {
+  // 编译后的目录 对应的远程仓库，默认你有配置过远程仓库的SSH key
+  distOriginSSh: 'git@github.com:xxx/xxx-blog-xxx.git'
+};
+```
+
+> 配置好之后，`npm run build` 将会把`dist`下的代码推送到地址`git@github.com:xxx/xxx-blog-xxx.git`对应的仓库中
+
+2. `commit`记录信息：默认为 `npm run build` 如果你在 `build`后追加了其他信息，那这部分的信息会作为 commit message 被提交。
+   > 如果你想自定义提交信息的内容，可以在`@/config/index.js`中配置`commitMessage`属性
 
 ```javascript
 module.exports = {
   // commit messgae
-  commitMessage: process.argv.length === 3 ? `${process.argv[2]}:[${moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}]` : `AutoUpdate:[${moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}]`,
-  // 编译后的目录 对应的远程仓库，默认你有配置过远程仓库的SSH key
-  distOriginSSh:'git@github.com:xxx/xxx-blog-xxx.git',
-}
+  commitMessage:
+    process.argv.length === 3
+      ? `${process.argv[2]}:[${moment().format(
+          'dddd, MMMM Do YYYY, h:mm:ss a'
+        )}]`
+      : `AutoUpdate:[${moment().format('dddd, MMMM Do YYYY, h:mm:ss a')}]`
+};
 ```
-> 配置好之后，`npm run build` 将会把`dist`下的代码推送到地址`git@github.com:xxx/xxx-blog-xxx.git`对应的仓库中
 
+3. 评论系统的配置
+   在目录`@/config/index.js`中
 
-2. 主仓库推送: 未提供配置字段，当前仓库默认为主仓库
+```javascript
+comments: {
+    // commetsRepo : 'gihub用户名/comments存储的仓库名'
+    repo: '',
+    // github-light | github-dark 主题
+    theme: 'github-light'
+  },
+```
 
-3. 服务器配置:自动拉取更新后的代码[待补充]
+4. 个人信息配置
 
+```javascript
+userInfo: {
+    name: 'name',
+    phone: '1XX-XXXX-XXXX',
+    site: 'www.yoursite.com',
+    email: 'youemail@xmail.com',
+    birth: 'December 10,1991',
+    skills: [
+      { label: 'HTML', percentage: '80%' },
+      { label: 'CSS3', percentage: '60%' },
+      { label: 'Javascript', percentage: '60%' },
+      { label: 'jQuery', percentage: '50%' },
+      { label: 'React', percentage: '60%' },
+      { label: 'Vue', percentage: '60%' },
+      { label: 'Mini-Program', percentage: '60%' },
+      { label: 'Git', percentage: '70%' },
+      { label: 'Webpack', percentage: '50%' }
+    ],
+    // 你所在的城市
+    location: 'Shanghai,CN',
+    // 职位
+    jobTitle: 'Frontend Developer',
+    // 个人描述
+    description: 'Things we do are all for love'
+  },
+```
+
+5. 主仓库推送: 未提供配置字段，当前仓库默认为主仓库
+
+6. 服务器配置:自动拉取更新后的代码[待补充]
 
 ### 快速开始
 
@@ -40,7 +92,6 @@ yarn dev
 # 打包推送代码到对应仓库
 yarn build
 ```
-
 
 ### Blog 使用的 Markdown 语法说明
 

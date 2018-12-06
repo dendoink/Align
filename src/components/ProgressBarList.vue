@@ -19,22 +19,13 @@
 </template>
 
 <script>
+const config = require("../../config/");
 export default {
   // 主页
   name: "ProgressBarList",
   data() {
     return {
-      skills: [
-        { label: "HTML", percentage: "80%" },
-        { label: "CSS3", percentage: "60%" },
-        { label: "Javascript", percentage: "60%" },
-        { label: "jQuery", percentage: "50%" },
-        { label: "React", percentage: "60%" },
-        { label: "Vue", percentage: "60%" },
-        { label: "Mini-Program", percentage: "60%" },
-        { label: "Git", percentage: "70%" },
-        { label: "Webpack", percentage: "50%" }
-      ]
+      skills: config.userInfo.skills
     };
   },
   methods: {
