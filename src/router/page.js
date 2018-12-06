@@ -102,5 +102,41 @@ let pageroutes = [
   {
     path: "/Promise/2018-11-23-Async",
     component: () => import('../posts/2018-11-23-Async.md')
+  },
+  {
+    path: "/Site/2018-12-07-Site",
+    component: () => import('../posts/2018-12-07-Site.md')
+  },
+  {
+    path: "/post/2018-12-07-Site",
+    component: () => import('../posts/2018-12-07-Site.md')
+  },
+  {
+    path: "/Tutorial/2018-12-07-Site",
+    component: () => import('../posts/2018-12-07-Site.md')
+  },
+  {
+    path: "/Git/2018-12-07-Site",
+    component: () => import('../posts/2018-12-07-Site.md')
+  },
+  {
+    path: "/Site/2018-12-07-Translate",
+    component: () => import('../posts/2018-12-07-Translate.md')
+  },
+  {
+    path: "/post/2018-12-07-Translate",
+    component: () => import('../posts/2018-12-07-Translate.md')
+  },
+  {
+    path: "/Tutorial/2018-12-07-Translate",
+    component: () => import('../posts/2018-12-07-Translate.md')
+  },
+  {
+    path: "/Chrome/2018-12-07-Translate",
+    component: () => import('../posts/2018-12-07-Translate.md')
+  },
+  {
+    path: "/Tools/2018-12-07-Translate",
+    component: () => import('../posts/2018-12-07-Translate.md')
   }];
 export default pageroutes;

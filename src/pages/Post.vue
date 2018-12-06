@@ -9,11 +9,6 @@
         <router-view :key="key" />
       </div>
     </div>
-    <!-- <div class="widget-title">
-      <span class="line"></span>
-      <span class="title-text">END</span>
-      <span class="line"></span>
-    </div> -->
     <div id="dolldiscussion"></div>
     <div class="footer">
       <div
