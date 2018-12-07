@@ -50,7 +50,7 @@ info: "本文是作者 [Tomek Sułkowski](https://twitter.com/sulco) 发布在 [
 
 ### 4. $i
 
-在`Console Importer browser`的`Chrome`插件的帮助之下，你可以快速的在`console`中引入和把玩一些`npm`库。
+在`Console Importer`的`Chrome`插件的帮助之下，你可以快速的在`console`中引入和把玩一些`npm`库。
 
 直接运行例如 `$i('lodash')` 或者 `$i('moment') ` 然后在几秒钟之后，你就可以获取到`lodash / momentjs`了。
 
@@ -66,7 +66,14 @@ info: "本文是作者 [Tomek Sułkowski](https://twitter.com/sulco) 发布在 [
 ## 其他系列
 
 其他此系列的文章，马上就会翻译出来，到时会贴出对应的链接在此处。
-如果你对我的翻译表示肯定，也可以关注我一波哦~顺便求一波star→ [看这里, 美丽的博客系统](https://github.com/DendiSe7enGitHub/vue-blog-generater)
+
+- [【译】你不知道的Chrome调试工具技巧 第一天：console中的'$'](https://juejin.im/post/5c09a80151882521c81168a2)
+- [【译】你不知道的Chrome调试工具技巧 第二天：copying & saving](https://juejin.im/post/5c0a0d5ff265da61117a1c75)
+
+## 写在最后
+如果你对我的翻译表示肯定，也可以关注我一波哦~
+顺便我的开源项目，求一波 star→ [看这里, 美丽的博客系统](https://github.com/DendiSe7enGitHub/vue-blog-generater)
+
 
 ## 许可记录
 
