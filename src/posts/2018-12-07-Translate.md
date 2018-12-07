@@ -5,9 +5,11 @@ title: "[译]Devtools tips day1 :The console dollars"
 date:  2018-12-07
 categories: Site
 tags: [Tutorial,Chrome,Tools]
-coverimg: "https://ws1.sinaimg.cn/large/88b26e1cgy1fx5a7walm0j223z2u1b2b.jpg"
+coverimg: "https://ws1.sinaimg.cn/large/88b26e1cgy1fxxuus5m8xj22ky3v8qv6.jpg"
 info: "本文是作者 [Tomek Sułkowski](https://twitter.com/sulco) 发布在 [medium](https://medium.com) 上的一个系列。"
 ---
+
+> 本文同步连接[掘金](https://juejin.im/post/5c09a80151882521c81168a2)
 
 ## 特别声明
 本文是作者 [Tomek Sułkowski](https://twitter.com/sulco) 发布在 [medium](https://medium.com) 上的一个系列。<br>
