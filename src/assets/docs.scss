@@ -159,12 +159,15 @@ table {
     color: rgb(54, 54, 54);
     text-align: left;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 1.3rem;
     font-family: Tahoma, Arial, "Hiragino Sans GB", 冬青黑, "Microsoft YaHei", 微软雅黑, SimSun, 宋体, Heiti, 黑体, sans-serif;
     line-height: 32px;
     border-left: 5px solid rgb(255, 200, 31);
   }
   p {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     text-align: left;
     line-height: 1.65;
     img {
@@ -181,6 +184,7 @@ table {
   }
 
   ul {
+    margin: 1rem 0px 1rem 1rem;
     text-align: left;
     li {
       line-height: 1.65;
@@ -189,6 +193,7 @@ table {
 
   ol {
     text-align: left;
+    margin: 1rem 0px 1rem 1rem;
     li {
       line-height: 1.65;
     }

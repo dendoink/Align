@@ -294,9 +294,9 @@ export default {
   text-align: left;
 }
 .post_header h4 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 300;
-  line-height: 2.2;
+  line-height: 2;
   color: inherit;
 }
 .post_header h4:hover {

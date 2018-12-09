@@ -6,7 +6,7 @@ date:  2018-12-07
 categories: Site
 tags: [Tutorial,Chrome,Tools]
 coverimg: "https://ws1.sinaimg.cn/large/88b26e1cly1fxy5vnqgpyj218g0tmtbn.jpg"
-info: "本文是作者 [Tomek Sułkowski](https://twitter.com/sulco) 发布在 [medium](https://medium.com) 上的一个系列。"
+info: "本文是作者 [Tomek Sułkowski]发布在 [medium]上的一个系列的第一篇。"
 ---
 
 > 本文同步连接[掘金](https://juejin.im/post/5c09a80151882521c81168a2)
