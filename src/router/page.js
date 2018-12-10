@@ -218,5 +218,25 @@ let pageroutes = [
   {
     path: "/Tools/2018-12-11-Translate-5",
     component: () => import('../posts/2018-12-11-Translate-5.md')
+  },
+  {
+    path: "/Site/2018-12-11-Translate-6",
+    component: () => import('../posts/2018-12-11-Translate-6.md')
+  },
+  {
+    path: "/post/2018-12-11-Translate-6",
+    component: () => import('../posts/2018-12-11-Translate-6.md')
+  },
+  {
+    path: "/Tutorial/2018-12-11-Translate-6",
+    component: () => import('../posts/2018-12-11-Translate-6.md')
+  },
+  {
+    path: "/Chrome/2018-12-11-Translate-6",
+    component: () => import('../posts/2018-12-11-Translate-6.md')
+  },
+  {
+    path: "/Tools/2018-12-11-Translate-6",
+    component: () => import('../posts/2018-12-11-Translate-6.md')
   }];
 export default pageroutes;
