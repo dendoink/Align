@@ -69,6 +69,10 @@ info: "本文是作者 [Tomek Sułkowski]发布在 [medium]上的一个系列的
 
 - [【译】你不知道的Chrome调试工具技巧 第一天：console中的'$'](https://juejin.im/post/5c09a80151882521c81168a2)
 - [【译】你不知道的Chrome调试工具技巧 第二天：copying & saving](https://juejin.im/post/5c0a0d5ff265da61117a1c75)
+- [【译】你不知道的Chrome调试工具技巧 第三天：console methods](https://juejin.im/post/5c0a8ce6f265da6141716329)
+- [【译】你不知道的Chrome调试工具技巧 第四天：the Elements panel（元素面板）](https://juejin.im/post/5c0d2d85f265da612061a62f)
+- [【译】你不知道的Chrome调试工具技巧 第五天：console的log中,让人疑惑的案例](https://juejin.im/post/5c0edc31f265da611c26d08a)
+
 
 ### 写在最后
 如果你对我的翻译表示肯定，也可以关注我一波哦~
