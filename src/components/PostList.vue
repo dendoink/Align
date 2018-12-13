@@ -618,6 +618,9 @@ export default {
   }
 }
 @media screen and (max-width: 1000px) and (min-width: 300px) {
+  #dolldiscussion {
+    display: none;
+  }
   .post_list_container {
     flex-direction: column;
     width: 100%;
