@@ -81,14 +81,11 @@ export default {
   font-weight: 600;
   padding: 0.4375rem 0.9375rem;
   color: #343a40b5;
-  background-color: #f8fafd75;
-  border-color: #5394f5;
-  display: inline-block;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  border: 1px solid #4caf506e;
   line-height: 1.5;
+  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 .tag_nav ul li a:hover {

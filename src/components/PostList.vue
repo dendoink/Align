@@ -271,21 +271,25 @@ export default {
   min-width: 70%;
   text-align: left;
 }
-.post_info_item .post_info_head:hover {
-  color: #42b983;
-  -webkit-animation: bounce-left 0.8s both;
-  animation: bounce-left 0.8s both;
+@media screen and (min-width: 1001px) {
+  .post_info_item .post_info_head:hover {
+    color: #42b983;
+    -webkit-animation: bounce-left 0.8s both;
+    animation: bounce-left 0.8s both;
+  }
+  .post_info_item .post_info_date:hover {
+    -webkit-animation: bounce-right 0.8s both;
+    animation: bounce-right 0.8s both;
+  }
 }
+
 .post_info_item .post_info_date {
   font-size: 0.7rem;
   color: #9a9797;
   min-width: 30%;
   text-align: right;
 }
-.post_info_item .post_info_date:hover {
-  -webkit-animation: bounce-right 0.8s both;
-  animation: bounce-right 0.8s both;
-}
+
 .post_header {
   width: 100%;
   padding: 0.75rem 10%;
@@ -623,8 +627,25 @@ export default {
     padding-right: 1rem;
   }
   .post_info_list .post_info_ul .post_info_item .post_info_head {
-    font-size: 0.5rem;
     min-width: 50%;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #1f1a31a6;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .post_info_ul .post_info_item {
+    flex-direction: column;
+    border: 1px solid #f1f1f1;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 2px -2px whitesmoke;
+    margin-bottom: 0.5rem;
+  }
+  .post_info_ul .post_info_item .post_info_date {
+    line-height: 1.5rem;
   }
 }
 </style>
