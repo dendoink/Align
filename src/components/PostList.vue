@@ -333,7 +333,6 @@ export default {
 .post_meta {
   text-align: right;
   margin-top: 4px;
-  margin-bottom: 1rem;
   padding: 0% 10%;
 }
 .post_date {
@@ -353,6 +352,7 @@ export default {
   padding: 0px 0.5rem;
   margin-right: 1rem;
   float: left;
+  margin-bottom: 0.5rem;
 }
 .post_info {
   text-align: left;
@@ -646,6 +646,9 @@ export default {
   }
   .post_info_ul .post_info_item .post_info_date {
     line-height: 1.5rem;
+  }
+  .post_header h4 {
+    font-size: 1rem;
   }
 }
 </style>
