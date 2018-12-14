@@ -120,6 +120,26 @@ let pageroutes = [
     component: () => import('../posts/2018-12-07-Site.md')
   },
   {
+    path: "/Site/2018-12-07-Translate-1",
+    component: () => import('../posts/2018-12-07-Translate-1.md')
+  },
+  {
+    path: "/post/2018-12-07-Translate-1",
+    component: () => import('../posts/2018-12-07-Translate-1.md')
+  },
+  {
+    path: "/Tutorial/2018-12-07-Translate-1",
+    component: () => import('../posts/2018-12-07-Translate-1.md')
+  },
+  {
+    path: "/Chrome/2018-12-07-Translate-1",
+    component: () => import('../posts/2018-12-07-Translate-1.md')
+  },
+  {
+    path: "/Tools/2018-12-07-Translate-1",
+    component: () => import('../posts/2018-12-07-Translate-1.md')
+  },
+  {
     path: "/Site/2018-12-07-Translate-2",
     component: () => import('../posts/2018-12-07-Translate-2.md')
   },
@@ -160,44 +180,24 @@ let pageroutes = [
     component: () => import('../posts/2018-12-07-Translate-3.md')
   },
   {
-    path: "/Site/2018-12-07-Translate",
-    component: () => import('../posts/2018-12-07-Translate.md')
+    path: "/Site/2018-12-10-Translate-4",
+    component: () => import('../posts/2018-12-10-Translate-4.md')
   },
   {
-    path: "/post/2018-12-07-Translate",
-    component: () => import('../posts/2018-12-07-Translate.md')
+    path: "/post/2018-12-10-Translate-4",
+    component: () => import('../posts/2018-12-10-Translate-4.md')
   },
   {
-    path: "/Tutorial/2018-12-07-Translate",
-    component: () => import('../posts/2018-12-07-Translate.md')
+    path: "/Tutorial/2018-12-10-Translate-4",
+    component: () => import('../posts/2018-12-10-Translate-4.md')
   },
   {
-    path: "/Chrome/2018-12-07-Translate",
-    component: () => import('../posts/2018-12-07-Translate.md')
+    path: "/Chrome/2018-12-10-Translate-4",
+    component: () => import('../posts/2018-12-10-Translate-4.md')
   },
   {
-    path: "/Tools/2018-12-07-Translate",
-    component: () => import('../posts/2018-12-07-Translate.md')
-  },
-  {
-    path: "/Site/2018-12-08-Translate-4",
-    component: () => import('../posts/2018-12-08-Translate-4.md')
-  },
-  {
-    path: "/post/2018-12-08-Translate-4",
-    component: () => import('../posts/2018-12-08-Translate-4.md')
-  },
-  {
-    path: "/Tutorial/2018-12-08-Translate-4",
-    component: () => import('../posts/2018-12-08-Translate-4.md')
-  },
-  {
-    path: "/Chrome/2018-12-08-Translate-4",
-    component: () => import('../posts/2018-12-08-Translate-4.md')
-  },
-  {
-    path: "/Tools/2018-12-08-Translate-4",
-    component: () => import('../posts/2018-12-08-Translate-4.md')
+    path: "/Tools/2018-12-10-Translate-4",
+    component: () => import('../posts/2018-12-10-Translate-4.md')
   },
   {
     path: "/Site/2018-12-11-Translate-5",
@@ -238,5 +238,105 @@ let pageroutes = [
   {
     path: "/Tools/2018-12-11-Translate-6",
     component: () => import('../posts/2018-12-11-Translate-6.md')
+  },
+  {
+    path: "/Site/2018-12-12-Translate-7",
+    component: () => import('../posts/2018-12-12-Translate-7.md')
+  },
+  {
+    path: "/post/2018-12-12-Translate-7",
+    component: () => import('../posts/2018-12-12-Translate-7.md')
+  },
+  {
+    path: "/Tutorial/2018-12-12-Translate-7",
+    component: () => import('../posts/2018-12-12-Translate-7.md')
+  },
+  {
+    path: "/Chrome/2018-12-12-Translate-7",
+    component: () => import('../posts/2018-12-12-Translate-7.md')
+  },
+  {
+    path: "/Tools/2018-12-12-Translate-7",
+    component: () => import('../posts/2018-12-12-Translate-7.md')
+  },
+  {
+    path: "/Site/2018-12-12-Translate-8",
+    component: () => import('../posts/2018-12-12-Translate-8.md')
+  },
+  {
+    path: "/post/2018-12-12-Translate-8",
+    component: () => import('../posts/2018-12-12-Translate-8.md')
+  },
+  {
+    path: "/Tutorial/2018-12-12-Translate-8",
+    component: () => import('../posts/2018-12-12-Translate-8.md')
+  },
+  {
+    path: "/Chrome/2018-12-12-Translate-8",
+    component: () => import('../posts/2018-12-12-Translate-8.md')
+  },
+  {
+    path: "/Tools/2018-12-12-Translate-8",
+    component: () => import('../posts/2018-12-12-Translate-8.md')
+  },
+  {
+    path: "/Site/2018-12-12-Translate-8",
+    component: () => import('../posts/2018-12-12-Translate-8.md')
+  },
+  {
+    path: "/post/2018-12-12-Translate-8",
+    component: () => import('../posts/2018-12-12-Translate-8.md')
+  },
+  {
+    path: "/Tutorial/2018-12-12-Translate-8",
+    component: () => import('../posts/2018-12-12-Translate-8.md')
+  },
+  {
+    path: "/Chrome/2018-12-12-Translate-8",
+    component: () => import('../posts/2018-12-12-Translate-8.md')
+  },
+  {
+    path: "/Tools/2018-12-12-Translate-8",
+    component: () => import('../posts/2018-12-12-Translate-8.md')
+  },
+  {
+    path: "/Site/2018-12-14-Translate-10",
+    component: () => import('../posts/2018-12-14-Translate-10.md')
+  },
+  {
+    path: "/post/2018-12-14-Translate-10",
+    component: () => import('../posts/2018-12-14-Translate-10.md')
+  },
+  {
+    path: "/Tutorial/2018-12-14-Translate-10",
+    component: () => import('../posts/2018-12-14-Translate-10.md')
+  },
+  {
+    path: "/Chrome/2018-12-14-Translate-10",
+    component: () => import('../posts/2018-12-14-Translate-10.md')
+  },
+  {
+    path: "/Tools/2018-12-14-Translate-10",
+    component: () => import('../posts/2018-12-14-Translate-10.md')
+  },
+  {
+    path: "/Site/2018-12-14-Translate-11",
+    component: () => import('../posts/2018-12-14-Translate-11.md')
+  },
+  {
+    path: "/post/2018-12-14-Translate-11",
+    component: () => import('../posts/2018-12-14-Translate-11.md')
+  },
+  {
+    path: "/Tutorial/2018-12-14-Translate-11",
+    component: () => import('../posts/2018-12-14-Translate-11.md')
+  },
+  {
+    path: "/Chrome/2018-12-14-Translate-11",
+    component: () => import('../posts/2018-12-14-Translate-11.md')
+  },
+  {
+    path: "/Tools/2018-12-14-Translate-11",
+    component: () => import('../posts/2018-12-14-Translate-11.md')
   }];
 export default pageroutes;
