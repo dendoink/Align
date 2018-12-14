@@ -157,12 +157,12 @@ export default {
         result = getAllPostsByTag(result, this.defaultTag);
       } else {
         result.sort((a, b) => {
-          return new Date(b.date) - new Date(a.date);
+          return new Date(b.date) - new Date(a.date) !== 0 ? new Date(b.date) - new Date(a.date) : b.name.split('-').pop() - a.name.split('-').pop();
         });
         return result;
       }
       result.sort((a, b) => {
-        return new Date(b.date) - new Date(a.date);
+        return new Date(b.date) - new Date(a.date) !== 0 ? new Date(b.date) - new Date(a.date) : b.name.split('-').pop() - a.name.split('-').pop();
       });
       return result;
     },
