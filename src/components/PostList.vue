@@ -267,19 +267,21 @@ export default {
 }
 .post_info_item .post_info_head {
   cursor: pointer;
-  font-size: 1.3rem;
-  min-width: 70%;
   text-align: left;
+  min-width: 50%;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #1f1a31a6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 @media screen and (min-width: 1001px) {
-  .post_info_item .post_info_head:hover {
+  .post_info_item :hover {
     color: #42b983;
-    -webkit-animation: bounce-left 0.8s both;
-    animation: bounce-left 0.8s both;
   }
   .post_info_item .post_info_date:hover {
-    -webkit-animation: bounce-right 0.8s both;
-    animation: bounce-right 0.8s both;
+    color: #42b983;
   }
 }
 
@@ -629,15 +631,8 @@ export default {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  .post_info_list .post_info_ul .post_info_item .post_info_head {
-    min-width: 50%;
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: #1f1a31a6;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  /* .post_info_list .post_info_ul .post_info_item .post_info_head {
+  } */
   .post_info_ul .post_info_item {
     flex-direction: column;
     border: 1px solid #f1f1f1;
