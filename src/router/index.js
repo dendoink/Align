@@ -6,6 +6,7 @@ import Resume from '../pages/Resume';
 import Tags from '../pages/Tags';
 import pageroutes from './page';
 import Post from '../pages/Post';
+import Gallery from '../pages/Gallery';
 import Landing from '../pages/Landing';
 import iView from 'iview';
 Vue.use(Router);
@@ -14,27 +15,38 @@ const routerConfig = new Router({
     {
       path: '/',
       redirect: '/Landing'
-    }, {
+    },
+    {
       path: '/landing',
       name: 'Landing',
       component: Landing
-    }, {
+    },
+    {
       path: '/home',
       name: 'Home',
       component: Home
-    }, {
+    },
+    {
       path: '/resume',
       name: 'Resume',
       component: Resume
-    }, {
+    },
+    {
       path: '/tags',
       name: 'Tags',
       component: Tags
-    }, {
+    },
+    {
+      path: '/gallery',
+      name: 'Gallery',
+      component: Gallery
+    },
+    {
       path: '/categories',
       name: 'Categories',
       component: Categories
-    }, {
+    },
+    {
       path: '/post',
       name: 'Post',
       component: Post,
@@ -44,22 +56,14 @@ const routerConfig = new Router({
 });
 routerConfig.mode = history;
 routerConfig.beforeEach((to, from, next) => {
-  iView
-    .Spin
-    .show();
-  iView
-    .LoadingBar
-    .start();
+  iView.Spin.show();
+  iView.LoadingBar.start();
   next();
 });
 routerConfig.afterEach(() => {
   // 页面回到顶部
-  iView
-    .Spin
-    .hide();
-  iView
-    .LoadingBar
-    .finish();
+  iView.Spin.hide();
+  iView.LoadingBar.finish();
   window.scrollTo(0, 0);
 });
 export default routerConfig;

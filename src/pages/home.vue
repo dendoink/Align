@@ -1,8 +1,19 @@
 <template>
   <div class="home_post_list">
-    <PostList class="row1" rowsNumber='1' />
-    <PostList class="row2" rowsNumber='2' />
-    <PostList class="row3" rowsNumber='3' />
+    <div class="post-list-wrapper">
+      <PostList
+        class="row1"
+        rowsNumber='1'
+      />
+      <PostList
+        class="row2"
+        rowsNumber='2'
+      />
+      <PostList
+        class="row3"
+        rowsNumber='3'
+      />
+    </div>
   </div>
 </template>
 
@@ -32,6 +43,10 @@ export default {
   position: relative;
 }
 .home_post_list {
+  display: flex;
+  flex-direction: column;
+}
+.post-list-wrapper {
   display: flex;
 }
 @media screen and (max-width: 1000px) and (min-width: 300px) {
