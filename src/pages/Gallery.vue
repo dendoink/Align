@@ -8,16 +8,8 @@
     </div>
     <div class="gallery-photo-container">
       <div class="photo-list">
-        <div
-          class="single-photo-parent"
-          v-for="(item,index) in firstColumnPhotos"
-          :key="index"
-        >
-          <img
-            :src="item.url"
-            :alt="item.description"
-            class="img-responsive"
-          >
+        <div class="single-photo-parent" v-for="(item,index) in firstColumnPhotos" :key="index">
+          <img :src="item.url" :alt="item.description" class="img-responsive">
           <div class="photo-info">
             <span
               v-for="(tag,index)
@@ -29,16 +21,8 @@
         </div>
       </div>
       <div class="photo-list">
-        <div
-          class="single-photo-parent"
-          v-for="(item,index) in secondColumnPhotos"
-          :key="index"
-        >
-          <img
-            :src="item.url"
-            :alt="item.description"
-            class="img-responsive"
-          >
+        <div class="single-photo-parent" v-for="(item,index) in secondColumnPhotos" :key="index">
+          <img :src="item.url" :alt="item.description" class="img-responsive">
           <div class="photo-info">
             <span
               v-for="(tag,index)
@@ -50,16 +34,8 @@
         </div>
       </div>
       <div class="photo-list">
-        <div
-          class="single-photo-parent"
-          v-for="(item,index) in thirdColumnPhotos"
-          :key="index"
-        >
-          <img
-            :src="item.url"
-            :alt="item.description"
-            class="img-responsive"
-          >
+        <div class="single-photo-parent" v-for="(item,index) in thirdColumnPhotos" :key="index">
+          <img :src="item.url" :alt="item.description" class="img-responsive">
           <div class="photo-info">
             <span
               v-for="(tag,index)
@@ -189,7 +165,7 @@ export default {
   padding: 1rem 2rem;
   display: flex;
   opacity: 0;
-  justify-content: space-between;
+  justify-content: space-around;
   color: #cccccc;
 }
 
@@ -199,11 +175,13 @@ export default {
   cursor: pointer;
 }
 .photo-info span {
+  text-transform: uppercase;
   transition: all 0.2s ease-in-out;
   border-bottom: 1px solid #ffffff;
+  font-size: 0.8rem;
 }
-.photo-info span:hover {
-  border-bottom-color: #47ba85;
-  color: #47ba85;
+.single-photo-parent:hover span {
+  border-bottom-color: #cccccc;
+  color: #8d8d8d;
 }
 </style>
