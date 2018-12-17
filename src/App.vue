@@ -6,23 +6,27 @@
           <span
             v-on:click="handleRouter('home')"
             class="menu_tags"
-          >ALL POSTS</span>
+          >Home</span>
+          <span
+            v-on:click="handleRouter('all')"
+            class="menu_tags"
+          >Articles</span>
           <span
             v-on:click="handleRouter('tags')"
             class="menu_tags"
-          >TAGS</span>
+          >Tags</span>
           <span
             v-on:click="handleRouter('resume')"
             class="menu_tags"
-          >ABOUT</span>
+          >About</span>
           <span
             v-on:click="handleRouter('gallery')"
             class="menu_tags"
-          >PHOTOS</span>
+          >Photos</span>
           <span
             v-on:click="handleRouter('landing')"
             class="menu_tags landing_tag"
-          >LANDING</span>
+          >Landing</span>
         </div>
       </div>
     </div>
@@ -155,7 +159,7 @@ export default {
   },
   watch: {
     $route(to, from) {
-      this.showCommonFooter = to.name === "Home";
+      this.showCommonFooter = to.name === "Allpost" || to.name === "Home";
     }
   },
 
@@ -206,6 +210,7 @@ export default {
   padding: 0px 10px;
 }
 .menu_bar_list .menu_tags {
+  text-transform: uppercase;
   padding: 5px 10px;
   cursor: pointer;
   color: #35505b;
@@ -389,4 +394,5 @@ export default {
 .hidden {
   display: none;
 }
+/* transform: scale(1.1); */
 </style>

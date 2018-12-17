@@ -20,14 +20,9 @@
         >
       </div>
       <div class="post_meta">
-        <p class="post_info">
-          {{post.info}}
-        </p>
+        <p class="post_info">{{post.info}}</p>
         <template v-for="tag in post.tags">
-          <span
-            class="tag"
-            :key="tag"
-          >{{tag}}</span>
+          <span class="tag" :key="tag">{{tag}}</span>
         </template>
       </div>
     </div>
@@ -50,14 +45,9 @@
         >
       </div>
       <div class="post_meta">
-        <p class="post_info">
-          {{post.info}}
-        </p>
+        <p class="post_info">{{post.info}}</p>
         <template v-for="tag in post.tags">
-          <span
-            class="tag"
-            :key="tag"
-          >{{tag}}</span>
+          <span class="tag" :key="tag">{{tag}}</span>
         </template>
       </div>
     </div>
@@ -80,31 +70,16 @@
         >
       </div>
       <div class="post_meta">
-        <p class="post_info">
-          {{post.info}}
-        </p>
+        <p class="post_info">{{post.info}}</p>
         <template v-for="tag in post.tags">
-          <span
-            class="tag"
-            :key="tag"
-          >{{tag}}</span>
+          <span class="tag" :key="tag">{{tag}}</span>
         </template>
       </div>
     </div>
-    <div
-      v-show="!rowsNumber"
-      class="post_info_list"
-    >
+    <div v-show="!rowsNumber" class="post_info_list">
       <ul class="post_info_ul">
-        <li
-          class="post_info_item"
-          v-for="(post, index) in allPosts"
-          :key="post.title + index"
-        >
-          <div
-            class="post_info_head"
-            @click="handlePostLink(index)"
-          >{{post.title}}</div>
+        <li class="post_info_item" v-for="(post, index) in allPosts" :key="post.title + index">
+          <div class="post_info_head" @click="handlePostLink(index)">{{post.title}}</div>
           <div class="post_info_date">{{post.date | moment}}</div>
         </li>
       </ul>
@@ -138,6 +113,9 @@ export default {
     },
     rowsNumber: {
       type: String
+    },
+    maxNumber: {
+      type: String
     }
   },
   data() {
@@ -157,12 +135,16 @@ export default {
         result = getAllPostsByTag(result, this.defaultTag);
       } else {
         result.sort((a, b) => {
-          return new Date(b.date) - new Date(a.date) !== 0 ? new Date(b.date) - new Date(a.date) : b.name.split('-').pop() - a.name.split('-').pop();
+          return new Date(b.date) - new Date(a.date) !== 0
+            ? new Date(b.date) - new Date(a.date)
+            : b.name.split("-").pop() - a.name.split("-").pop();
         });
         return result;
       }
       result.sort((a, b) => {
-        return new Date(b.date) - new Date(a.date) !== 0 ? new Date(b.date) - new Date(a.date) : b.name.split('-').pop() - a.name.split('-').pop();
+        return new Date(b.date) - new Date(a.date) !== 0
+          ? new Date(b.date) - new Date(a.date)
+          : b.name.split("-").pop() - a.name.split("-").pop();
       });
       return result;
     },
@@ -194,7 +176,8 @@ export default {
       this.$router.push(`/${dir}/${postName}`);
     },
     sliceArray: function(array) {
-      for (let x = 0; x < array.length; x += 3) {
+      let max = this.maxNumber ? this.maxNumber : array.length;
+      for (let x = 0; x < max; x += 3) {
         if (array[x]) {
           this.firstColumnPosts.push(array[x]);
         }
@@ -631,8 +614,6 @@ export default {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  /* .post_info_list .post_info_ul .post_info_item .post_info_head {
-  } */
   .post_info_ul .post_info_item {
     flex-direction: column;
     border: 1px solid #f1f1f1;
