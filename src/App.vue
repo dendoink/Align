@@ -101,7 +101,7 @@
           <a
             class="child"
             href="https://alexiachen.github.io/blog/"
-          >Alexia·chen</a>
+          >MathxH Chen</a>
           <a
             class="child"
             href="https://twitter.com/sulco"
