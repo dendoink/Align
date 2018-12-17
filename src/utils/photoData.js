@@ -40,5 +40,12 @@ export let photoData = [
     date: '2018-10-9',
     tags: ['station', 'city'],
     description: ''
+  },
+  {
+    title: 'Midnight-window',
+    url: 'http://ww1.sinaimg.cn/large/88b26e1cgy1fy9w68v2m7j23282aoqv6.jpg',
+    date: '2018-10-9',
+    tags: ['window', 'midnight'],
+    description: ''
   }
 ];
