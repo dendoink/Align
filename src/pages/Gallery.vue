@@ -8,58 +8,66 @@
     </div>
     <div class="gallery-photo-container">
       <div class="photo-list">
-        <div class="single-photo-parent">
+        <div
+          class="single-photo-parent"
+          v-for="(item,index) in firstColumnPhotos"
+          :key="index"
+        >
           <img
-            data-v-54c1ae8e=""
-            src="http://ww1.sinaimg.cn/large/88b26e1cgy1fy6fmcsh4zj22ep30d1kz.jpg"
-            alt="[译]Devtools tips day11 :style editors continued"
+            :src="item.url"
+            :alt="item.description"
             class="img-responsive"
           >
           <div class="photo-info">
-            <span>tag1</span>
-            <span>tag2</span>
-            <span>tag3</span>
+            <span
+              v-for="(tag,index)
+              in
+              item.tags"
+              :key="`${tag}-${index}`"
+            >{{tag}}</span>
           </div>
         </div>
-        <div class="single-photo-parent">
+      </div>
+      <div class="photo-list">
+        <div
+          class="single-photo-parent"
+          v-for="(item,index) in secondColumnPhotos"
+          :key="index"
+        >
           <img
-            data-v-54c1ae8e=""
-            src="http://ww1.sinaimg.cn/large/88b26e1cgy1fy6fmcsh4zj22ep30d1kz.jpg"
-            alt="[译]Devtools tips day11 :style editors continued"
+            :src="item.url"
+            :alt="item.description"
             class="img-responsive"
           >
+          <div class="photo-info">
+            <span
+              v-for="(tag,index)
+              in
+              item.tags"
+              :key="`${tag}-${index}`"
+            >{{tag}}</span>
+          </div>
         </div>
-        <div class="single-photo-parent">
+      </div>
+      <div class="photo-list">
+        <div
+          class="single-photo-parent"
+          v-for="(item,index) in thirdColumnPhotos"
+          :key="index"
+        >
           <img
-            data-v-54c1ae8e=""
-            src="http://ww1.sinaimg.cn/large/88b26e1cgy1fy6fmcsh4zj22ep30d1kz.jpg"
-            alt="[译]Devtools tips day11 :style editors continued"
+            :src="item.url"
+            :alt="item.description"
             class="img-responsive"
           >
-        </div>
-        <div class="single-photo-parent">
-          <img
-            data-v-54c1ae8e=""
-            src="http://ww1.sinaimg.cn/large/88b26e1cgy1fy6fmcsh4zj22ep30d1kz.jpg"
-            alt="[译]Devtools tips day11 :style editors continued"
-            class="img-responsive"
-          >
-        </div>
-        <div class="single-photo-parent">
-          <img
-            data-v-54c1ae8e=""
-            src="http://ww1.sinaimg.cn/large/88b26e1cgy1fy6fmcsh4zj22ep30d1kz.jpg"
-            alt="[译]Devtools tips day11 :style editors continued"
-            class="img-responsive"
-          >
-        </div>
-        <div class="single-photo-parent">
-          <img
-            data-v-54c1ae8e=""
-            src="http://ww1.sinaimg.cn/large/88b26e1cgy1fy6fmcsh4zj22ep30d1kz.jpg"
-            alt="[译]Devtools tips day11 :style editors continued"
-            class="img-responsive"
-          >
+          <div class="photo-info">
+            <span
+              v-for="(tag,index)
+              in
+              item.tags"
+              :key="`${tag}-${index}`"
+            >{{tag}}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -68,20 +76,19 @@
 
 <script>
 import moment from "moment";
+import { photoData } from "../utils/photoData";
 export default {
   // 主页
   name: "Gallery",
   props: {},
   data() {
     return {
-      thirdColumnPosts: []
+      firstColumnPhotos: [],
+      secondColumnPhotos: [],
+      thirdColumnPhotos: []
     };
   },
-  computed: {
-    allPosts: function() {
-      return {};
-    }
-  },
+  computed: {},
   methods: {
     handlePostLink: function(index, dir = "post") {
       window.localStorage.setItem(
@@ -101,7 +108,21 @@ export default {
       return parseInt(days / (1000 * 60 * 60 * 24));
     }
   },
-  created() {}
+  created() {
+    if (photoData) {
+      for (let x = 0; x < photoData.length; x += 3) {
+        if (photoData[x]) {
+          this.firstColumnPhotos.push(photoData[x]);
+        }
+        if (photoData[x + 1]) {
+          this.secondColumnPhotos.push(photoData[x + 1]);
+        }
+        if (photoData[x + 2]) {
+          this.thirdColumnPhotos.push(photoData[x + 2]);
+        }
+      }
+    }
+  }
 };
 </script>
 
@@ -169,11 +190,20 @@ export default {
   display: flex;
   opacity: 0;
   justify-content: space-between;
+  color: #cccccc;
 }
 
 .single-photo-parent:hover .photo-info {
   display: flex;
   opacity: 1;
   cursor: pointer;
+}
+.photo-info span {
+  transition: all 0.2s ease-in-out;
+  border-bottom: 1px solid #ffffff;
+}
+.photo-info span:hover {
+  border-bottom-color: #47ba85;
+  color: #47ba85;
 }
 </style>
