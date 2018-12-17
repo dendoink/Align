@@ -1,4 +1,4 @@
-# Vue-Blog-Generater
+# Align
 
 > A beautiful blog generator
 
