@@ -5,23 +5,23 @@
         <div class="menu_bar_list">
           <span
             v-on:click="handleRouter('home')"
-            class="menu_tags"
+            :class="activeMenu === 'home' ? 'active_menu_tags ': 'menu_tags'"
           >Home</span>
           <span
             v-on:click="handleRouter('all')"
-            class="menu_tags"
+            :class="activeMenu === 'all' ? 'active_menu_tags ': 'menu_tags'"
           >Articles</span>
           <span
             v-on:click="handleRouter('tags')"
-            class="menu_tags"
+            :class="activeMenu === 'tags' ? 'active_menu_tags ': 'menu_tags'"
           >Tags</span>
           <span
             v-on:click="handleRouter('resume')"
-            class="menu_tags"
+            :class="activeMenu === 'resume' ? 'active_menu_tags ': 'menu_tags'"
           >Resume</span>
           <span
             v-on:click="handleRouter('gallery')"
-            class="menu_tags"
+            :class="activeMenu === 'gallery' ? 'active_menu_tags ': 'menu_tags'"
           >Photos</span>
           <span
             v-on:click="handleRouter('landing')"
@@ -129,11 +129,13 @@ export default {
     return {
       menuFixed: false,
       // 默认不显示
-      showCommonFooter: false
+      showCommonFooter: true,
+      activeMenu: "home"
     };
   },
   methods: {
     handleRouter: function(dir, categorie = "") {
+      this.activeMenu = dir;
       let path;
       if (categorie) {
         path = `/${dir}?${dir}=${categorie}`;
@@ -218,6 +220,12 @@ export default {
   font-weight: 100;
 }
 .menu_tags:hover {
+  color: #5a8492;
+  border-bottom: 1px solid #5a8492;
+  padding-right: 2rem;
+  transition: all 0.2s ease;
+}
+.active_menu_tags {
   color: #5a8492;
   border-bottom: 1px solid #5a8492;
   padding-right: 2rem;
