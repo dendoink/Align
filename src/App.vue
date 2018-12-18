@@ -18,7 +18,7 @@
           <span
             v-on:click="handleRouter('resume')"
             class="menu_tags"
-          >About</span>
+          >Resume</span>
           <span
             v-on:click="handleRouter('gallery')"
             class="menu_tags"
