@@ -2,7 +2,7 @@
   <div class="home_post_list">
     <section class="home-post-section home-section">
       <div class="home-section-header">Latest-Post</div>
-      <div class="post-list-wrapper">
+      <div class="post-list-wrapper home-section-wrapper">
         <PostList
           class="row1"
           rowsNumber="1"
@@ -26,7 +26,7 @@
     <section class="home-opensource-section home-section">
       <div class="home-section-header">Open-Source</div>
       <div class="opensource-list-wrapper">
-        <article class="opensource-item-wrapper">
+        <article class="opensource-item-wrapper home-section-wrapper">
           <a
             class="opensource-item"
             href="https://github.com/DendiSe7enGitHub/Align"
@@ -45,7 +45,7 @@
     </section>
     <section class="home-vision-section home-section">
       <div class="home-section-header">vision</div>
-      <div class="vision-list-wrapper photo-list">
+      <div class="vision-list-wrapper photo-list home-section-wrapper">
         <div
           class="single-photo-parent"
           v-for="(item,index) in photoLatest"
@@ -119,6 +119,12 @@ export default {
 }
 .post-list-wrapper {
   display: flex;
+}
+.home-section {
+  margin-bottom: 2rem;
+}
+.home-section .home-section-wrapper {
+  margin-top: 2rem;
 }
 .home-section .home-section-header {
   display: block;
