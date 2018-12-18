@@ -178,6 +178,7 @@ export default {
   font-size: 1rem;
   display: flex;
   justify-content: center;
+  margin-top: 1rem;
 }
 .home-section .more-posts span {
   padding: 0.2rem 1rem;
