@@ -138,9 +138,14 @@ export default {
   text-align: left;
   padding-left: 4rem;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.opensource-list-wrapper,
+.vision-list-wrapper {
+  padding: 0rem 4rem !important;
 }
 .opensource-list-wrapper {
-  padding: 1rem;
   display: flex;
   justify-content: space-between;
 }
@@ -167,7 +172,7 @@ export default {
 }
 .home-section .home-section-header::first-letter {
   color: #42b983;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 .home-section .more-posts {
   font-size: 1rem;
