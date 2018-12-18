@@ -210,6 +210,7 @@ export default {
 }
 .menu_bar_list {
   padding: 0px 10px;
+  font-size: 1rem;
 }
 .menu_bar_list .menu_tags {
   text-transform: uppercase;

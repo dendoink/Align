@@ -6,17 +6,17 @@
         <PostList
           class="row1"
           rowsNumber="1"
-          maxNumber="3"
+          maxNumber="5"
         />
         <PostList
           class="row2"
           rowsNumber="2"
-          maxNumber="3"
+          maxNumber="5"
         />
         <PostList
           class="row3"
           rowsNumber="3"
-          maxNumber="3"
+          maxNumber="5"
         />
       </div>
       <div class="more-posts">
