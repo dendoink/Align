@@ -358,5 +358,45 @@ let pageroutes = [
   {
     path: "/Tools/2018-12-17-Translate-12",
     component: () => import('../posts/2018-12-17-Translate-12.md')
+  },
+  {
+    path: "/Site/2018-12-18-Translate-13",
+    component: () => import('../posts/2018-12-18-Translate-13.md')
+  },
+  {
+    path: "/post/2018-12-18-Translate-13",
+    component: () => import('../posts/2018-12-18-Translate-13.md')
+  },
+  {
+    path: "/Tutorial/2018-12-18-Translate-13",
+    component: () => import('../posts/2018-12-18-Translate-13.md')
+  },
+  {
+    path: "/Chrome/2018-12-18-Translate-13",
+    component: () => import('../posts/2018-12-18-Translate-13.md')
+  },
+  {
+    path: "/Tools/2018-12-18-Translate-13",
+    component: () => import('../posts/2018-12-18-Translate-13.md')
+  },
+  {
+    path: "/Site/2018-12-18-Translate-14",
+    component: () => import('../posts/2018-12-18-Translate-14.md')
+  },
+  {
+    path: "/post/2018-12-18-Translate-14",
+    component: () => import('../posts/2018-12-18-Translate-14.md')
+  },
+  {
+    path: "/Tutorial/2018-12-18-Translate-14",
+    component: () => import('../posts/2018-12-18-Translate-14.md')
+  },
+  {
+    path: "/Chrome/2018-12-18-Translate-14",
+    component: () => import('../posts/2018-12-18-Translate-14.md')
+  },
+  {
+    path: "/Tools/2018-12-18-Translate-14",
+    component: () => import('../posts/2018-12-18-Translate-14.md')
   }];
 export default pageroutes;
