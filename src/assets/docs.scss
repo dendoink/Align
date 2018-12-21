@@ -165,6 +165,13 @@ table {
     line-height: 32px;
     border-left: 5px solid rgb(255, 200, 31);
   }
+  h4 {
+    font-size: 1rem;
+  }
+  h4::before{
+    content: '\25B2';
+    color: #f45130;
+  }
   p {
     font-size: 1rem;
     margin-top: 1rem;
