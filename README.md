@@ -1,4 +1,4 @@
-<p align="center"><a href="http://www.dendoink.com" target="_blank" rel="noopener noreferrer"><img style="width: 300px;border-radius: 3%;" src="https://github.com/DendiSe7enGitHub/Align/blob/master/static/logo%20(1).png?raw=true" alt="Align logo"></a></p>
+<p align="center"><a href="http://www.dendoink.com" target="_blank" rel="noopener noreferrer"><img style="width: 300px;border-radius: 3%;" src="http://ww1.sinaimg.cn/large/88b26e1cly1fz2gt5x11rj211a10udhs.jpg" alt="Align logo"></a></p>
 
 > A beautiful blog generator
 
