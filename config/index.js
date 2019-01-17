@@ -17,6 +17,8 @@ module.exports = {
     site: 'www.yoursite.com',
     email: 'youemail@xmail.com',
     birth: 'December 10,1991',
+    repo: 'DendiSe7enGitHub/blog-comments-repo',
+    theme: 'github-light',
     skills: [
       { label: 'HTML', percentage: '80%' },
       { label: 'CSS3', percentage: '60%' },
@@ -34,7 +36,7 @@ module.exports = {
   },
   ladingInfo: {
     // landing 显示的名称
-    blogName: 'Dendionk',
+    blogName: 'Google',
     tagA: 'Dreamer',
     tagB: 'Coder',
     tagC: 'Writter',

@@ -20,14 +20,9 @@
         >
       </div>
       <div class="post_meta">
-        <p class="post_info">
-          {{post.info}}
-        </p>
+        <p class="post_info">{{post.info}}</p>
         <template v-for="tag in post.tags">
-          <span
-            class="tag"
-            :key="tag"
-          >{{tag}}</span>
+          <span class="tag" :key="tag">{{tag}}</span>
         </template>
       </div>
     </div>
@@ -50,14 +45,9 @@
         >
       </div>
       <div class="post_meta">
-        <p class="post_info">
-          {{post.info}}
-        </p>
+        <p class="post_info">{{post.info}}</p>
         <template v-for="tag in post.tags">
-          <span
-            class="tag"
-            :key="tag"
-          >{{tag}}</span>
+          <span class="tag" :key="tag">{{tag}}</span>
         </template>
       </div>
     </div>
@@ -80,31 +70,16 @@
         >
       </div>
       <div class="post_meta">
-        <p class="post_info">
-          {{post.info}}
-        </p>
+        <p class="post_info">{{post.info}}</p>
         <template v-for="tag in post.tags">
-          <span
-            class="tag"
-            :key="tag"
-          >{{tag}}</span>
+          <span class="tag" :key="tag">{{tag}}</span>
         </template>
       </div>
     </div>
-    <div
-      v-show="!rowsNumber"
-      class="post_info_list"
-    >
+    <div v-show="!rowsNumber" class="post_info_list">
       <ul class="post_info_ul">
-        <li
-          class="post_info_item"
-          v-for="(post, index) in allPosts"
-          :key="post.title + index"
-        >
-          <div
-            class="post_info_head"
-            @click="handlePostLink(index)"
-          >{{post.title}}</div>
+        <li class="post_info_item" v-for="(post, index) in allPosts" :key="post.title + index">
+          <div class="post_info_head" @click="handlePostLink(index)">{{post.title}}</div>
           <div class="post_info_date">{{post.date | moment}}</div>
         </li>
       </ul>
@@ -138,6 +113,9 @@ export default {
     },
     rowsNumber: {
       type: String
+    },
+    maxNumber: {
+      type: String
     }
   },
   data() {
@@ -157,12 +135,16 @@ export default {
         result = getAllPostsByTag(result, this.defaultTag);
       } else {
         result.sort((a, b) => {
-          return new Date(b.date) - new Date(a.date);
+          return new Date(b.date) - new Date(a.date) !== 0
+            ? new Date(b.date) - new Date(a.date)
+            : b.name.split("-").pop() - a.name.split("-").pop();
         });
         return result;
       }
       result.sort((a, b) => {
-        return new Date(b.date) - new Date(a.date);
+        return new Date(b.date) - new Date(a.date) !== 0
+          ? new Date(b.date) - new Date(a.date)
+          : b.name.split("-").pop() - a.name.split("-").pop();
       });
       return result;
     },
@@ -194,7 +176,8 @@ export default {
       this.$router.push(`/${dir}/${postName}`);
     },
     sliceArray: function(array) {
-      for (let x = 0; x < array.length; x += 3) {
+      let max = this.maxNumber ? this.maxNumber : array.length;
+      for (let x = 0; x < max; x += 3) {
         if (array[x]) {
           this.firstColumnPosts.push(array[x]);
         }
@@ -267,25 +250,31 @@ export default {
 }
 .post_info_item .post_info_head {
   cursor: pointer;
-  font-size: 1.3rem;
-  min-width: 70%;
   text-align: left;
+  min-width: 50%;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #1f1a31a6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.post_info_item .post_info_head:hover {
-  color: #42b983;
-  -webkit-animation: bounce-left 0.8s both;
-  animation: bounce-left 0.8s both;
+@media screen and (min-width: 1001px) {
+  .post_info_item :hover {
+    color: #42b983;
+  }
+  .post_info_item .post_info_date:hover {
+    color: #42b983;
+  }
 }
+
 .post_info_item .post_info_date {
   font-size: 0.7rem;
   color: #9a9797;
   min-width: 30%;
   text-align: right;
 }
-.post_info_item .post_info_date:hover {
-  -webkit-animation: bounce-right 0.8s both;
-  animation: bounce-right 0.8s both;
-}
+
 .post_header {
   width: 100%;
   padding: 0.75rem 10%;
@@ -294,9 +283,9 @@ export default {
   text-align: left;
 }
 .post_header h4 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 300;
-  line-height: 2.2;
+  line-height: 2;
   color: inherit;
 }
 .post_header h4:hover {
@@ -329,7 +318,6 @@ export default {
 .post_meta {
   text-align: right;
   margin-top: 4px;
-  margin-bottom: 1rem;
   padding: 0% 10%;
 }
 .post_date {
@@ -349,6 +337,7 @@ export default {
   padding: 0px 0.5rem;
   margin-right: 1rem;
   float: left;
+  margin-bottom: 0.5rem;
 }
 .post_info {
   text-align: left;
@@ -614,6 +603,9 @@ export default {
   }
 }
 @media screen and (max-width: 1000px) and (min-width: 300px) {
+  #dolldiscussion {
+    display: none;
+  }
   .post_list_container {
     flex-direction: column;
     width: 100%;
@@ -622,9 +614,20 @@ export default {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  .post_info_list .post_info_ul .post_info_item .post_info_head {
-    font-size: 0.5rem;
-    min-width: 50%;
+  .post_info_ul .post_info_item {
+    flex-direction: column;
+    border: 1px solid #f1f1f1;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 2px -2px whitesmoke;
+    margin-bottom: 0.5rem;
+  }
+  .post_info_ul .post_info_item .post_info_date {
+    line-height: 1.5rem;
+  }
+  .post_header h4 {
+    font-size: 1rem;
   }
 }
 </style>
