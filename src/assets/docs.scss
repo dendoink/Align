@@ -149,7 +149,8 @@ table {
       color: #fff;
     }
   }
-  h2, h3 {
+  h2,
+  h3 {
     margin-top: 3rem;
   }
   h3 {
@@ -161,14 +162,15 @@ table {
     text-align: left;
     font-weight: 700;
     font-size: 1.3rem;
-    font-family: Tahoma, Arial, "Hiragino Sans GB", 冬青黑, "Microsoft YaHei", 微软雅黑, SimSun, 宋体, Heiti, 黑体, sans-serif;
+    font-family: Tahoma, Arial, 'Hiragino Sans GB', 冬青黑, 'Microsoft YaHei',
+      微软雅黑, SimSun, 宋体, Heiti, 黑体, sans-serif;
     line-height: 32px;
     border-left: 5px solid rgb(255, 200, 31);
   }
   h4 {
     font-size: 1rem;
   }
-  h4::before{
+  h4::before {
     content: '\25B2';
     color: #f45130;
   }
@@ -266,6 +268,27 @@ table {
       li {
         line-height: 1.65;
       }
+    }
+    blockquote::before {
+      content: '\201C';
+      color: #ed87bd5e;
+      font-size: 2rem;
+    }
+    blockquote {
+      display: flex;
+      padding: 1%;
+      margin: 2% auto;
+      font-size: 1rem;
+      background: #fff;
+      max-width: 960px;
+      letter-spacing: 0.3px;
+      font-family: 'Roboto Slab';
+      box-shadow: 20px 0px 20px 0px rgba(0, 0, 0, 0.2);
+      color: rgba(18, 87, 134, 0.8);
+      border-left: 5px solid #ed87bd5e;
+      border-right: 5px solid #ed87bd5e;
+      text-align: left;
+      quotes: ' ' ' ';
     }
   }
 }
