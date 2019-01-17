@@ -6,7 +6,6 @@
 
 ### 项目说明
 
-[->项目说明@dendoink](http://www.dendoink.com/#/post/2018-11-14-Life?index=0)<br>
 [->项目说明@掘金](https://juejin.im/post/5b53f9c4e51d4513ee6dcd3f)<br>
 
 ### 推送配置
