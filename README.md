@@ -166,6 +166,7 @@ yarn build
 
 大家可以在我的 [掘金账号](https://juejin.im/user/585a2f52128fe10069ba1b95)找到我，也欢迎邮件`dendise7en@gmail.com`与我沟通
 
-### 扫描下面的二维码可以轻易获得请我喝咖啡的机会一次！
 
-<img src="https://ws1.sinaimg.cn/large/88b26e1cly1fxx05t3mgcj20bk05kgmp.jpg"/>
+### 欢迎关注公众号 「前端恶霸」，扫码关注，好货等着你~
+
+![](https://user-gold-cdn.xitu.io/2019/3/20/169992ac3759e2d2?w=258&h=258&f=jpeg&s=27199)
