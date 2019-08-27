@@ -3,7 +3,7 @@
   "name": "vue-personal-site",
   "version": "1.0.0",
   "description": "personal site for dendi",
-  "author": "唐翼龙 <yilong.tang@1mifudao.com>",
+  "author": "dendoink(dendi.tang@wework.com)",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --open",
